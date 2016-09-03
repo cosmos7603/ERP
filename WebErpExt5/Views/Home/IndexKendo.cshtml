@@ -1,0 +1,142 @@
+﻿
+
+<link href="~/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+
+<link href="~/kendo/styles/kendo.default.min.css" rel="stylesheet" />
+
+<script src="~/kendo/js/jquery.min.js"></script>
+<script src="~/kendo/js/angular.min.js"></script>
+<script src="~/kendo/js/kendo.all.min.js"></script>
+@*<script>
+      angular.module("app", ["kendo.directives"]).controller("MyCtrl", function($scope) {
+        var data = new kendo.data.DataSource({
+          //data: [
+          //  { text: "Foo", id: 1 },
+          //  { text: "Bar", id: 2 },
+          //  { text: "Baz", id: 3 }
+            //]
+            transport: {
+                read: function (e) {
+                    // on success
+                    e.success(sampleData);
+                    // on failure
+                    //e.error("XHR response", "status code", "error message");
+                }
+            }
+        });
+        $scope.handleChange = function(data, dataItem, columns) {
+          $scope.data = data;
+          $scope.columns = columns;
+          $scope.dataItem = dataItem;
+        };
+        $scope.gridOptions = {
+          dataSource: data,
+          selectable: "row",
+          columns: [
+            { field: "text", title: "Text" },
+            { field: "id", title: "Id" }
+          ],
+          sortable:true
+        };
+      });
+    </script>
+
+    <div ng-app="app" ng-controller="MyCtrl">
+        <label>
+            Select mode: <select kendo-dropdownlist ng-model="gridOptions.selectable">
+                <option value="row">Row</option>
+                <option value="cell">Cell</option>
+                <option value="multiple, row">Multiple, row</option>
+                <option value="multiple, cell">Multiple, cell</option>
+            </select>
+        </label>
+
+        <div kendo-grid k-options="gridOptions" k-rebind="gridOptions.selectable"
+             k-on-change="handleChange(data, dataItem, columns)"></div>
+        <pre>
+      data: {{ data | json }}
+      columns: {{ columns | json }}
+        <span ng-show="gridOptions.selectable == 'row' || gridOptions.selectable == 'cell'">DataItem: {{ dataItem | json }}</span>
+      </pre>
+    </div>*@
+
+<div id="grid"></div>
+
+<script>
+    //var sampleData = [
+    //    {ProductID: 1, ProductName: "Apple iPhone 5s", Introduced: new Date(2013, 8, 10), UnitPrice: 525, Discontinued: false, UnitsInStock: 10},
+    //    {ProductID: 2, ProductName: "HTC One M8", Introduced: new Date(2014, 2, 25), UnitPrice: 425, Discontinued: false, UnitsInStock: 3},
+    //    {ProductID: 3, ProductName: "Nokia 5880", Introduced: new Date(2008, 10, 2), UnitPrice: 275, Discontinued: true, UnitsInStock: 0}
+    //];
+
+    // custom logic start
+
+    //var sampleDataNextID = sampleData.length + 1;
+
+    //function getIndexById(id) {
+    //    var idx,
+    //        l = sampleData.length;
+
+    //    for (var j; j < l; j++) {
+    //        if (sampleData[j].ProductID == id) {
+    //            return j;
+    //        }
+    //    }
+    //    return null;
+    //}
+
+    // custom logic end
+
+
+    $(document).ready(function () {
+        var dataSource = new kendo.data.DataSource({
+            transport:
+                {
+                    read: {
+                        url: "../rest/Client",
+                        type: "get",
+                        dataType: "json"
+                    },
+                    create: {
+                        url: "service/products/create/",
+                        type: "post"
+                    },
+                    update: {
+                        url: "service/products/create/",
+                        type: "post"
+                    },
+                    destroy: {
+                        url: "service/products/destroy/",
+                        type: "post"
+                    }
+                },
+
+            error: function (e) {
+                // handle data operation error
+                alert("Status: " + e.status + "; Error message: " + e.errorThrown);
+            },
+            pageSize: 10,
+            batch: false,
+            schema: {
+                data: "items",
+                total: "itemCount"
+            },
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true
+        });
+
+        $("#grid").kendoGrid({
+            dataSource: dataSource,
+            pageable: true,
+            toolbar: ["create"],
+            columns: [
+                { field: "Active", title: "Active" },
+                { field: "ClientCode", title: "ClientCode", width: "200px" },
+                { field: "CorporataName", title: "CorporataName", width: "120px" },
+                { field: "ComercialName", title: "ComercialName", width: "120px" }
+            ],
+            editable: "inline"
+        });
+    });
+</script>

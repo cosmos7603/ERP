@@ -1,0 +1,120 @@
+@using Entities.POCOEntities
+@model Entities.POCOEntities.ClientPOCO
+<style>
+    .clientEdit {
+        width: 70%;
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="editor-label">
+        @Html.LabelFor(m => m.ComercialName)
+    </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.ComercialName, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.ComercialName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.FirstName)
+        </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.FirstName, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.LastName)
+        </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.LastName, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Email)
+        </div>
+        <div class="editor-field">
+            @(Html.EditorFor(m => m.Email, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.CUIT)
+        </div>
+    <div class="editor-field">
+        @(Html.TextBoxFor(m => m.CUIT, new {@class = "k-textbox clientEdit"}))
+        @Html.ValidationMessageFor(model => model.CUIT)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(m => m.DNI)
+    </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.DNI, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.DNI)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.ClientTypeId)
+        </div>
+        <div class="editor-field">
+            @(Html.Kendo().DropDownListFor(m => m.ClientTypeId).BindTo((List<ClientTypePOCO>)ViewData["ClientTypes"]).HtmlAttributes(new { data_value_primitive = true }).DataTextField("Description").DataValueField("Id"))
+            @Html.ValidationMessageFor(model => model.ClientTypeId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Telephone1)
+        </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.Telephone1, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.Telephone1)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Telephone2)
+        </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.Telephone2, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.Telephone2)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Address1)
+        </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.Address1, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.Address1)
+        </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.Address2, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.Address2)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.City)
+        </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.City, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Province)
+        </div>
+        <div class="editor-field">
+            @(Html.TextBoxFor(m => m.Province, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.Province)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Observations)
+        </div>
+        <div class="editor-field">
+            @(Html.TextAreaFor(m => m.Observations, new { @class = "k-textbox clientEdit" }))
+            @Html.ValidationMessageFor(model => model.Observations)
+        </div>
+
+
+
+
+
+
+}
+
+
+

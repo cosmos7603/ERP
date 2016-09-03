@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="57319c692b95481b960fb284e44af54d" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="ERPModel.ChargeMethod" Width="1.5" PointX="3.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Client" Width="1.875" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.ClientType" Width="1.5" PointX="5.875" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.ComercialAgent" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.CustomerOrder" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.PaymentDueDateType" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.ProductFamily" Width="1.5" PointX="13.125" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Product" Width="1.5" PointX="15.375" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Provider" Width="1.5" PointX="13.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Tax" Width="1.5" PointX="8.625" PointY="11.25" IsExpanded="true" />
+        <AssociationConnector Association="ERPModel.FK_ClientOrderChargeMethod" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ERPModel.ComisionType" Width="1.5" PointX="3" PointY="8.75" />
+        <AssociationConnector Association="ERPModel.ComisionTypeComercialAgent" />
+        <AssociationConnector Association="ERPModel.ProviderProduct" />
+        <AssociationConnector Association="ERPModel.ProductFamilyProduct" />
+        <EntityTypeShape EntityType="ERPModel.Sale" Width="1.5" PointX="9.5" PointY="7" />
+        <EntityTypeShape EntityType="ERPModel.SaleCategory" Width="1.5" PointX="10.875" PointY="8.875" />
+        <EntityTypeShape EntityType="ERPModel.BillDetail" Width="1.5" PointX="11" PointY="6.375" />
+        <AssociationConnector Association="ERPModel.BillDetailProduct" />
+        <AssociationConnector Association="ERPModel.SaleBillDetail" />
+        <EntityTypeShape EntityType="ERPModel.SaleState" Width="1.5" PointX="8.25" PointY="5" />
+        <AssociationConnector Association="ERPModel.SaleSaleState" />
+        <AssociationConnector Association="ERPModel.SaleSaleCategory" />
+        <EntityTypeShape EntityType="ERPModel.BillType" Width="1.5" PointX="13" PointY="6.75" />
+        <AssociationConnector Association="ERPModel.BillTypeSale" />
+        <AssociationConnector Association="ERPModel.ClientTypeClient" />
+        <AssociationConnector Association="ERPModel.ClientSale2" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

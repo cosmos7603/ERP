@@ -1,0 +1,1010 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ERPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ERPModelStoreContainer">
+    <EntitySet Name="ChargeMethods" EntityType="ERPModel.Store.ChargeMethods" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clients" EntityType="ERPModel.Store.Clients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClientTypes" EntityType="ERPModel.Store.ClientTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ComercialAgents" EntityType="ERPModel.Store.ComercialAgents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerOrders" EntityType="ERPModel.Store.CustomerOrders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaymentDueDateTypes" EntityType="ERPModel.Store.PaymentDueDateTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductFamilies" EntityType="ERPModel.Store.ProductFamilies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="ERPModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Providers" EntityType="ERPModel.Store.Providers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Taxes" EntityType="ERPModel.Store.Taxes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ComisionTypes" EntityType="ERPModel.Store.ComisionTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sales" EntityType="ERPModel.Store.Sales" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SaleCategories" EntityType="ERPModel.Store.SaleCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BillDetails" EntityType="ERPModel.Store.BillDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SaleStates" EntityType="ERPModel.Store.SaleStates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BillTypes" EntityType="ERPModel.Store.BillTypes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ClientOrderChargeMethod" Association="ERPModel.Store.FK_ClientOrderChargeMethod">
+      <End Role="ChargeMethods" EntitySet="ChargeMethods" />
+      <End Role="CustomerOrders" EntitySet="CustomerOrders" />
+    </AssociationSet>
+    <AssociationSet Name="ComisionTypeComercialAgent" Association="ERPModel.Store.ComisionTypeComercialAgent">
+      <End Role="ComercialAgent" EntitySet="ComercialAgents" />
+      <End Role="ComisionType" EntitySet="ComisionTypes" />
+    </AssociationSet>
+    <AssociationSet Name="ProviderProduct" Association="ERPModel.Store.ProviderProduct">
+      <End Role="Provider" EntitySet="Providers" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="ProductFamilyProduct" Association="ERPModel.Store.ProductFamilyProduct">
+      <End Role="ProductFamily" EntitySet="ProductFamilies" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="BillDetailProduct" Association="ERPModel.Store.BillDetailProduct">
+      <End Role="BillDetail" EntitySet="BillDetails" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="SaleBillDetail" Association="ERPModel.Store.SaleBillDetail">
+      <End Role="Sale" EntitySet="Sales" />
+      <End Role="BillDetail" EntitySet="BillDetails" />
+    </AssociationSet>
+    <AssociationSet Name="SaleSaleState" Association="ERPModel.Store.SaleSaleState">
+      <End Role="Sale" EntitySet="Sales" />
+      <End Role="SaleState" EntitySet="SaleStates" />
+    </AssociationSet>
+    <AssociationSet Name="SaleSaleCategory" Association="ERPModel.Store.SaleSaleCategory">
+      <End Role="Sale" EntitySet="Sales" />
+      <End Role="SaleCategory" EntitySet="SaleCategories" />
+    </AssociationSet>
+    <AssociationSet Name="BillTypeSale" Association="ERPModel.Store.BillTypeSale">
+      <End Role="Sale" EntitySet="Sales" />
+      <End Role="BillType" EntitySet="BillTypes" />
+    </AssociationSet>
+    <AssociationSet Name="ClientTypeClient" Association="ERPModel.Store.ClientTypeClient">
+      <End Role="ClientType" EntitySet="ClientTypes" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="ClientSale2" Association="ERPModel.Store.ClientSale2">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Sale" EntitySet="Sales" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ChargeMethods">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComercialName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Observations" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Province" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ZipCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telephone1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Thelephone2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CUIT" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ClientTypeId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DNI" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComercialAgents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComercialAgentCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Province" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ZipCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telephone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Cellphone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="StartDate" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Observations" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ComisionAmount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ComisionTypeId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CustomerOrders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="DeliveryDate" Type="datetime" Nullable="false" />
+    <Property Name="OrderCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Reference" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ChargeMethodId" Type="int" Nullable="false" />
+    <Property Name="PaymentDueDateTypeId" Type="int" Nullable="false" />
+    <Property Name="DeliveryAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ComercialAgent" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentDueDateTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductFamilies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ShortDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LongDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="true" />
+    <Property Name="AvailableForSale" Type="bit" Nullable="true" />
+    <Property Name="SalePrice" Type="decimal" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Nullable="false" />
+    <Property Name="Stock" Type="int" Nullable="false" />
+    <Property Name="ProviderId" Type="int" Nullable="true" />
+    <Property Name="ProductFamilyId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Providers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Province" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ZipCode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telephone2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Telephone1" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ComercialName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Observations" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CUIT" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Taxes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComisionTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmisionDate" Type="datetime" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="BillNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TotalAmount" Type="decimal" Nullable="false" />
+    <Property Name="AmountToCharge" Type="decimal" Nullable="false" />
+    <Property Name="SaleStateId" Type="int" Nullable="false" />
+    <Property Name="SaleCategoryId" Type="int" Nullable="false" />
+    <Property Name="BillTypeId" Type="int" Nullable="false" />
+    <Property Name="Observations" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SaleCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BillDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quantity" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SaleId" Type="int" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SaleStates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BillTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ClientOrderChargeMethod">
+    <End Role="ChargeMethods" Type="ERPModel.Store.ChargeMethods" Multiplicity="1" />
+    <End Role="CustomerOrders" Type="ERPModel.Store.CustomerOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChargeMethods">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CustomerOrders">
+        <PropertyRef Name="ChargeMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ComisionTypeComercialAgent">
+    <End Role="ComercialAgent" Type="ERPModel.Store.ComercialAgents" Multiplicity="*" />
+    <End Role="ComisionType" Type="ERPModel.Store.ComisionTypes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ComisionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ComercialAgent">
+        <PropertyRef Name="ComisionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProviderProduct">
+    <End Role="Provider" Type="ERPModel.Store.Providers" Multiplicity="0..1" />
+    <End Role="Product" Type="ERPModel.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provider">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductFamilyProduct">
+    <End Role="ProductFamily" Type="ERPModel.Store.ProductFamilies" Multiplicity="0..1" />
+    <End Role="Product" Type="ERPModel.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductFamily">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductFamilyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BillDetailProduct">
+    <End Role="BillDetail" Type="ERPModel.Store.BillDetails" Multiplicity="*" />
+    <End Role="Product" Type="ERPModel.Store.Products" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SaleBillDetail">
+    <End Role="Sale" Type="ERPModel.Store.Sales" Multiplicity="1" />
+    <End Role="BillDetail" Type="ERPModel.Store.BillDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sale">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="SaleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SaleSaleState">
+    <End Role="Sale" Type="ERPModel.Store.Sales" Multiplicity="*" />
+    <End Role="SaleState" Type="ERPModel.Store.SaleStates" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SaleState">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="SaleStateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SaleSaleCategory">
+    <End Role="Sale" Type="ERPModel.Store.Sales" Multiplicity="*" />
+    <End Role="SaleCategory" Type="ERPModel.Store.SaleCategories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SaleCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="SaleCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BillTypeSale">
+    <End Role="Sale" Type="ERPModel.Store.Sales" Multiplicity="*" />
+    <End Role="BillType" Type="ERPModel.Store.BillTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="BillType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="BillTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClientTypeClient">
+    <End Role="ClientType" Type="ERPModel.Store.ClientTypes" Multiplicity="1" />
+    <End Role="Client" Type="ERPModel.Store.Clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="ClientTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClientSale2">
+    <End Role="Client" Type="ERPModel.Store.Clients" Multiplicity="1" />
+    <End Role="Sale" Type="ERPModel.Store.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ERPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ChargeMethod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CustomerOrders" Relationship="Self.FK_ClientOrderChargeMethod" FromRole="ChargeMethods" ToRole="CustomerOrders" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ComercialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Country" Type="String" Nullable="true" />
+          <Property Name="Address1" Type="String" Nullable="true" />
+          <Property Name="Address2" Type="String" Nullable="true" />
+          <Property Name="Province" Type="String" Nullable="true" />
+          <Property Name="City" Type="String" Nullable="true" />
+          <Property Name="ZipCode" Type="String" Nullable="true" />
+          <Property Name="Telephone1" Type="String" Nullable="true" />
+          <Property Name="Thelephone2" Type="String" Nullable="true" />
+          <Property Name="CUIT" Type="String" Nullable="false" />
+          <NavigationProperty Name="ClientType" Relationship="ERPModel.ClientTypeClient" FromRole="Client" ToRole="ClientType" />
+          <Property Name="ClientTypeId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sales" Relationship="ERPModel.ClientSale2" FromRole="Client" ToRole="Sale" />
+          <Property Name="DNI" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="ERPModel.ClientTypeClient" FromRole="ClientType" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="ComercialAgent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ComercialAgentCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="Address1" Type="String" Nullable="true" />
+          <Property Name="Address2" Type="String" Nullable="true" />
+          <Property Name="Country" Type="String" annotation:StoreGeneratedPattern="None" Nullable="true" />
+          <Property Name="Province" Type="String" Nullable="true" />
+          <Property Name="ZipCode" Type="String" Nullable="true" />
+          <Property Name="Email" Type="String" Nullable="true" />
+          <Property Name="Telephone" Type="String" Nullable="true" />
+          <Property Name="Cellphone" Type="String" Nullable="true" />
+          <Property Name="StartDate" Type="String" Nullable="true" />
+          <Property Name="Observations" Type="String" Nullable="true" />
+          <Property Name="ComisionAmount" Type="String" Nullable="false" />
+          <NavigationProperty Name="ComisionType" Relationship="ERPModel.ComisionTypeComercialAgent" FromRole="ComercialAgent" ToRole="ComisionType" />
+          <Property Name="ComisionTypeId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="CustomerOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OrderCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Reference" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChargeMethodId" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDueDateTypeId" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ComercialAgent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ChargeMethod" Relationship="Self.FK_ClientOrderChargeMethod" FromRole="CustomerOrders" ToRole="ChargeMethods" />
+        </EntityType>
+        <EntityType Name="PaymentDueDateType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductFamily">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="ERPModel.ProductFamilyProduct" FromRole="ProductFamily" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LongDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="AvailableForSale" Type="Boolean" />
+          <Property Name="SalePrice" Type="Decimal" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Provider" Relationship="ERPModel.ProviderProduct" FromRole="Product" ToRole="Provider" />
+          <Property Name="ProviderId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="ProductFamily" Relationship="ERPModel.ProductFamilyProduct" FromRole="Product" ToRole="ProductFamily" />
+          <Property Name="ProductFamilyId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="BillDetails" Relationship="ERPModel.BillDetailProduct" FromRole="Product" ToRole="BillDetail" />
+        </EntityType>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" Nullable="true" />
+          <Property Name="Address1" Type="String" Nullable="true" />
+          <Property Name="Address2" Type="String" Nullable="true" />
+          <Property Name="Province" Type="String" Nullable="true" />
+          <Property Name="City" Type="String" Nullable="true" />
+          <Property Name="ZipCode" Type="String" Nullable="true" />
+          <Property Name="Telephone2" Type="String" Nullable="true" />
+          <Property Name="Telephone1" Type="String" Nullable="true" />
+          <Property Name="ComercialName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="Observations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+          <NavigationProperty Name="Products" Relationship="ERPModel.ProviderProduct" FromRole="Provider" ToRole="Product" />
+          <Property Name="CUIT" Type="String" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tax">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ClientOrderChargeMethod">
+          <End Role="ChargeMethods" Type="Self.ChargeMethod" Multiplicity="1" />
+          <End Role="CustomerOrders" Type="Self.CustomerOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChargeMethods">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerOrders">
+              <PropertyRef Name="ChargeMethodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ERPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChargeMethods" EntityType="Self.ChargeMethod" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="ClientTypes" EntityType="Self.ClientType" />
+          <EntitySet Name="ComercialAgents" EntityType="Self.ComercialAgent" />
+          <EntitySet Name="CustomerOrders" EntityType="Self.CustomerOrder" />
+          <EntitySet Name="PaymentDueDateTypes" EntityType="Self.PaymentDueDateType" />
+          <EntitySet Name="ProductFamilies" EntityType="Self.ProductFamily" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Providers" EntityType="Self.Provider" />
+          <EntitySet Name="Taxes" EntityType="Self.Tax" />
+          <AssociationSet Name="FK_ClientOrderChargeMethod" Association="Self.FK_ClientOrderChargeMethod">
+            <End Role="ChargeMethods" EntitySet="ChargeMethods" />
+            <End Role="CustomerOrders" EntitySet="CustomerOrders" />
+          </AssociationSet>
+          <EntitySet Name="ComisionTypes" EntityType="ERPModel.ComisionType" />
+          <AssociationSet Name="ComisionTypeComercialAgent" Association="ERPModel.ComisionTypeComercialAgent">
+            <End Role="ComercialAgent" EntitySet="ComercialAgents" />
+            <End Role="ComisionType" EntitySet="ComisionTypes" />
+          </AssociationSet>
+          <AssociationSet Name="ProviderProduct" Association="ERPModel.ProviderProduct">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="ProductFamilyProduct" Association="ERPModel.ProductFamilyProduct">
+            <End Role="ProductFamily" EntitySet="ProductFamilies" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Sales" EntityType="ERPModel.Sale" />
+          <EntitySet Name="SaleCategories" EntityType="ERPModel.SaleCategory" />
+          <EntitySet Name="BillDetails" EntityType="ERPModel.BillDetail" />
+          <AssociationSet Name="BillDetailProduct" Association="ERPModel.BillDetailProduct">
+            <End Role="BillDetail" EntitySet="BillDetails" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="SaleBillDetail" Association="ERPModel.SaleBillDetail">
+            <End Role="Sale" EntitySet="Sales" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <EntitySet Name="SaleStates" EntityType="ERPModel.SaleState" />
+          <AssociationSet Name="SaleSaleState" Association="ERPModel.SaleSaleState">
+            <End Role="Sale" EntitySet="Sales" />
+            <End Role="SaleState" EntitySet="SaleStates" />
+          </AssociationSet>
+          <AssociationSet Name="SaleSaleCategory" Association="ERPModel.SaleSaleCategory">
+            <End Role="Sale" EntitySet="Sales" />
+            <End Role="SaleCategory" EntitySet="SaleCategories" />
+          </AssociationSet>
+          <EntitySet Name="BillTypes" EntityType="ERPModel.BillType" />
+          <AssociationSet Name="BillTypeSale" Association="ERPModel.BillTypeSale">
+            <End Role="Sale" EntitySet="Sales" />
+            <End Role="BillType" EntitySet="BillTypes" />
+          </AssociationSet>
+          <AssociationSet Name="ClientTypeClient" Association="ERPModel.ClientTypeClient">
+            <End Role="ClientType" EntitySet="ClientTypes" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="ClientSale2" Association="ERPModel.ClientSale2">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Sale" EntitySet="Sales" />
+          </AssociationSet>
+         
+        </EntityContainer>
+        <EntityType Name="ComisionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="ComercialAgents" Relationship="ERPModel.ComisionTypeComercialAgent" FromRole="ComisionType" ToRole="ComercialAgent" />
+        </EntityType>
+        <Association Name="ComisionTypeComercialAgent">
+          <End Type="ERPModel.ComercialAgent" Role="ComercialAgent" Multiplicity="*" />
+          <End Type="ERPModel.ComisionType" Role="ComisionType" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ComisionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComercialAgent">
+              <PropertyRef Name="ComisionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProviderProduct">
+          <End Type="ERPModel.Provider" Role="Provider" Multiplicity="0..1" />
+          <End Type="ERPModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductFamilyProduct">
+          <End Type="ERPModel.ProductFamily" Role="ProductFamily" Multiplicity="0..1" />
+          <End Type="ERPModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductFamily">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductFamilyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmisionDate" Type="DateTime" Nullable="false" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" />
+          <Property Name="BillNumber" Type="String" Nullable="false" />
+          <NavigationProperty Name="BillDetails" Relationship="ERPModel.SaleBillDetail" FromRole="Sale" ToRole="BillDetail" />
+          <Property Name="TotalAmount" Type="Decimal" Nullable="false" />
+          <Property Name="AmountToCharge" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="SaleState" Relationship="ERPModel.SaleSaleState" FromRole="Sale" ToRole="SaleState" />
+          <Property Name="SaleStateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SaleCategory" Relationship="ERPModel.SaleSaleCategory" FromRole="Sale" ToRole="SaleCategory" />
+          <Property Name="SaleCategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BillType" Relationship="ERPModel.BillTypeSale" FromRole="Sale" ToRole="BillType" />
+          <Property Name="BillTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Observations" Type="String" Nullable="true" />
+          <NavigationProperty Name="Client" Relationship="ERPModel.ClientSale2" FromRole="Sale" ToRole="Client" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SaleCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sales" Relationship="ERPModel.SaleSaleCategory" FromRole="SaleCategory" ToRole="Sale" />
+          <Property Name="Description" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="String" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="ERPModel.BillDetailProduct" FromRole="BillDetail" ToRole="Product" />
+          <NavigationProperty Name="Sale" Relationship="ERPModel.SaleBillDetail" FromRole="BillDetail" ToRole="Sale" />
+          <Property Name="SaleId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="BillDetailProduct">
+          <End Type="ERPModel.BillDetail" Role="BillDetail" Multiplicity="*" />
+          <End Type="ERPModel.Product" Role="Product" Multiplicity="1" />
+        </Association>
+        <Association Name="SaleBillDetail">
+          <End Type="ERPModel.Sale" Role="Sale" Multiplicity="1" />
+          <End Type="ERPModel.BillDetail" Role="BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sale">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="SaleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SaleState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sales" Relationship="ERPModel.SaleSaleState" FromRole="SaleState" ToRole="Sale" />
+        </EntityType>
+        <Association Name="SaleSaleState">
+          <End Type="ERPModel.Sale" Role="Sale" Multiplicity="*" />
+          <End Type="ERPModel.SaleState" Role="SaleState" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="SaleState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="SaleStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SaleSaleCategory">
+          <End Type="ERPModel.Sale" Role="Sale" Multiplicity="*" />
+          <End Type="ERPModel.SaleCategory" Role="SaleCategory" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="SaleCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="SaleCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BillType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sales" Relationship="ERPModel.BillTypeSale" FromRole="BillType" ToRole="Sale" />
+          <Property Name="Description" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="BillTypeSale">
+          <End Type="ERPModel.Sale" Role="Sale" Multiplicity="*" />
+          <End Type="ERPModel.BillType" Role="BillType" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="BillType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="BillTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClientTypeClient">
+          <End Type="ERPModel.ClientType" Role="ClientType" Multiplicity="1" />
+          <End Type="ERPModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ClientTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClientSale2">
+          <End Type="ERPModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="ERPModel.Sale" Role="Sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sale">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        
+     
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ERPModelStoreContainer" CdmEntityContainer="ERPEntities">
+    <EntitySetMapping Name="ChargeMethods">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.ChargeMethod)">
+        <MappingFragment StoreEntitySet="ChargeMethods">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Client)">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ComercialName" ColumnName="ComercialName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Telephone1" ColumnName="Telephone1" />
+          <ScalarProperty Name="Thelephone2" ColumnName="Thelephone2" />
+          <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+          <ScalarProperty Name="ClientTypeId" ColumnName="ClientTypeId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.ClientType)">
+        <MappingFragment StoreEntitySet="ClientTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComercialAgents">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.ComercialAgent)">
+        <MappingFragment StoreEntitySet="ComercialAgents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ComercialAgentCode" ColumnName="ComercialAgentCode" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="ComisionAmount" ColumnName="ComisionAmount" />
+          <ScalarProperty Name="ComisionTypeId" ColumnName="ComisionTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerOrders">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.CustomerOrder)">
+        <MappingFragment StoreEntitySet="CustomerOrders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="ChargeMethodId" ColumnName="ChargeMethodId" />
+          <ScalarProperty Name="PaymentDueDateTypeId" ColumnName="PaymentDueDateTypeId" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="ComercialAgent" ColumnName="ComercialAgent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentDueDateTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.PaymentDueDateType)">
+        <MappingFragment StoreEntitySet="PaymentDueDateTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductFamilies">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.ProductFamily)">
+        <MappingFragment StoreEntitySet="ProductFamilies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AvailableForSale" ColumnName="AvailableForSale" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+          <ScalarProperty Name="ProductFamilyId" ColumnName="ProductFamilyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Providers">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Provider)">
+        <MappingFragment StoreEntitySet="Providers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Telephone2" ColumnName="Telephone2" />
+          <ScalarProperty Name="Telephone1" ColumnName="Telephone1" />
+          <ScalarProperty Name="ComercialName" ColumnName="ComercialName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="CUIT" ColumnName="CUIT" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Taxes">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Tax)">
+        <MappingFragment StoreEntitySet="Taxes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComisionTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.ComisionType)">
+        <MappingFragment StoreEntitySet="ComisionTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Sale)">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmisionDate" ColumnName="EmisionDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="BillNumber" ColumnName="BillNumber" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="AmountToCharge" ColumnName="AmountToCharge" />
+          <ScalarProperty Name="SaleStateId" ColumnName="SaleStateId" />
+          <ScalarProperty Name="SaleCategoryId" ColumnName="SaleCategoryId" />
+          <ScalarProperty Name="BillTypeId" ColumnName="BillTypeId" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.SaleCategory)">
+        <MappingFragment StoreEntitySet="SaleCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.BillDetail)">
+        <MappingFragment StoreEntitySet="BillDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SaleId" ColumnName="SaleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleStates">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.SaleState)">
+        <MappingFragment StoreEntitySet="SaleStates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.BillType)">
+        <MappingFragment StoreEntitySet="BillTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BillDetailProduct" TypeName="ERPModel.BillDetailProduct" StoreEntitySet="BillDetails">
+      <EndProperty Name="Product">
+        <ScalarProperty Name="Id" ColumnName="Product_Id" />
+      </EndProperty>
+      <EndProperty Name="BillDetail">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

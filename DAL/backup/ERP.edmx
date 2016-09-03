@@ -1,0 +1,1096 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ERP.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ERPStoreContainer">
+          <EntitySet Name="Addresses" EntityType="ERP.Store.Addresses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChargeMethods" EntityType="ERP.Store.ChargeMethods" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CientTypes" EntityType="ERP.Store.CientTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Clients" EntityType="ERP.Store.Clients" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ComercialAgents" EntityType="ERP.Store.ComercialAgents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CustomerOrders" EntityType="ERP.Store.CustomerOrders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PaymentDueDateTypes" EntityType="ERP.Store.PaymentDueDateTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductFamilies" EntityType="ERP.Store.ProductFamilies" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="ERP.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Providers" EntityType="ERP.Store.Providers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProviderTypes" EntityType="ERP.Store.ProviderTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sectors" EntityType="ERP.Store.Sectors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Taxes" EntityType="ERP.Store.Taxes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Zones" EntityType="ERP.Store.Zones" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AddressClient" Association="ERP.Store.FK_AddressClient">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AddressProvider" Association="ERP.Store.FK_AddressProvider">
+            <End Role="Providers" EntitySet="Providers" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChargeMethodClient" Association="ERP.Store.FK_ChargeMethodClient">
+            <End Role="ChargeMethods" EntitySet="ChargeMethods" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CientTypeClient" Association="ERP.Store.FK_CientTypeClient">
+            <End Role="CientTypes" EntitySet="CientTypes" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientClientOrder" Association="ERP.Store.FK_ClientClientOrder">
+            <End Role="CustomerOrders" EntitySet="CustomerOrders" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientOrderChargeMethod" Association="ERP.Store.FK_ClientOrderChargeMethod">
+            <End Role="ChargeMethods" EntitySet="ChargeMethods" />
+            <End Role="CustomerOrders" EntitySet="CustomerOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientSector" Association="ERP.Store.FK_ClientSector">
+            <End Role="Sectors" EntitySet="Sectors" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentDueDateTypeClient" Association="ERP.Store.FK_PaymentDueDateTypeClient">
+            <End Role="PaymentDueDateTypes" EntitySet="PaymentDueDateTypes" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentDueDateTypeClientOrder" Association="ERP.Store.FK_PaymentDueDateTypeClientOrder">
+            <End Role="PaymentDueDateTypes" EntitySet="PaymentDueDateTypes" />
+            <End Role="CustomerOrders" EntitySet="CustomerOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProductFamily" Association="ERP.Store.FK_ProductProductFamily">
+            <End Role="ProductFamilies" EntitySet="ProductFamilies" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderChargeMethod" Association="ERP.Store.FK_ProviderChargeMethod">
+            <End Role="ChargeMethods" EntitySet="ChargeMethods" />
+            <End Role="Providers" EntitySet="Providers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderTax" Association="ERP.Store.FK_ProviderTax">
+            <End Role="Taxes" EntitySet="Taxes" />
+            <End Role="Providers" EntitySet="Providers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderTypeProvider" Association="ERP.Store.FK_ProviderTypeProvider">
+            <End Role="ProviderTypes" EntitySet="ProviderTypes" />
+            <End Role="Providers" EntitySet="Providers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SectorProvider" Association="ERP.Store.FK_SectorProvider">
+            <End Role="Sectors" EntitySet="Sectors" />
+            <End Role="Providers" EntitySet="Providers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneClient" Association="ERP.Store.FK_ZoneClient">
+            <End Role="Zones" EntitySet="Zones" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneProvider" Association="ERP.Store.FK_ZoneProvider">
+            <End Role="Zones" EntitySet="Zones" />
+            <End Role="Providers" EntitySet="Providers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Province" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone2" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="Provider_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChargeMethods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CientTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="ClientCode" Type="int" Nullable="false" />
+          <Property Name="CorporateName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ComercialName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Language" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="WebSite" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Observations" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BirthDate" Type="datetime" Nullable="false" />
+          <Property Name="SectorId" Type="int" />
+          <Property Name="ZoneId" Type="int" />
+          <Property Name="ChargeMethodId" Type="int" Nullable="false" />
+          <Property Name="EnableCurrentAccount" Type="bit" Nullable="false" />
+          <Property Name="CientTypeId" Type="int" Nullable="false" />
+          <Property Name="PaymentDueDateTypeId" Type="int" />
+          <Property Name="PaymentDay" Type="time" Nullable="false" />
+          <Property Name="ClientOrderId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ComercialAgents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="DeliveryDate" Type="datetime" Nullable="false" />
+          <Property Name="OrderCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ChargeMethodId" Type="int" Nullable="false" />
+          <Property Name="PaymentDueDateTypeId" Type="int" Nullable="false" />
+          <Property Name="DeliveryAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ComercialAgent" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentDueDateTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductFamilies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ShortDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LongDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Family" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="AvailableForSale" Type="bit" />
+          <Property Name="Brand" Type="nvarchar(max)" />
+          <Property Name="MeasureUnity" Type="nvarchar(max)" />
+          <Property Name="Weight" Type="nvarchar(max)" />
+          <Property Name="Height" Type="nvarchar(max)" />
+          <Property Name="Width" Type="nvarchar(max)" />
+          <Property Name="Length" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Providers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProviderCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CorporateName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ComercialName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SectorId" Type="int" Nullable="false" />
+          <Property Name="ProviderTypeId" Type="int" Nullable="false" />
+          <Property Name="Observations" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Language" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AddressId" Type="int" Nullable="false" />
+          <Property Name="WebSite" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ZoneId" Type="int" Nullable="false" />
+          <Property Name="PaymentDueDateTypeId" Type="int" />
+          <Property Name="PaymentDay" Type="time" Nullable="false" />
+          <Property Name="TaxId" Type="int" Nullable="false" />
+          <Property Name="ChargeMethod_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProviderTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sectors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Taxes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Zones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AddressClient">
+          <End Role="Clients" Type="ERP.Store.Clients" Multiplicity="1" />
+          <End Role="Addresses" Type="ERP.Store.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AddressProvider">
+          <End Role="Providers" Type="ERP.Store.Providers" Multiplicity="1" />
+          <End Role="Addresses" Type="ERP.Store.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Providers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="Provider_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChargeMethodClient">
+          <End Role="ChargeMethods" Type="ERP.Store.ChargeMethods" Multiplicity="1" />
+          <End Role="Clients" Type="ERP.Store.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChargeMethods">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="ChargeMethodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CientTypeClient">
+          <End Role="CientTypes" Type="ERP.Store.CientTypes" Multiplicity="1" />
+          <End Role="Clients" Type="ERP.Store.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CientTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="CientTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientClientOrder">
+          <End Role="CustomerOrders" Type="ERP.Store.CustomerOrders" Multiplicity="1" />
+          <End Role="Clients" Type="ERP.Store.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="ClientOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientOrderChargeMethod">
+          <End Role="ChargeMethods" Type="ERP.Store.ChargeMethods" Multiplicity="1" />
+          <End Role="CustomerOrders" Type="ERP.Store.CustomerOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChargeMethods">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerOrders">
+              <PropertyRef Name="ChargeMethodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientSector">
+          <End Role="Sectors" Type="ERP.Store.Sectors" Multiplicity="0..1" />
+          <End Role="Clients" Type="ERP.Store.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sectors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentDueDateTypeClient">
+          <End Role="PaymentDueDateTypes" Type="ERP.Store.PaymentDueDateTypes" Multiplicity="0..1" />
+          <End Role="Clients" Type="ERP.Store.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentDueDateTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="PaymentDueDateTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentDueDateTypeClientOrder">
+          <End Role="PaymentDueDateTypes" Type="ERP.Store.PaymentDueDateTypes" Multiplicity="1" />
+          <End Role="CustomerOrders" Type="ERP.Store.CustomerOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentDueDateTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerOrders">
+              <PropertyRef Name="PaymentDueDateTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProductFamily">
+          <End Role="ProductFamilies" Type="ERP.Store.ProductFamilies" Multiplicity="1" />
+          <End Role="Products" Type="ERP.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductFamilies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="Family" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderChargeMethod">
+          <End Role="ChargeMethods" Type="ERP.Store.ChargeMethods" Multiplicity="1" />
+          <End Role="Providers" Type="ERP.Store.Providers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChargeMethods">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Providers">
+              <PropertyRef Name="ChargeMethod_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderTax">
+          <End Role="Taxes" Type="ERP.Store.Taxes" Multiplicity="1" />
+          <End Role="Providers" Type="ERP.Store.Providers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Taxes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Providers">
+              <PropertyRef Name="TaxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderTypeProvider">
+          <End Role="ProviderTypes" Type="ERP.Store.ProviderTypes" Multiplicity="1" />
+          <End Role="Providers" Type="ERP.Store.Providers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProviderTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Providers">
+              <PropertyRef Name="ProviderTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SectorProvider">
+          <End Role="Sectors" Type="ERP.Store.Sectors" Multiplicity="1" />
+          <End Role="Providers" Type="ERP.Store.Providers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sectors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Providers">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneClient">
+          <End Role="Zones" Type="ERP.Store.Zones" Multiplicity="0..1" />
+          <End Role="Clients" Type="ERP.Store.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneProvider">
+          <End Role="Zones" Type="ERP.Store.Zones" Multiplicity="1" />
+          <End Role="Providers" Type="ERP.Store.Providers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Providers">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ERP" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ERPContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="ERP.Address" />
+          <EntitySet Name="ChargeMethods" EntityType="ERP.ChargeMethod" />
+          <EntitySet Name="CientTypes" EntityType="ERP.CientType" />
+          <EntitySet Name="Clients" EntityType="ERP.Client" />
+          <EntitySet Name="ComercialAgents" EntityType="ERP.ComercialAgent" />
+          <EntitySet Name="CustomerOrders" EntityType="ERP.CustomerOrder" />
+          <EntitySet Name="PaymentDueDateTypes" EntityType="ERP.PaymentDueDateType" />
+          <EntitySet Name="ProductFamilies" EntityType="ERP.ProductFamily" />
+          <EntitySet Name="Products" EntityType="ERP.Product" />
+          <EntitySet Name="Providers" EntityType="ERP.Provider" />
+          <EntitySet Name="ProviderTypes" EntityType="ERP.ProviderType" />
+          <EntitySet Name="Sectors" EntityType="ERP.Sector" />
+          <EntitySet Name="Taxes" EntityType="ERP.Tax" />
+          <EntitySet Name="Zones" EntityType="ERP.Zone" />
+          <AssociationSet Name="FK_AddressClient" Association="ERP.FK_AddressClient">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AddressProvider" Association="ERP.FK_AddressProvider">
+            <End Role="Provider" EntitySet="Providers" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChargeMethodClient" Association="ERP.FK_ChargeMethodClient">
+            <End Role="ChargeMethod" EntitySet="ChargeMethods" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientOrderChargeMethod" Association="ERP.FK_ClientOrderChargeMethod">
+            <End Role="ChargeMethod" EntitySet="ChargeMethods" />
+            <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderChargeMethod" Association="ERP.FK_ProviderChargeMethod">
+            <End Role="ChargeMethod" EntitySet="ChargeMethods" />
+            <End Role="Provider" EntitySet="Providers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CientTypeClient" Association="ERP.FK_CientTypeClient">
+            <End Role="CientType" EntitySet="CientTypes" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientClientOrder" Association="ERP.FK_ClientClientOrder">
+            <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientSector" Association="ERP.FK_ClientSector">
+            <End Role="Sector" EntitySet="Sectors" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentDueDateTypeClient" Association="ERP.FK_PaymentDueDateTypeClient">
+            <End Role="PaymentDueDateType" EntitySet="PaymentDueDateTypes" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneClient" Association="ERP.FK_ZoneClient">
+            <End Role="Zone" EntitySet="Zones" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentDueDateTypeClientOrder" Association="ERP.FK_PaymentDueDateTypeClientOrder">
+            <End Role="PaymentDueDateType" EntitySet="PaymentDueDateTypes" />
+            <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProductFamily" Association="ERP.FK_ProductProductFamily">
+            <End Role="ProductFamily" EntitySet="ProductFamilies" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderTax" Association="ERP.FK_ProviderTax">
+            <End Role="Tax" EntitySet="Taxes" />
+            <End Role="Provider" EntitySet="Providers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderTypeProvider" Association="ERP.FK_ProviderTypeProvider">
+            <End Role="ProviderType" EntitySet="ProviderTypes" />
+            <End Role="Provider" EntitySet="Providers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SectorProvider" Association="ERP.FK_SectorProvider">
+            <End Role="Sector" EntitySet="Sectors" />
+            <End Role="Provider" EntitySet="Providers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZoneProvider" Association="ERP.FK_ZoneProvider">
+            <End Role="Zone" EntitySet="Zones" />
+            <End Role="Provider" EntitySet="Providers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="Provider_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="ERP.FK_AddressClient" FromRole="Address" ToRole="Client" />
+          <NavigationProperty Name="Provider" Relationship="ERP.FK_AddressProvider" FromRole="Address" ToRole="Provider" />
+        </EntityType>
+        <EntityType Name="ChargeMethod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="ERP.FK_ChargeMethodClient" FromRole="ChargeMethod" ToRole="Client" />
+          <NavigationProperty Name="CustomerOrders" Relationship="ERP.FK_ClientOrderChargeMethod" FromRole="ChargeMethod" ToRole="CustomerOrder" />
+          <NavigationProperty Name="Providers" Relationship="ERP.FK_ProviderChargeMethod" FromRole="ChargeMethod" ToRole="Provider" />
+        </EntityType>
+        <EntityType Name="CientType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="ERP.FK_CientTypeClient" FromRole="CientType" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="ClientCode" Type="Int32" Nullable="false" />
+          <Property Name="CorporateName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ComercialName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WebSite" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Observations" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SectorId" Type="Int32" />
+          <Property Name="ZoneId" Type="Int32" />
+          <Property Name="ChargeMethodId" Type="Int32" Nullable="false" />
+          <Property Name="EnableCurrentAccount" Type="Boolean" Nullable="false" />
+          <Property Name="CientTypeId" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDueDateTypeId" Type="Int32" />
+          <Property Name="PaymentDay" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ClientOrderId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="ERP.FK_AddressClient" FromRole="Client" ToRole="Address" />
+          <NavigationProperty Name="ChargeMethod" Relationship="ERP.FK_ChargeMethodClient" FromRole="Client" ToRole="ChargeMethod" />
+          <NavigationProperty Name="CientType" Relationship="ERP.FK_CientTypeClient" FromRole="Client" ToRole="CientType" />
+          <NavigationProperty Name="CustomerOrder" Relationship="ERP.FK_ClientClientOrder" FromRole="Client" ToRole="CustomerOrder" />
+          <NavigationProperty Name="Sector" Relationship="ERP.FK_ClientSector" FromRole="Client" ToRole="Sector" />
+          <NavigationProperty Name="PaymentDueDateType" Relationship="ERP.FK_PaymentDueDateTypeClient" FromRole="Client" ToRole="PaymentDueDateType" />
+          <NavigationProperty Name="Zone" Relationship="ERP.FK_ZoneClient" FromRole="Client" ToRole="Zone" />
+        </EntityType>
+        <EntityType Name="ComercialAgent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CustomerOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OrderCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reference" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChargeMethodId" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDueDateTypeId" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ComercialAgent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChargeMethod" Relationship="ERP.FK_ClientOrderChargeMethod" FromRole="CustomerOrder" ToRole="ChargeMethod" />
+          <NavigationProperty Name="Clients" Relationship="ERP.FK_ClientClientOrder" FromRole="CustomerOrder" ToRole="Client" />
+          <NavigationProperty Name="PaymentDueDateType" Relationship="ERP.FK_PaymentDueDateTypeClientOrder" FromRole="CustomerOrder" ToRole="PaymentDueDateType" />
+        </EntityType>
+        <EntityType Name="PaymentDueDateType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="ERP.FK_PaymentDueDateTypeClient" FromRole="PaymentDueDateType" ToRole="Client" />
+          <NavigationProperty Name="CustomerOrders" Relationship="ERP.FK_PaymentDueDateTypeClientOrder" FromRole="PaymentDueDateType" ToRole="CustomerOrder" />
+        </EntityType>
+        <EntityType Name="ProductFamily">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="ERP.FK_ProductProductFamily" FromRole="ProductFamily" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShortDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LongDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Family" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="AvailableForSale" Type="Boolean" />
+          <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MeasureUnity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Height" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Width" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Length" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductFamily" Relationship="ERP.FK_ProductProductFamily" FromRole="Product" ToRole="ProductFamily" />
+        </EntityType>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CorporateName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ComercialName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SectorId" Type="Int32" Nullable="false" />
+          <Property Name="ProviderTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Observations" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddressId" Type="Int32" Nullable="false" />
+          <Property Name="WebSite" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZoneId" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDueDateTypeId" Type="Int32" />
+          <Property Name="PaymentDay" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="TaxId" Type="Int32" Nullable="false" />
+          <Property Name="ChargeMethod_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="ERP.FK_AddressProvider" FromRole="Provider" ToRole="Address" />
+          <NavigationProperty Name="ChargeMethod" Relationship="ERP.FK_ProviderChargeMethod" FromRole="Provider" ToRole="ChargeMethod" />
+          <NavigationProperty Name="Tax" Relationship="ERP.FK_ProviderTax" FromRole="Provider" ToRole="Tax" />
+          <NavigationProperty Name="ProviderType" Relationship="ERP.FK_ProviderTypeProvider" FromRole="Provider" ToRole="ProviderType" />
+          <NavigationProperty Name="Sector" Relationship="ERP.FK_SectorProvider" FromRole="Provider" ToRole="Sector" />
+          <NavigationProperty Name="Zone" Relationship="ERP.FK_ZoneProvider" FromRole="Provider" ToRole="Zone" />
+        </EntityType>
+        <EntityType Name="ProviderType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Providers" Relationship="ERP.FK_ProviderTypeProvider" FromRole="ProviderType" ToRole="Provider" />
+        </EntityType>
+        <EntityType Name="Sector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="ERP.FK_ClientSector" FromRole="Sector" ToRole="Client" />
+          <NavigationProperty Name="Providers" Relationship="ERP.FK_SectorProvider" FromRole="Sector" ToRole="Provider" />
+        </EntityType>
+        <EntityType Name="Tax">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Providers" Relationship="ERP.FK_ProviderTax" FromRole="Tax" ToRole="Provider" />
+        </EntityType>
+        <EntityType Name="Zone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="ERP.FK_ZoneClient" FromRole="Zone" ToRole="Client" />
+          <NavigationProperty Name="Providers" Relationship="ERP.FK_ZoneProvider" FromRole="Zone" ToRole="Provider" />
+        </EntityType>
+        <Association Name="FK_AddressClient">
+          <End Type="ERP.Client" Role="Client" Multiplicity="1" />
+          <End Type="ERP.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AddressProvider">
+          <End Type="ERP.Provider" Role="Provider" Multiplicity="1" />
+          <End Type="ERP.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="Provider_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChargeMethodClient">
+          <End Type="ERP.ChargeMethod" Role="ChargeMethod" Multiplicity="1" />
+          <End Type="ERP.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChargeMethod">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ChargeMethodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientOrderChargeMethod">
+          <End Type="ERP.ChargeMethod" Role="ChargeMethod" Multiplicity="1" />
+          <End Type="ERP.CustomerOrder" Role="CustomerOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChargeMethod">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerOrder">
+              <PropertyRef Name="ChargeMethodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderChargeMethod">
+          <End Type="ERP.ChargeMethod" Role="ChargeMethod" Multiplicity="1" />
+          <End Type="ERP.Provider" Role="Provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChargeMethod">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Provider">
+              <PropertyRef Name="ChargeMethod_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CientTypeClient">
+          <End Type="ERP.CientType" Role="CientType" Multiplicity="1" />
+          <End Type="ERP.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CientType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="CientTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientClientOrder">
+          <End Type="ERP.CustomerOrder" Role="CustomerOrder" Multiplicity="1" />
+          <End Type="ERP.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ClientOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientSector">
+          <End Type="ERP.Sector" Role="Sector" Multiplicity="0..1" />
+          <End Type="ERP.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentDueDateTypeClient">
+          <End Type="ERP.PaymentDueDateType" Role="PaymentDueDateType" Multiplicity="0..1" />
+          <End Type="ERP.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentDueDateType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="PaymentDueDateTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneClient">
+          <End Type="ERP.Zone" Role="Zone" Multiplicity="0..1" />
+          <End Type="ERP.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentDueDateTypeClientOrder">
+          <End Type="ERP.PaymentDueDateType" Role="PaymentDueDateType" Multiplicity="1" />
+          <End Type="ERP.CustomerOrder" Role="CustomerOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentDueDateType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerOrder">
+              <PropertyRef Name="PaymentDueDateTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProductFamily">
+          <End Type="ERP.ProductFamily" Role="ProductFamily" Multiplicity="1" />
+          <End Type="ERP.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductFamily">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="Family" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderTax">
+          <End Type="ERP.Tax" Role="Tax" Multiplicity="1" />
+          <End Type="ERP.Provider" Role="Provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tax">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Provider">
+              <PropertyRef Name="TaxId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderTypeProvider">
+          <End Type="ERP.ProviderType" Role="ProviderType" Multiplicity="1" />
+          <End Type="ERP.Provider" Role="Provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProviderType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Provider">
+              <PropertyRef Name="ProviderTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SectorProvider">
+          <End Type="ERP.Sector" Role="Sector" Multiplicity="1" />
+          <End Type="ERP.Provider" Role="Provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Provider">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZoneProvider">
+          <End Type="ERP.Zone" Role="Zone" Multiplicity="1" />
+          <End Type="ERP.Provider" Role="Provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zone">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Provider">
+              <PropertyRef Name="ZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ERP" />
+        <Alias Key="Target" Value="ERP.Store" />
+        <EntityContainerMapping CdmEntityContainer="ERPContainer" StorageEntityContainer="ERPStoreContainer">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="ERP.Address">
+              <MappingFragment StoreEntitySet="Addresses">
+                <ScalarProperty Name="Provider_Id" ColumnName="Provider_Id" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChargeMethods">
+            <EntityTypeMapping TypeName="ERP.ChargeMethod">
+              <MappingFragment StoreEntitySet="ChargeMethods">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CientTypes">
+            <EntityTypeMapping TypeName="ERP.CientType">
+              <MappingFragment StoreEntitySet="CientTypes">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="ERP.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ClientOrderId" ColumnName="ClientOrderId" />
+                <ScalarProperty Name="PaymentDay" ColumnName="PaymentDay" />
+                <ScalarProperty Name="PaymentDueDateTypeId" ColumnName="PaymentDueDateTypeId" />
+                <ScalarProperty Name="CientTypeId" ColumnName="CientTypeId" />
+                <ScalarProperty Name="EnableCurrentAccount" ColumnName="EnableCurrentAccount" />
+                <ScalarProperty Name="ChargeMethodId" ColumnName="ChargeMethodId" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ComercialName" ColumnName="ComercialName" />
+                <ScalarProperty Name="CorporateName" ColumnName="CorporateName" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComercialAgents">
+            <EntityTypeMapping TypeName="ERP.ComercialAgent">
+              <MappingFragment StoreEntitySet="ComercialAgents">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerOrders">
+            <EntityTypeMapping TypeName="ERP.CustomerOrder">
+              <MappingFragment StoreEntitySet="CustomerOrders">
+                <ScalarProperty Name="ComercialAgent" ColumnName="ComercialAgent" />
+                <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+                <ScalarProperty Name="PaymentDueDateTypeId" ColumnName="PaymentDueDateTypeId" />
+                <ScalarProperty Name="ChargeMethodId" ColumnName="ChargeMethodId" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentDueDateTypes">
+            <EntityTypeMapping TypeName="ERP.PaymentDueDateType">
+              <MappingFragment StoreEntitySet="PaymentDueDateTypes">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductFamilies">
+            <EntityTypeMapping TypeName="ERP.ProductFamily">
+              <MappingFragment StoreEntitySet="ProductFamilies">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ERP.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="MeasureUnity" ColumnName="MeasureUnity" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="AvailableForSale" ColumnName="AvailableForSale" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Family" ColumnName="Family" />
+                <ScalarProperty Name="LongDescription" ColumnName="LongDescription" />
+                <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Providers">
+            <EntityTypeMapping TypeName="ERP.Provider">
+              <MappingFragment StoreEntitySet="Providers">
+                <ScalarProperty Name="ChargeMethod_Id" ColumnName="ChargeMethod_Id" />
+                <ScalarProperty Name="TaxId" ColumnName="TaxId" />
+                <ScalarProperty Name="PaymentDay" ColumnName="PaymentDay" />
+                <ScalarProperty Name="PaymentDueDateTypeId" ColumnName="PaymentDueDateTypeId" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Observations" ColumnName="Observations" />
+                <ScalarProperty Name="ProviderTypeId" ColumnName="ProviderTypeId" />
+                <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ComercialName" ColumnName="ComercialName" />
+                <ScalarProperty Name="CorporateName" ColumnName="CorporateName" />
+                <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProviderTypes">
+            <EntityTypeMapping TypeName="ERP.ProviderType">
+              <MappingFragment StoreEntitySet="ProviderTypes">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sectors">
+            <EntityTypeMapping TypeName="ERP.Sector">
+              <MappingFragment StoreEntitySet="Sectors">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Taxes">
+            <EntityTypeMapping TypeName="ERP.Tax">
+              <MappingFragment StoreEntitySet="Taxes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zones">
+            <EntityTypeMapping TypeName="ERP.Zone">
+              <MappingFragment StoreEntitySet="Zones">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

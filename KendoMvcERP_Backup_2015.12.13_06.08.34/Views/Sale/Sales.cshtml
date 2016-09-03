@@ -1,0 +1,34 @@
+﻿
+
+<div id="main-section" class="col-xs-12 column">
+    <!--open main column-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-18 col-md-12">
+                @(Html.MyGrid<KendoMvcERP.Models.SaleViewModel>("grid", "Sale")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.Id);
+            columns.Bound(p => p.EmisionDate);
+            columns.Bound(p => p.ClientId);
+            columns.Bound(p => p.SaleCategoryId);
+            columns.Bound(p => p.BillNumber);
+            columns.Bound(p => p.TotalAmount);
+            columns.Bound(p => p.AmountToCharge);
+            columns.Bound(p => p.SaleStateId);
+
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(172).Title("Actions");
+        }).ToolBar(toolbar => toolbar.Create().Text(@Resources.Resources.NewSale))
+        .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("SaleEditor").Window(window => window.Width(600).Resizable().Scrollable(true).Title(Resources.Resources.NewSale)))
+
+                )
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+

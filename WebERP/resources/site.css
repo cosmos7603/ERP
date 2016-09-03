@@ -1,0 +1,59 @@
+﻿.icongrid-open {
+    background-image: url('./images/grid-icons/expand.png') !important;
+}
+
+.icon {
+    background-size: 16px 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.icon24 {
+    background-size: 24px 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.icon32 {
+    background-size: 32px 32px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.icon-paciente {
+    background-image: url('./images/icon-paciente.svg') !important;
+}
+
+.icon-error {
+    background-image: url('./images/icon-error.png') !important;
+}
+.icon-warning {
+    background-image: url('./images/icon-warning.png') !important;
+}
+.icon-info {
+    background-image: url('./images/icon-info.png') !important;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+/*.site-tab {
+    
+} */
+
+.site-tabcontainer {
+    background-image: url('./images/logoDynamika.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.message-log-detail {
+    height: 250px;
+    width: 100%;
+    overflow: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-family: Courier New;
+    background-color: white;
+    padding: 5px;
+}

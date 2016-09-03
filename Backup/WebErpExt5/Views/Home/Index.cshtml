@@ -1,0 +1,60 @@
+﻿@model WebErpExt5.Models.IndexModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dynamika</title>
+@*    <link rel="stylesheet" type="text/css" href="~/ext/packages/ext-theme-crisp/build/resources/ext-theme-crisp-all-debug.css">
+<script type="text/javascript" src="~/ext/build/ext-all-debug.js"></script>
+    <script src="~/app.js"></script>*@
+    <script id="microloader" type="text/javascript" src="~/bootstrap.js"></script>
+    @*<script src="~/ext/ext-all.js"></script>*@
+    <style>
+        .x-gecko textarea.x-form-text
+        {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+
+
+    @using System.Collections    @using System.Globalization    @using System.Resources
+
+    @using WebErpExt5.resources
+    @{
+        Layout = null;
+        // Get a set of resources appropriate to the culture defined by the browser
+        ResourceSet productResourceSet = ProductLabels.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+        ResourceSet clientResourceSet = ClientLabels.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+
+        
+    }
+
+    <script type="text/javascript">
+        var Resources = {};
+@foreach (DictionaryEntry res in productResourceSet)
+{
+    // Create a property on the javascript object for each text resource
+    @:Resources.@res.Key = "@Html.Raw(
+        HttpUtility.JavaScriptStringEncode(res.Value.ToString()))";
+                
+}
+       
+@foreach (DictionaryEntry res in clientResourceSet)
+{
+    // Create a property on the javascript object for each text resource
+    @:Resources.@res.Key = "@Html.Raw(
+        HttpUtility.JavaScriptStringEncode(res.Value.ToString()))";
+        
+}
+
+    </script>
+
+
+
+
+
+</head>
+
+</html>

@@ -1,0 +1,103 @@
+﻿
+<link href="~/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+@*<link href="~/kendo/styles/kendo.default.min.css" rel="stylesheet" />*@
+@*<link href="~/kendo/styles/kendo.flat.min.css" rel="stylesheet" />*@
+<link href="~/kendo/styles/kendo.default.min.css" rel="stylesheet" />
+<script src="~/kendo/js/jquery.min.js"></script>
+
+<script src="~/kendo/js/kendo.all.min.js"></script>
+
+
+
+
+<div id="example">
+    <div id="megaStore">
+        <ul id="menu"></ul>
+
+        <div id="content"></div>
+    </div>
+    <style>
+        #megaStore {
+        }
+
+        #menu h2 {
+            font-size: 1em;
+            text-transform: uppercase;
+            padding: 5px 10px;
+        }
+
+        #template img {
+            margin: 5px 20px 0 0;
+            float: left;
+        }
+
+        #template {
+            width: 380px;
+        }
+
+            #template ol {
+                float: left;
+                margin: 0 0 0 30px;
+                padding: 10px 10px 0 10px;
+            }
+
+            #template:after {
+                content: ".";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+            }
+
+            #template .k-button {
+                float: left;
+                clear: left;
+                margin: 5px 0 5px 12px;
+            }
+    </style>
+    <script>
+        $(document).ready(function () {
+            //$("#menu").kendoMenu({
+            //    contentURl: ['http://localhost/WebErpExt5/home/Clients']
+            //});
+
+
+
+            $('#menu').kendoMenu({
+                dataSource: [{
+                    text: 'Clientes',
+                    url: 'http://localhost/WebErpExt5/home/Clients'
+                },
+                {
+                    text: 'Prueba',
+                    url: 'http://localhost/WebErpExt5/home/Clients'
+                }],
+                select: function (args) {
+                    // Get the url from the menu item
+                    var url = $(args.item.innerHTML).attr('href');
+                    // Call the controller action
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        success: function (response) {
+                            // Update the content div
+                            $('#content').html(response);
+                        }
+                    });
+                }
+            });
+
+            $("ul.k-menu li.k-item a.k-link").click(function (event) {
+                // Prevent default event handling for the menu items
+                event.preventDefault();
+            });
+        });
+
+
+
+
+
+    </script>
+
+
+</div>

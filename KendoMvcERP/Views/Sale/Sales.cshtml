@@ -1,0 +1,45 @@
+﻿@using System.Collections
+@using Entities.POCOEntities
+@using KendoMvcERP.Models
+@model  KendoMvcERP.Models.SaleViewModel
+
+<style>
+    .formFieldSet {
+        padding-top: 50px;
+        padding-left: 20px;
+    }
+</style>
+<div id="main-section" class="col-xs-12 column">
+    <!--open main column-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-18 col-md-12">
+                @using (Html.BeginForm())
+                {
+                    <fieldset class="formFieldSet">
+                        <div class="col-xs-4">
+                            <div class="editor-field">@( Html.Kendo().DropDownList().Name("DropDownClients").BindTo(ViewData["clients"] as IEnumerable<ClientPOCO>).DataTextField("FirstName").DataValueField("Id"))</div>
+                            <div class="editor-field">@( Html.Kendo().DropDownList().Name("DropDownSalesCategories").BindTo(ViewData["salesCategories"] as IEnumerable<SaleCategoryPOCO>).DataTextField("Description").DataValueField("Id"))</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <label class="editor-label" for="datePickerEmisionDate">Emision date</label>
+                            <div class="editor-field" id="datePickerEmisionDate"> @(Html.Kendo().DatePickerFor(m => m.EmisionDate))</div>
+                            <label class="editor-label">Due date</label>
+                            <div class="editor-field"> @(Html.Kendo().DatePickerFor(m => m.DueDate))</div>
+                        </div>
+                        <div class="col-xs-4">
+                            <label class="editor-label" for="drpBillTypes">Bill types</label>
+                            <div class="editor-field" id="drpBillTypes"> @(Html.Kendo().DropDownList().Name("DropDownBillTypes").BindTo(ViewData["BillTypes"] as IEnumerable<BillTypePOCO>).DataTextField("Description").DataValueField("Id"))</div>
+
+                        </div>
+                    </fieldset>
+
+                }
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

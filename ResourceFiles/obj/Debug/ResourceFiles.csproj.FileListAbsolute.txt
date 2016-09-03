@@ -1,0 +1,14 @@
+C:\DevelopmentGit\dynamika-app\ERP\ResourceFiles\bin\Debug\ResourceFiles.dll
+C:\DevelopmentGit\dynamika-app\ERP\ResourceFiles\bin\Debug\ResourceFiles.pdb
+C:\DevelopmentGit\dynamika-app\ERP\ResourceFiles\obj\Debug\ResourceFiles.csproj.GenerateResource.Cache
+C:\DevelopmentGit\dynamika-app\ERP\ResourceFiles\obj\Debug\ResourceFiles.dll
+C:\DevelopmentGit\dynamika-app\ERP\ResourceFiles\obj\Debug\ResourceFiles.pdb
+C:\DevelopmentGit\dynamika-app\ERP\ResourceFiles\obj\Debug\ResourceFiles.csprojResolveAssemblyReference.cache
+C:\DevelopmentGit\dynamika-app\ERP\ResourceFiles\obj\Debug\ResourceFiles.Resources.resources
+C:\Users\Daniel\Desktop\ERP\ResourceFiles\bin\Debug\ResourceFiles.dll
+C:\Users\Daniel\Desktop\ERP\ResourceFiles\bin\Debug\ResourceFiles.pdb
+C:\Users\Daniel\Desktop\ERP\ResourceFiles\obj\Debug\ResourceFiles.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\ERP\ResourceFiles\obj\Debug\ResourceFiles.Resources.resources
+C:\Users\Daniel\Desktop\ERP\ResourceFiles\obj\Debug\ResourceFiles.csproj.GenerateResource.Cache
+C:\Users\Daniel\Desktop\ERP\ResourceFiles\obj\Debug\ResourceFiles.dll
+C:\Users\Daniel\Desktop\ERP\ResourceFiles\obj\Debug\ResourceFiles.pdb

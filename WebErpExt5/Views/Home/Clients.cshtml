@@ -1,0 +1,154 @@
+﻿
+<script>
+
+    $(document).ready(function () {
+
+
+        //$.ajax("http://localhost/clinicas/api/chargeMethod").done(function(data){alert("data")});
+        //var chargeMethods = [{
+        //    "value": 1,
+        //    "text": "Domiciliación bancaria"
+        //}, {
+        //    "value": 2,
+        //    "text": "Transferencia"
+        //}];
+
+
+
+        //function chargeMethodDropDownEditor(container, options) {
+        //    $('<input required data-text-field="Description" data-value-field="Id" data-bind="value:' + options.field + '"/>')
+        //        .appendTo(container)
+        //        .kendoDropDownList({
+        //            autoBind: false,
+        //            dataSource: {
+        //                type: "odata",
+        //                transport: {
+        //                    read: "http://localhost/clinicas/api/ChargeMethod"
+        //                }
+        //            }
+        //        });
+        //}
+
+
+        var remoteDataSource = new kendo.data.DataSource({
+            batch: false,
+            serverPaging: true,
+            serverFiltering: true,
+            pageSize: 25,
+            type: 'aspnetmvc-ajax',
+            transport: {
+                read: {
+                    //url: "http://localhost/clinicas/api/client",
+                    url: "http://localhost/WebErpExt5/rest/Client",
+                    dataType: "json"
+                }
+                //,
+                //destroy:
+                //{
+                //    url: "http://localhost/clinicas/api/client",
+                //    type: "DELETE",
+                //    dataType: 'json'
+                //},
+                //create: {
+                //    url: "http://localhost/clinicas/api/client",
+                //    dataType: "json",
+                //    type: "POST"
+                //},
+                //update:
+                //{
+                //    url: "http://localhost/clinicas/api/client",
+                //    type: "PUT",
+                //    dataType: 'json'
+                //}
+            },
+            schema: {
+                model: {
+                    id: "Id",
+                    fields:
+                    {
+                        Active: { type: 'boolean' },
+                        ClientCode: { type: 'int' },
+                        ComercialName: { type: 'string' },
+                        Email: { type: 'string' },
+                        Language: { type: 'string' },
+                        WebSite: { type: 'string' },
+                        Observations: { type: 'string' },
+                        BirthDay: { type: 'datetime' },
+                        Sector: { type: 'Sector'},
+                        ChargeMethod: { field: 'ChargeMethod', type: "string"},
+                        ClientType: { type: 'string' },
+                        PaymentDueDateType: { type: 'string' },
+                        PaymentDay: { type: 'int' },
+                        PaymentDay2: { type: 'int' },
+                        Country: { type: 'string' },
+                        ComercialAgent: { type: 'string' },
+                        Address: { type: 'string' },
+                        Address2: { type: 'string' },
+                        Province: { type: 'string' },
+                        City: { type: 'string' },
+                        ZipCode: { type: 'string' },
+                        Telephone1: { type: 'string' },
+                        Telephone2: { type: 'string' },
+                        ChargeOverCost: { type: 'string' },
+                        Discount: { type: 'int' },
+                        CorporateName: { type: 'string' },
+                        Tax: { type: 'string' }
+                    }
+                }
+            }
+        });
+
+        $("#grid").kendoGrid({
+            dataSource: remoteDataSource,
+            //height: 500,
+            sortable: true,
+            toolbar: [{ name: 'create' }, { name: 'save' }],
+            editable: false,
+            pageable: {
+                refresh: true,
+                pageSizes: true,
+                buttonCount: 5
+            },
+            columns: [
+                {
+                    field: 'ClientCode',
+                    title: 'Client'
+                },
+                //{ field: "ChargeMethod", title: "ChargeMethod", width: "180px", type: 'string' }
+                { field: "Sector.Description", title: "Sector", width: "180px", type: 'string' }
+                 //{ field: "ChargeMethod", title: "ChargeMethod", width: "180px", editor: chargeMethodDropDownEditor, template: "#=ChargeMethod.Description#" }
+            ]
+
+            //    ,
+
+            //columns: [
+            //    //{
+            //    //    field: "Id",
+            //    //    title: "Id"
+            //    //},
+            //    {
+            //        field: "Description",
+            //        title: "Description",
+            //        editable: true
+            //    },
+            //        { command: ["edit", "destroy"] }
+            //]
+
+            //{
+            //    command: ["edit",
+            //    {
+            //        name: "destroy",
+            //        text: "remove"
+            //    }
+
+            //    ]
+            //}
+            //    ]
+        });
+    });
+
+</script>
+
+
+<div id="grid"></div>
+

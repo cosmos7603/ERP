@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{33159B88-8B14-4642-A27A-82E0E8DFBDA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entities</RootNamespace>
+    <AssemblyName>Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="POCOEntities\BillTypePOCO.cs" />
+    <Compile Include="POCOEntities\SaleCategoryPOCO.cs" />
+    <Compile Include="POCOEntities\SaleStatePOCO.cs" />
+    <Compile Include="POCOEntities\SalePOCO.cs" />
+    <Compile Include="POCOEntities\SpecialityPOCO.cs" />
+    <Compile Include="POCOEntities\AddressPOCO.cs" />
+    <Compile Include="POCOEntities\ChargeMethodPOCO.cs" />
+    <Compile Include="POCOEntities\ClientOrderPOCO.cs" />
+    <Compile Include="POCOEntities\ProfessionalPOCO.cs" />
+    <Compile Include="POCOEntities\ClientPOCO.cs" />
+    <Compile Include="POCOEntities\ClientTypePOCO.cs" />
+    <Compile Include="POCOEntities\ComercialAgentPOCO.cs" />
+    <Compile Include="POCOEntities\ComisionTypePOCO.cs" />
+    <Compile Include="POCOEntities\EntityPOCO.cs" />
+    <Compile Include="POCOEntities\PaymentDueDateTypePOCO.cs" />
+    <Compile Include="POCOEntities\ProductFamilyPOCO.cs" />
+    <Compile Include="POCOEntities\ProductPOCO.cs" />
+    <Compile Include="POCOEntities\ProviderPOCO.cs" />
+    <Compile Include="POCOEntities\ProviderTypePOCO.cs" />
+    <Compile Include="POCOEntities\TaxPOCO.cs" />
+    <Compile Include="POCOEntities\ZonePOCO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResourceFiles\ResourceFiles.csproj">
+      <Project>{67bd323f-1d4d-4aa5-89bf-9e5dfabbf770}</Project>
+      <Name>ResourceFiles</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

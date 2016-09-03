@@ -1,0 +1,30 @@
+﻿
+
+<div id="main-section" class="col-xs-12 column">
+    <!--open main column-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-18 col-md-12">
+                @(Html.MyGrid<KendoMvcERP.Models.ClientViewModel>("grid", "Client")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.ComercialName);
+            columns.Bound(p => p.FirstName);
+            columns.Bound(p => p.LastName);
+            columns.Bound(p => p.Email);
+
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(172).Title("Actions");
+        }).ToolBar(toolbar => toolbar.Create().Text(@Resources.Resources.NewClient))
+        .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("ClientEditor").Window(window => window.Width(600).Resizable().Scrollable(true).Title(Resources.Resources.NewClient)))
+
+                )
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{F24CAEBF-6DD3-45C3-B34F-6B2AA8A9809D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{2AAFC3C0-AC65-41CD-8CD6-6C9D4AA8C55C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{33159B88-8B14-4642-A27A-82E0E8DFBDA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebErpExt5", "WebErpExt5\WebErpExt5.csproj", "{9BF1619D-E61D-4B6F-A277-A7068E0E462C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F24CAEBF-6DD3-45C3-B34F-6B2AA8A9809D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24CAEBF-6DD3-45C3-B34F-6B2AA8A9809D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24CAEBF-6DD3-45C3-B34F-6B2AA8A9809D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24CAEBF-6DD3-45C3-B34F-6B2AA8A9809D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AAFC3C0-AC65-41CD-8CD6-6C9D4AA8C55C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AAFC3C0-AC65-41CD-8CD6-6C9D4AA8C55C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AAFC3C0-AC65-41CD-8CD6-6C9D4AA8C55C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AAFC3C0-AC65-41CD-8CD6-6C9D4AA8C55C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33159B88-8B14-4642-A27A-82E0E8DFBDA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33159B88-8B14-4642-A27A-82E0E8DFBDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33159B88-8B14-4642-A27A-82E0E8DFBDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33159B88-8B14-4642-A27A-82E0E8DFBDA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BF1619D-E61D-4B6F-A277-A7068E0E462C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF1619D-E61D-4B6F-A277-A7068E0E462C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF1619D-E61D-4B6F-A277-A7068E0E462C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BF1619D-E61D-4B6F-A277-A7068E0E462C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

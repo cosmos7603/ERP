@@ -1,0 +1,36 @@
+﻿@model WebErpExt5.Models.IndexModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dynamika</title>
+    <script id="microloader" type="text/javascript" src="~/bootstrap.js"></script>
+
+    @using System.Collections    @using System.Globalization    @using System.Resources
+
+    @using WebErpExt5.resources
+    @{
+        Layout = null;
+        // Get a set of resources appropriate to the culture defined by the browser
+        ResourceSet resourceSet = Labels.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+        
+    }
+
+    <script type="text/javascript">
+        var Resources = {};
+@foreach (DictionaryEntry res in resourceSet)
+{
+    // Create a property on the javascript object for each text resource
+    @:Resources.@res.Key = "@Html.Raw(
+        HttpUtility.JavaScriptStringEncode(res.Value.ToString()))";
+                                        }
+    </script>
+
+
+    
+
+
+</head>
+
+</html>

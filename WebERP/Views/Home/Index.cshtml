@@ -1,0 +1,54 @@
+﻿@model WebERP.Models.IndexModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Dynamika</title>
+
+
+    @using System.Collections    @using System.Globalization    @using System.Resources
+    @using WebERP.resources
+    @{
+        Layout = null;
+        // Get a set of resources appropriate to the culture defined by the browser
+        ResourceSet resourceSet = ProductLabels.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+        
+    }
+
+    <script type="text/javascript">
+        var Resources = {};
+@foreach (DictionaryEntry res in resourceSet)
+{
+    // Create a property on the javascript object for each text resource
+    @:Resources.@res.Key = "@Html.Raw(
+        HttpUtility.JavaScriptStringEncode(res.Value.ToString()))";
+                }
+    </script>
+
+
+    @if (Model.CurrentEnvironment == "Local")
+    {
+@*<link rel="stylesheet" type="text/css" href="@Url.Content("~/bootstrap.css")" />*@
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/ext/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css")" />
+        
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/resources/site.css")" />
+
+        <script type="text/javascript" src="@Url.Content("~/ext/ext-all-dev.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/ext/packages/ext-locale/build/ext-locale-" + Model.Language + ".js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/app.js")"></script>
+    }
+
+    @if (Model.CurrentEnvironment != "Local")
+    {
+        <link rel="stylesheet" href="@Url.Content("~/resources/WC-all.css")" />
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/resources/site.css")" />
+        
+        <script type="text/javascript" src="@Url.Content("~/app.js")"></script>
+    }
+
+
+
+</head>
+
+</html>

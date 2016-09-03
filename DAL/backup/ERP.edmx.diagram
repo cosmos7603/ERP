@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="65d8ed04c6c04fec9070a5cb77c99db5" Name="Diagram1" ZoomLevel="62" >
+        <EntityTypeShape EntityType="ERP.Address" Width="1.5" PointX="10.25" PointY="8.625" />
+        <EntityTypeShape EntityType="ERP.ChargeMethod" Width="1.5" PointX="0.75" PointY="9.25" />
+        <EntityTypeShape EntityType="ERP.CientType" Width="1.5" PointX="3" PointY="15.75" />
+        <EntityTypeShape EntityType="ERP.Client" Width="1.5" PointX="5.25" PointY="7.375" />
+        <EntityTypeShape EntityType="ERP.ComercialAgent" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="ERP.CustomerOrder" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="ERP.PaymentDueDateType" Width="1.5" PointX="0.75" PointY="6.375" />
+        <EntityTypeShape EntityType="ERP.ProductFamily" Width="1.5" PointX="12.75" PointY="9.625" />
+        <EntityTypeShape EntityType="ERP.Product" Width="1.5" PointX="15" PointY="8.625" />
+        <EntityTypeShape EntityType="ERP.Provider" Width="1.5" PointX="8" PointY="7.5" />
+        <EntityTypeShape EntityType="ERP.ProviderType" Width="1.5" PointX="5.75" PointY="14.5" />
+        <EntityTypeShape EntityType="ERP.Sector" Width="1.5" PointX="3" PointY="13.25" />
+        <EntityTypeShape EntityType="ERP.Tax" Width="1.5" PointX="5.75" PointY="4.375" />
+        <EntityTypeShape EntityType="ERP.Zone" Width="1.5" PointX="3" PointY="5.625" />
+        <AssociationConnector Association="ERP.FK_AddressClient" />
+        <AssociationConnector Association="ERP.FK_AddressProvider" />
+        <AssociationConnector Association="ERP.FK_ChargeMethodClient" />
+        <AssociationConnector Association="ERP.FK_ClientOrderChargeMethod" />
+        <AssociationConnector Association="ERP.FK_ProviderChargeMethod" />
+        <AssociationConnector Association="ERP.FK_CientTypeClient" />
+        <AssociationConnector Association="ERP.FK_ClientClientOrder" />
+        <AssociationConnector Association="ERP.FK_ClientSector" />
+        <AssociationConnector Association="ERP.FK_PaymentDueDateTypeClient" />
+        <AssociationConnector Association="ERP.FK_ZoneClient" />
+        <AssociationConnector Association="ERP.FK_PaymentDueDateTypeClientOrder" />
+        <AssociationConnector Association="ERP.FK_ProductProductFamily" />
+        <AssociationConnector Association="ERP.FK_ProviderTax" />
+        <AssociationConnector Association="ERP.FK_ProviderTypeProvider" />
+        <AssociationConnector Association="ERP.FK_SectorProvider" />
+        <AssociationConnector Association="ERP.FK_ZoneProvider" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
