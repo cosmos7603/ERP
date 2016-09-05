@@ -1,8 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Entities.POCOEntities;
+﻿using Entities.POCOEntities;
 
-namespace KendoMvcERP.Models
+namespace ERP.Models
 {
     public class ClientViewModel : ClientPOCO
     {

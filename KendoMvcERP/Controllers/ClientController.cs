@@ -1,89 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BLL.Abstract;
 using BLL.Concrete;
 using Entities.POCOEntities;
+using ERP.Models;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
-using KendoMvcERP.Models;
 
-namespace KendoMvcERP.Controllers
+namespace ERP.Controllers
 {
     public class ClientController : Controller
     {
 
 
-        protected IManager<ClientPOCO> clientManager = GetClientManager();
 
-        protected IManager<ClientTypePOCO> clientTypeManager { get; set; }
-        //protected IManager<ChargeMethodPOCO> chargeMethodManager { get; set; }
-        //protected IManager<ComercialAgentPOCO> comercialAgentManager { get; set; }
-        //protected IManager<TaxPOCO> taxManager { get; set; }
-        //protected IManager<PaymentDueDateTypePOCO> paymentDueDateTypeManager { get; set; }
 
-        private static IManager<ClientPOCO> GetClientManager()
+		public ActionResult Index()
+		{
+			var clients = clientManager.GetAll();
+			return View(clients);
+		}
+
+		public ActionResult Clients()
         {
-            return ManagerFactory.GetInstance().GetManagerFor<ClientPOCO>();
-        }
-    
-        private static IManager<ChargeMethodPOCO> GetChargeMethodManager()
-        {
-            return ManagerFactory.GetInstance().GetManagerFor<ChargeMethodPOCO>();
-        }
-        private static IManager<ClientTypePOCO> GetClientTypeManager()
-        {
-            return ManagerFactory.GetInstance().GetManagerFor<ClientTypePOCO>();
-        }
-        private static IManager<ComercialAgentPOCO> GetComercialAgentManager()
-        {
-            return ManagerFactory.GetInstance().GetManagerFor<ComercialAgentPOCO>();
-        }
-        private static IManager<TaxPOCO> GetTaxManager()
-        {
-            return ManagerFactory.GetInstance().GetManagerFor<TaxPOCO>();
-        }
-
-        private static IManager<PaymentDueDateTypePOCO> GetPaymentDueDateTypeManager()
-        {
-            return ManagerFactory.GetInstance().GetManagerFor<PaymentDueDateTypePOCO>();
-        }
-
-        public ActionResult Clients()
-        {
-           // clientManager = GetClientManager();
-            
-            //chargeMethodManager = GetChargeMethodManager();
-            clientTypeManager = GetClientTypeManager();
-            //comercialAgentManager = GetComercialAgentManager();
-            //taxManager = GetTaxManager();
-            //paymentDueDateTypeManager = GetPaymentDueDateTypeManager();
-
-
-
-
-            //var chargeMethods = chargeMethodManager.GetAll();
-            //ViewData["ChargeMethods"] = chargeMethods;
-
-
-            var clientTypes = clientTypeManager.GetAll();
-            ViewData["ClientTypes"] = clientTypes;
-
-
-
-            //var comercialAgents = comercialAgentManager.GetAll();
-            //ViewData["ComercialAgents"] = comercialAgents;
-
-
-            //var taxes = taxManager.GetAll();
-            //ViewData["Taxes"] = taxes;
-
-            //var paymentDueDateTypes = paymentDueDateTypeManager.GetAll();
-            //ViewData["PaymentDueDateTypes"] = paymentDueDateTypes;
-
-            return View();
+            clientManager = GetClientManager();
+	        var clients = clientManager.GetAll();
+            return View(clients);
         }
 
 
@@ -146,5 +87,40 @@ namespace KendoMvcERP.Controllers
 
             return Json(new[] { client }.ToDataSourceResult(request, ModelState));
         }
-    }
+
+
+
+
+
+		protected IManager<ClientPOCO> clientManager = GetClientManager();
+
+		protected IManager<ClientTypePOCO> clientTypeManager { get; set; }
+
+		private static IManager<ClientPOCO> GetClientManager()
+		{
+			return ManagerFactory.GetInstance().GetManagerFor<ClientPOCO>();
+		}
+
+		private static IManager<ChargeMethodPOCO> GetChargeMethodManager()
+		{
+			return ManagerFactory.GetInstance().GetManagerFor<ChargeMethodPOCO>();
+		}
+		private static IManager<ClientTypePOCO> GetClientTypeManager()
+		{
+			return ManagerFactory.GetInstance().GetManagerFor<ClientTypePOCO>();
+		}
+		private static IManager<ComercialAgentPOCO> GetComercialAgentManager()
+		{
+			return ManagerFactory.GetInstance().GetManagerFor<ComercialAgentPOCO>();
+		}
+		private static IManager<TaxPOCO> GetTaxManager()
+		{
+			return ManagerFactory.GetInstance().GetManagerFor<TaxPOCO>();
+		}
+
+		private static IManager<PaymentDueDateTypePOCO> GetPaymentDueDateTypeManager()
+		{
+			return ManagerFactory.GetInstance().GetManagerFor<PaymentDueDateTypePOCO>();
+		}
+	}
 }

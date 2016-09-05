@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BLL.Abstract;
 using BLL.Concrete;
 using Entities.POCOEntities;
+using ERP.Models;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
-using KendoMvcERP.Models;
 
-namespace KendoMvcERP.Controllers
+namespace ERP.Controllers
 {
     public partial class SaleController : Controller
     {

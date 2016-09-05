@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BLL.Abstract;
 using BLL.Concrete;
 using Entities.POCOEntities;
 
-
-namespace WebErpExt5.Controllers
+namespace ERP.Controllers
 {
     public abstract class RestController<T> : Controller where T : EntityPOCO
     {

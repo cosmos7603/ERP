@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebErpExt5", "WebErpExt5\We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebErpKendo", "WebErpKendo\WebErpKendo.csproj", "{B37E2C78-DAA0-4A7B-9B76-AE07E57FE998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KendoMvcERP", "KendoMvcERP\KendoMvcERP.csproj", "{A0C565CC-ED54-49C6-8202-B5456A52AC8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InspiniaERP", "KendoMvcERP\InspiniaERP.csproj", "{A0C565CC-ED54-49C6-8202-B5456A52AC8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceFiles", "ResourceFiles\ResourceFiles.csproj", "{67BD323F-1D4D-4AA5-89BF-9E5DFABBF770}"
 EndProject
