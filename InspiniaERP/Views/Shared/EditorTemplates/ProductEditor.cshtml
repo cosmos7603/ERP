@@ -1,0 +1,71 @@
+@using Entities.POCOEntities
+@model ProductPOCO
+<style>
+	.clientEdit { width: 70%; }
+</style>
+
+
+@using (Html.BeginForm())
+{
+	<fieldset>
+		<div class="editor-label">
+			@Html.LabelFor(m => m.ShortDescription)
+		</div>
+		<div class="editor-field">
+			@(Html.Kendo().TextBoxFor(m => m.ShortDescription).HtmlAttributes(new {@class = "clientEdit"}))
+			@Html.ValidationMessageFor(model => model.ShortDescription)
+		</div>
+		<div class="editor-label">
+			@Html.LabelFor(m => m.ProductCode)
+		</div>
+		<div class="editor-field">
+			@(Html.Kendo().TextBoxFor(m => m.ProductCode).HtmlAttributes(new {@class = "clientEdit"}))
+			@Html.ValidationMessageFor(model => model.ProductCode)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(m => m.ProviderId)
+		</div>
+		<div class="editor-field">
+			@(Html.Kendo().DropDownListFor(m => m.ProviderId).BindTo((List<ProviderPOCO>) ViewData["Providers"]).HtmlAttributes(new {data_value_primitive = true}).DataTextField("ComercialName").DataValueField("Id"))
+			@Html.ValidationMessageFor(model => model.ProviderId)
+		</div>
+		<div class="editor-label">
+			@Html.LabelFor(m => m.ProductFamilyId)
+		</div>
+		<div class="editor-field">
+			@(Html.Kendo().DropDownListFor(m => m.ProductFamilyId).BindTo((List<ProductFamilyPOCO>) ViewData["ProductFamilies"]).HtmlAttributes(new {data_value_primitive = true}).DataTextField("Description").DataValueField("Id"))
+			@Html.ValidationMessageFor(model => model.ProductFamilyId)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(m => m.Stock)
+		</div>
+		<div class="editor-field">
+			@(Html.Kendo().NumericTextBoxFor(m => m.Stock).HtmlAttributes(new {@class = "clientEdit"}))
+			@Html.ValidationMessageFor(model => model.Stock)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(m => m.SalePrice)
+		</div>
+		<div class="editor-field">
+			@(Html.Kendo().NumericTextBoxFor(m => m.SalePrice).HtmlAttributes(new {@class = "clientEdit"}))
+			@Html.ValidationMessageFor(model => model.SalePrice)
+		</div>
+		<div class="editor-label">
+			@Html.LabelFor(m => m.Cost)
+		</div>
+		<div class="editor-field">
+			@(Html.Kendo().NumericTextBoxFor(m => m.Cost).HtmlAttributes(new {@class = "clientEdit"}))
+			@Html.ValidationMessageFor(model => model.Cost)
+		</div>
+		<div class="editor-label">
+			@Html.LabelFor(m => m.LongDescription)
+		</div>
+		<div class="editor-field">
+			@(Html.TextAreaFor(model => model.LongDescription, new {@class = "k-textbox clientEdit"}))
+			@Html.ValidationMessageFor(model => model.LongDescription)
+		</div>
+	</fieldset>
+}

@@ -1,0 +1,33 @@
+﻿@using System.Collections
+@using InspiniaERP.Models
+@using Resources
+<div id="main-section" class="col-xs-12 column">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-18 col-md-12">
+				@(Html.MyGrid<ProductViewModel>("grid", "Product")
+					  .Columns(columns =>
+								{
+									columns.Bound(p => p.Id);
+									columns.Bound(p => p.ShortDescription);
+									columns.Bound(p => p.ProductCode);
+									columns.Bound(p => p.Stock);
+									columns.Bound(p => p.Cost);
+									columns.Bound(p => p.SalePrice);
+									columns.ForeignKey(p => p.ProductFamilyId, (IEnumerable) ViewData["ProductFamilies"], "Id", "Description")
+										.Title(Resources.ProductFamily).Width(150);
+									columns.ForeignKey(p => p.ProviderId, (IEnumerable) ViewData["Providers"], "Id", "ComercialName")
+										.Title(Resources.Provider).Width(150);
+									columns.Bound(p => p.LongDescription);
+									columns.Command(command =>
+													{
+														command.Edit();
+														command.Destroy();
+													}).Width(172).Title("Actions");
+								}).ToolBar(toolbar => toolbar.Create().Text(Resources.NewProduct))
+					  .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("Product" + "Editor").Window(window => window.Width(600).Resizable().Scrollable(true).Title(Resources.NewProduct)))
+					  )
+			</div>
+		</div>
+	</div>
+</div>
