@@ -340,11 +340,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Emisión.
+        /// </summary>
+        public static string SaleEmisionDate {
+            get {
+                return ResourceManager.GetString("SaleEmisionDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Estado.
         /// </summary>
         public static string SaleState {
             get {
                 return ResourceManager.GetString("SaleState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estado.
+        /// </summary>
+        public static string SaleStateDescription {
+            get {
+                return ResourceManager.GetString("SaleStateDescription", resourceCulture);
             }
         }
         

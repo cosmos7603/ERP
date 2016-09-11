@@ -7,6 +7,8 @@ namespace Entities.POCOEntities
     public class SaleStatePOCO : EntityPOCO
     {
         public int Id { get; set; }
-        public string Description { get; set; }
+
+		[Display(Name = "SaleStateDescription", ResourceType = typeof(Resources.Resources))]
+		public string Description { get; set; }
     }
 }

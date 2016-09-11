@@ -4,5 +4,6 @@ namespace InspiniaERP.Models
 {
 	public class ClientViewModel : ClientPOCO
 	{
+
 	}
 }

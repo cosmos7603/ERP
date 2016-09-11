@@ -228,4 +228,10 @@
   <data name="Provider" xml:space="preserve">
     <value>Proveedor</value>
   </data>
+  <data name="SaleEmisionDate" xml:space="preserve">
+    <value>Emisión</value>
+  </data>
+  <data name="SaleStateDescription" xml:space="preserve">
+    <value>Estado</value>
+  </data>
 </root>
