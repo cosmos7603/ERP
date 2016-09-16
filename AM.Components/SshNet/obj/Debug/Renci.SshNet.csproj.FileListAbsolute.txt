@@ -1,0 +1,6 @@
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SshNet\bin\Debug\Renci.SshNet.xml
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SshNet\bin\Debug\Renci.SshNet.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SshNet\bin\Debug\Renci.SshNet.pdb
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SshNet\obj\Debug\Renci.SshNet.csprojResolveAssemblyReference.cache
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SshNet\obj\Debug\Renci.SshNet.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SshNet\obj\Debug\Renci.SshNet.pdb

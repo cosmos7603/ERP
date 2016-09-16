@@ -1,0 +1,8 @@
+C:\Projects\TravelLeaders\AgentMate\AM.Components\EPPlus\bin\Debug\EPPlus.XML
+C:\Projects\TravelLeaders\AgentMate\AM.Components\EPPlus\bin\Debug\EPPlus.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\EPPlus\bin\Debug\EPPlus.pdb
+C:\Projects\TravelLeaders\AgentMate\AM.Components\EPPlus\obj\Debug\EPPlus.csprojResolveAssemblyReference.cache
+C:\Projects\TravelLeaders\AgentMate\AM.Components\EPPlus\obj\Debug\EPPlus.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\EPPlus\obj\Debug\EPPlus.pdb
+C:\Projects\TravelLeaders\AgentMate\AM.Components\EPPlus\bin\Debug\EPPlus.dll.CodeAnalysisLog.xml
+C:\Projects\TravelLeaders\AgentMate\AM.Components\EPPlus\bin\Debug\EPPlus.dll.lastcodeanalysissucceeded

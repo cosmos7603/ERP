@@ -1,0 +1,5 @@
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling\bin\Debug\Corpnet.Profiling.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling\bin\Debug\Corpnet.Profiling.pdb
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling\obj\Debug\Profiling.csprojResolveAssemblyReference.cache
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling\obj\Debug\Corpnet.Profiling.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling\obj\Debug\Corpnet.Profiling.pdb

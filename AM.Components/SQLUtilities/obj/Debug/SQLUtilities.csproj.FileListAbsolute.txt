@@ -1,0 +1,10 @@
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\bin\Debug\SQLUtilities.dll.config
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\bin\Debug\SQLUtilities.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\bin\Debug\SQLUtilities.pdb
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\bin\Debug\EntityFramework.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\bin\Debug\EntityFramework.xml
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\obj\Debug\SQLUtilities.csprojResolveAssemblyReference.cache
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\obj\Debug\SQLUtilities.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\SQLUtilities\obj\Debug\SQLUtilities.pdb

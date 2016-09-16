@@ -1,0 +1,12 @@
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\bin\Debug\Corpnet.Profiling.EF6.dll.config
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\bin\Debug\Corpnet.Profiling.EF6.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\bin\Debug\Corpnet.Profiling.EF6.pdb
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\bin\Debug\Corpnet.Profiling.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\bin\Debug\EntityFramework.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\bin\Debug\Corpnet.Profiling.pdb
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\bin\Debug\EntityFramework.xml
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\obj\Debug\Profiling.EF6.csprojResolveAssemblyReference.cache
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\obj\Debug\Corpnet.Profiling.EF6.dll
+C:\Projects\TravelLeaders\AgentMate\AM.Components\Profiling.EF6\obj\Debug\Corpnet.Profiling.EF6.pdb

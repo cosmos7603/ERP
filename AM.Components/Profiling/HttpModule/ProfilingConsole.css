@@ -1,0 +1,123 @@
+﻿body {
+	font-family: Verdana;
+	font-size: small;
+	font-size: 70%;
+}
+
+a {
+	color: #0033CC;
+}
+
+	a:visited {
+		color: Navy;
+	}
+
+	a:hover {
+		color: #FF6600;
+	}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+td {
+	font-size: 70%;
+	border: solid 1px silver;
+	padding: 0.4em;
+	vertical-align: top;
+}
+
+th {
+	font-size: 70%;
+	text-align: left;
+	background-color: #0A6CCE;
+	padding: 0.4em;
+	color: White;
+	vertical-align: top;
+	border: solid 1px silver;
+}
+
+.scroll-view {
+	width: 100%;
+	overflow: scroll;
+}
+
+#page-title {
+	font-family: Verdana;
+	color: #0A6CCE;
+	font-size: 175%;
+	padding-bottom: 0.5em;
+	border-bottom: solid 1px silver;
+}
+
+#footer {
+	border-top: solid 1px silver;
+	padding-top: 5px;
+}
+
+.action-link {
+	font-size: large;
+	font-weight: bold;
+	color: gray;
+}
+
+	.action-link:hover {
+		color: gray;
+	}
+
+	.action-link:visited {
+		color: gray;
+	}
+
+.status-title {
+	font-size: large;
+	font-weight: normal;
+	color: black;
+}
+
+.status-stopped {
+	font-size: large;
+	font-weight: bold;
+	color: red;
+}
+
+.status-running {
+	font-size: large;
+	font-weight: bold;
+	color: green;
+}
+
+.status-disabled {
+	font-size: large;
+	font-weight: bold;
+	color: gray;
+}
+
+.settings-table table
+{
+	width: 600px;
+	border: 1px dashed silver;
+	padding: 3px;
+}
+
+	.settings-table .disabled
+	{
+		color: gray;
+	}
+
+	.settings-table td
+	{
+		border: 1px dashed silver;
+		padding: 3px;
+	}
+
+	.settings-table .field td
+	{
+		width: 250px;
+	}
+
+.red {
+	color: red;
+	font-weight: bold;
+}
