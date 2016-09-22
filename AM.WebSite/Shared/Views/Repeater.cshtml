@@ -1,0 +1,31 @@
+﻿<script id="hbRepeaterPagerTemplate" type="text/x-handlebars-template">
+	<div class="page_control results-pagination">
+		<button id="btnPrev" onclick="" class="btn medium grey outline curve">
+			<i class="fa fa-chevron-left"></i>
+		</button>
+		<strong><span>{{FirstRow}}&nbsp;-&nbsp;{{LastRow}} of {{RowCount}}</span></strong>
+		<button id="btnNext" onclick="" class="btn medium grey outline curve">
+			<i class="fa fa-chevron-right"></i>
+		</button>
+	</div>
+</script>
+
+<script id="hbRepeaterDefaultTemplate" type="text/x-handlebars-template">
+	<tr>
+		<td colspan="999">
+			<p style="color: #afafaf; font-size: 22px; margin: 35px auto 50px; text-align: center;">
+				Use the filtering options above to view your desired results.
+			</p>
+		</td>
+	</tr>
+</script>
+
+<script id="hbRepeaterEmptyTemplate" type="text/x-handlebars-template">
+	<tr>
+		<td colspan="999">
+			<p style="color: darkred; font-size: 22px; margin: 35px auto 50px; text-align: center;">
+				No records found.
+			</p>
+		</td>
+	</tr>
+</script>

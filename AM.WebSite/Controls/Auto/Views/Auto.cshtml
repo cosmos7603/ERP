@@ -1,0 +1,22 @@
+﻿@model AutoModel
+
+@Html.TextBox(Model.ID, Model.Text, Model.HtmlAttributes)
+
+<script type="text/javascript">
+    var options = {
+        action: '@Model.Action',
+        minlength: '@Model.MinLength',
+        delayMs: @Model.DelayMs,
+        autoSelectFirst: '@Model.AutoSelectFirst',
+        text: '@Model.Text',
+        value: '@Model.Value',
+        containerClass: '@Model.ContainerClass',
+        widthPx: @Model.WidthPx,
+        formatResultFunction: @Html.Raw(@Model.FormatResultsFunction),
+        onSelectFunction: @Html.Raw(@Model.OnSelectFunction),
+        onSearchStart: @Html.Raw(@Model.OnSearchStartFunction),
+        onSearchComplete: @Html.Raw(@Model.OnSearchCompleteFunction),
+    };
+
+    $('#@Model.ID').auto(options);
+</script>

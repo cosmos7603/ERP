@@ -1,0 +1,23 @@
+﻿@model CaptchaModel
+
+<div id="@Model.ID" class=".captcha text-center" style="width: 300px; margin: 0 auto;">
+	<div>
+		<img alt="Captcha" src="data:image/png;base64,@Model.Image" style="border: 1px solid lightgray" />
+	</div>
+	<div style="padding-top: 3px;">
+		@Html.PSTextBox("txtCaptchaValue", "", new { @style = "width: 132px; margin-left: 84px", @class = "required", @maxlength = "5", @autocomplete = "off" })
+	</div>
+	<div>
+		<label>Please enter the characters above</label>
+	</div>
+	<input type="hidden" value="@Model.EncryptedValue" id="hddCaptchaEncrypted" />
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#@Model.ID").captcha(
+		{
+			url: '@Url.Action("Captcha", "Captcha")'
+		}).init();
+	});
+</script>

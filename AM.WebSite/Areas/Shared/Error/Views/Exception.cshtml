@@ -1,0 +1,43 @@
+﻿@model AM.WebSite.Areas.Shared.Error.Models.ExceptionModel
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Application Error</title>
+	<link href="/content/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="~/Content/libs/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="~/Content/theme/css/style.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+	<div class="text-center animated fadeInDown">
+		<h3 class="font-bold">Internal Server Error</h3>
+		<h4>Tracking Code:&nbsp;<b>@Model.TrackingCode</b></h4>
+		<div class="error-desc">
+			The server encountered something unexpected that didn't allow it to complete the request. We apologize.<br /><br />
+			You can go back to main page: <br /><a href="/" class="btn btn-primary m-t">Dashboard</a>
+		</div>
+		<br /><br />
+		@if (Model != null)
+		{
+			<hr />
+			<div style="overflow-y: scroll; overflow-x: hidden; height: 180px; width: 100%;">
+				<p><strong><u>Details</u></strong></p>
+				<p>
+					Message: <b>@Model.Message</b>
+				</p>
+				<p>
+					Stack: @Model.StackTrace
+				</p>
+			</div>
+		}
+	</div>
+
+	<!-- Mainly scripts -->
+	<script src="~/content/libs/jquery/jQuery-2.1.4.min.js"></script>
+	<script src="~/content/libs/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

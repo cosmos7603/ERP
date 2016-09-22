@@ -1,0 +1,52 @@
+﻿@model DataFileListModel
+
+<div id="@Model.ID" class="dataFileList">
+    @if (Model.ShowTitle)
+    {
+	<label>
+		@Model.Title
+        @if (Model.Required)
+        {
+            <span class="required-indicator" />
+        }
+	</label>
+    }
+	<div id="divFiles" style="overflow-y: scroll; overflow-x: hidden; height: 100px; background-color: white; border: solid 2px silver; border-radius: 2px; padding-top: 3px; padding-left: 6px; font-size: 11px">
+		@if (Model.Items != null)
+		{
+			foreach (DataFileListItem item in Model.Items)
+			{
+				<div>
+					<a href="@Url.Action("View", "DataFile")@("/?p=" + HttpUtility.UrlEncode(item.DataFileKey))" class="file-view-link" target="_blank" data-file-key="@item.DataFileKey">@item.FileName</a>&nbsp;<a href="Remove" class="file-remove-link" data-file-key="@item.DataFileKey" data-file-name="@item.FileName"><span class="fa fa-times" style="margin-right: 3px; margin-top: 4px;"></span></a>
+				</div>
+			}
+		}
+	</div>
+
+	<div id="divProgress" style="display: none; height: 100px; background-color: gainsboro; border: solid 2px silver; border-radius: 2px; padding-top: 10px; padding-left: 6px; padding-right: 8px; font-size: 11px">
+		<label><span id="lblUploading" style="font-size: smaller;">Uploading...</span></label>
+		<div class="progress" style="width: 100%;">
+			<div id="divProgressBar" class="progress-bar progress-bar-success" role="progressbar">
+			</div>
+		</div>
+		<span id="lblFileName" style="font-size: smaller;">Please wait...</span>
+	</div>
+
+	<div style="margin-top: 5px">
+		<button id="btnFileListAdd" class="btn btn-default btn-xs pull-right">
+			<i class="fa fa-plus"></i>
+		</button>
+	</div>
+	<br />
+</div>
+
+<script type="text/javascript">
+
+	$(document).ready(function ()
+	{
+		$("#@Model.ID").dataFileList(
+		{
+			extensions: '@Model.Extensions'
+		}).init();
+	});
+</script>

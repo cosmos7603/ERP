@@ -1,0 +1,39 @@
+﻿table.dataTable tbody tr.selected {
+	background-color: #C5E4F1;
+}
+
+th.dt-center, td.dt-center {
+	text-align: center;
+}
+
+table.dataTable thead {
+	background-color: #EEEEEE;
+}
+
+.dataTables_scrollHeadInner {
+	background-color: #EEEEEE;
+}
+
+.dataTables_scroll {
+	border-bottom: solid 1px #EEEEEE;
+}
+
+div.dataTables_paginate {
+	margin-top: 5px;
+}
+
+div.dataTables_processing {
+	font-size: 12px;
+	border: solid 2px gainsboro;
+	color: gray;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    background-color: white;
+	padding: 4px;
+	margin-left: auto;
+}
+
+tr.selected {
+	background-color: #d9edf7 !important;
+}

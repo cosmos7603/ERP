@@ -1,0 +1,9 @@
+﻿@model AM.WebSite.Areas.Shared.Error.Models.SessionExpiredModel
+@{
+	Layout = null;
+}
+Session Expired... redirecting to login page.
+
+<script type="text/javascript">
+	window.location.href = "@Model.LoginPage";
+</script>

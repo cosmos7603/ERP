@@ -1,0 +1,19 @@
+﻿@model AM.WebSite.Controls.Tabs.Models.TabsModel
+
+<div class="tabs-container">
+	<ul class="nav nav-tabs">
+		@foreach (TabItem t in Model.Tabs)
+		{
+			<li class="@(t.Active ? "active" : "")"><a id="@t.TabID" href="#@t.TabPaneID" data-toggle="tab">@t.Title</a></li>
+		}
+	</ul>
+	<div class="tab-content">
+		@foreach (TabItem t in Model.Tabs)
+		{
+			<div class="tab-pane@(t.Active ? " active" : string.Empty)" id="@t.TabPaneID">
+				<div class="panel-body" id="@t.DivID">
+				</div>
+			</div>
+		}
+	</div>
+</div>

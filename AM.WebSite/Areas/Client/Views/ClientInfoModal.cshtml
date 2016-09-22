@@ -1,0 +1,66 @@
+﻿
+@model AM.WebSite.Areas.Client.Models.ClientModel
+<div class="modal fade" role="dialog" id="clientModal">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			@using (Html.BeginForm("Save", "Client", FormMethod.Post, new { id = "frmClientInfo", autocomplete = "off", role = "form" }))
+			{
+				<div class="modal-header">
+					<div class="pull-right required-label">(*) Required fields</div>
+					<h4 class="modal-title">@Model.InfoTitle</h4>
+				</div>
+				<div class="modal-body">
+
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Nombre <span class="required-indicator"></span></label>
+							@Html.TextBox("txtFirstName", Model.FirstName, new { @class = "form-control required" })
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Apellido <span class="required-indicator"></span></label>
+							@Html.TextBox("txtLastName", Model.LastName, new {@class = "form-control required"})
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Nombre Comercial <span class="required-indicator"></span></label>
+							@Html.TextBox("txtComercialName", Model.ComercialName, new { @class = "form-control required" })
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>CUIT <span class="required-indicator"></span></label>
+							@Html.TextBox("txtCuit", Model.CUIT, new {@class = "form-control required"})
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label> DNI <span class="required-indicator"></span></label>
+							@Html.TextBox("txtDni", Model.DNI, new {@class = "form-control required"})
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						@*<div class="col-sm-10">
+							<label>Activo <span class="required-indicator"></span></label>
+							@Html.CheckBox("chkActive", Model.Active, new {@class = "form-control required"})
+						</div>*@
+						<div class="col-sm-2">
+							<label style="display: block">Activo</label>
+							@Html.PSCheckBox("chkActive", Model.Active)
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="btnSaveClient" class="btn btn-primary" style="margin-bottom: 0">Save</button>
+					<button data-dismiss="modal" class="btn btn-default">Cancel</button>
+					@*@if (Model.Id != 0 /*&& Model.CanCompleteOrDeleteReminder*/)
+					{
+						<button id="btnDeleteClient" class="btn btn-danger">Delete</button>
+					}*@
+				</div>
+			}
+		</div>
+	</div>
+</div>

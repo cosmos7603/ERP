@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Shared Head HTML -->
+	@Html.Partial("~/Shared/Views/Head.cshtml")
+
+	<!-- Styles-->
+	@Styles.Render("~/bundles/main-css")
+
+	<!-- Scripts -->
+	@Scripts.Render("~/bundles/main-js")
+
+	<!-- URLs -->
+	@Scripts.Render("~/Global/URLs")
+
+	<!-- Page scripts -->
+	@RenderSection("Scripts", required: false)
+</head>
+
+<body class="hold-transition skin-@Config.Application.ThemeSkin.ToLower() sidebar-mini">
+	<div class="wrapper">
+		<!-- Main Header -->
+		<header class="main-header">
+			<!-- Logo -->
+			<a href="@Url.Action("Index", "Home")" class="logo">
+				<!-- mini logo for sidebar mini 50x50 pixels -->
+				<span class="logo-mini"><b>@Config.Application.ProjectCode</b></span>
+				<!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b>@Config.Application.AppName</b></span>
+			</a>
+			<!-- Header Navbar -->
+			@Html.AMHeader()
+		</header>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper" style="min-height: 950px;">
+			@RenderBody()
+		</div>
+		
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			@Html.AMFooter()
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿@model AM.WebSite.Controls.RichEditor.Models.RichEditorModel
+@Html.TextArea(Model.ID, Model.Content, Model.HtmlAttributes)
+
+	<script type="text/javascript">
+		var options = {};
+		$('#@Model.ID').richEditor(options);
+	</script>

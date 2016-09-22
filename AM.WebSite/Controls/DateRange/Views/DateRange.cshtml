@@ -1,0 +1,38 @@
+﻿@model DateRangeModel
+
+<div id="@Model.ID">
+    <div class="row">
+        <div class="col-xs-12">
+				<label>@(Model.Title)</label>
+				<select id="ddlDateRange_@Model.ID" class="form-control" style="min-width: 180px">
+					@foreach (DateRangeOptionModel dro in Model.DateRangeList)
+					{
+						<option @((Model.DateRangeCode == dro.DateRangeCode) ? "selected=selected" : "") value="@dro.DateRangeCode" data-from="@(dro.FromDate.HasValue ? dro.FromDate.ToShortDateString() : string.Empty)" data-to="@(dro.ToDate.HasValue ? dro.ToDate.ToShortDateString() : String.Empty)">@dro.Title</option>
+					}
+				</select>
+
+        </div>
+        <div class="col-xs-6" style="margin-top: 5px;">
+			<div class="form-group">
+				@Html.PSDatePicker("txtFromDateDS_" + Model.ID, @Model.FromDate, new { @style = "width: 100%; min-width: 85px; text-align: center" })
+			</div>
+        </div>
+		<div class="col-xs-6" style="margin-top: 5px;">
+			<div class="form-group">
+				@Html.PSDatePicker("txtToDateDS_" + Model.ID, @Model.ToDate, new { @style = "width: 100%; min-width: 85px; text-align: center" })
+			</div>
+		</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#@Model.ID').dateRange(
+    {
+        ddlDateRangeId: 'ddlDateRange_@Model.ID',
+        txtFromDateId: 'txtFromDateDS_@Model.ID',
+        txtToDateId: 'txtToDateDS_@Model.ID',
+        initialDateRange: '@Model.DateRangeCode',
+        initialFromValue: '@Model.FromDate',
+        initialToValue: '@Model.ToDate'
+    });
+</script>

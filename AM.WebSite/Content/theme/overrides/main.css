@@ -1,0 +1,145 @@
+﻿body {
+	overflow-y: scroll;
+}
+
+/* Required indicators */
+.required-label {
+	font-size: 10px;
+	font-style: italic;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.required-indicator {
+	color: red;
+	padding-left: 5px;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+	.required-indicator:before {
+		content: "* ";
+	}
+
+.new-indicator {
+	display: none;
+	font-weight: bold;
+}
+
+	/* New indicator */
+	.new-indicator:before {
+		content: " (NEW) ";
+	}
+
+
+/* Timeout warnings */
+.timeout-link {
+	color: white;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
+.timeout-warning {
+	width: 100%;
+	height: 50px;
+	background-color: #CC0000;
+	top: 0px;
+	text-align: center;
+	position: fixed;
+	display: none;
+	color: #FFF;
+}
+
+/* Field validation errors */
+div.error > a,
+input.error,
+select.error,
+textarea.error {
+	border: 1px solid red !important;
+	background-color: lightpink !important;
+}
+
+	div.error > a > .select2-arrow {
+		background-color: lightpink !important;
+	}
+
+/* Info titles inside tabs */
+.info-title-line {
+	margin-top: 5px;
+}
+
+.info-title {
+	margin-top: 5px;
+}
+
+/* Validation messages */
+.validation-msg {
+	padding: 0px;
+	margin-top: 10px;
+	margin-bottom: -20px;
+}
+
+/* Clickable rows */
+tr.clickable-row {
+	cursor: pointer;
+}
+
+	tr.clickable-row:hover {
+		background-color: #F5F5F5;
+	}
+
+.logo-lg {
+	padding: 16px 20px !important;
+}
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.error-list {
+	padding-left: 20px;
+}
+
+#toast-container > div {
+	width: 400px;
+}
+
+.checkbox-label {
+	cursor: pointer;
+}
+
+.overdue .js-appointment {
+	color: #CC0000;
+}
+
+#remindersContainer a:focus {
+	outline: none;
+}
+
+.disabled {
+	background-color: #F7F7F7;
+}
+
+.infoItem {
+	color: #f7a54a;
+}
+
+.truncate {
+	-moz-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.table-filter {
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.selectable-row:hover {
+	cursor: pointer;
+	background-color: #eee;
+}

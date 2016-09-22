@@ -1,0 +1,16 @@
+﻿@model AM.WebSite.Areas.Shared.SessionInfo.Models.SessionInfoModel
+
+@Html.Script("/Areas/Shared/SessionInfo/JS/SessionInfo.js")
+
+<div class="wrapper-session-title">
+	<span class="session-title">
+		@Model.Title
+
+		@if (Model.ChangeSessionRights)
+		{
+			<button class="btn-primary btn-sm dropdown-toggle header-change-button" type="button" id="btnChangeClient">
+				<strong>Change</strong>
+			</button>
+		}
+	</span>
+</div>

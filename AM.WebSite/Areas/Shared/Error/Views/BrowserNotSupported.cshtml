@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Paradigm Back Office</title>
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- Styles -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-overrides.css" rel="stylesheet" />
+    <link href="~/Content/css/AM.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <div style="margin-top: 9px;">
+                    <img alt="Brand" src="@Url.Content(@"~/Content/images/layout/header-logo.png")" class="img-responsive">
+                </div>
+            </div>
+        </div>
+        <!--/container -->
+    </nav>
+    <div id="body">
+        <div class="container">
+            <div class="alert alert-danger alert-error">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <table>
+                    <tr>
+                        <td style="width: 45px; padding-top: 5px;">
+                            <img src="~/Content/images/Icons/icon-error.png" />
+                        </td>
+                        <td>The browser you are using will not work with this application. Please use one of the following browsers to login:<br /><br />
+                            <ul>
+                                <li>Internet Explorer (Version 9+)</li>
+                                <li>Firefox (Version 21+)</li>
+                                <li>Safari (Version 6+)</li>
+                                <li>Chrome (Version 27+)</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <div id="Footer">
+            <div class="text-center">
+                <small>© @DateTime.Now.Year - Primero Systems - Paradigm Back Office v @AppInfo.Version.ToString()
+                </small>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        // Commented for now, but it might be a good idea to have
+        // all title attribuets to show using qTip2
+        //$('[title!=""]').qtip();
+    </script>
+</body>
+</html>

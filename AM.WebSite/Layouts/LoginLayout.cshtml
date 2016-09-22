@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Shared Head HTML -->
+	@Html.Partial("~/Shared/Views/Head.cshtml")
+
+	<!-- Styles-->
+	@Styles.Render("~/bundles/login-css")
+
+	<!-- Scripts -->
+	@Scripts.Render("~/bundles/login-js")
+
+    <!-- Page scripts -->
+    @RenderSection("Scripts", required: false)
+
+    <!-- Browser detection -->
+	@Html.Partial("~/Shared/Views/BrowserDetection.cshtml")
+
+    <!-- Google Analytics -->
+    @*@Html.Partial("~/Shared/Views/GoogleAnalytics.cshtml", Config.Integration.GoogleAnalyticsCode)*@
+</head>
+<body  class="gray-bg">
+	@Html.Partial("~/Shared/Views/Dialogs.cshtml")
+
+	<div class="middle-box text-center loginscreen animated fadeInDown">
+		<div>
+			<div>
+				<h1 class="logo-name">AM</h1>
+			</div>
+
+			
+			@RenderBody()
+
+		</div>
+	</div>
+    <footer>
+        <div id="Footer">
+            <div class="text-center">
+                <small>
+                    @AppInfo.LoginFooter
+                </small>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

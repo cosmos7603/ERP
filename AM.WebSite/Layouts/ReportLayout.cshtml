@@ -1,0 +1,24 @@
+﻿@using AM.WebSite.HtmlHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Shared Head HTML -->
+	@Html.Partial("~/Shared/Views/Head.cshtml")
+
+	<!-- Styles-->
+	@Styles.Render("~/bundles/main-css")
+
+	<!-- Scripts -->
+	@Scripts.Render("~/bundles/main-js")
+
+	<!-- URLs -->
+	@Scripts.Render("~/Global/URLs")
+
+	<!-- Page scripts -->
+	@RenderSection("Scripts", required: false)
+</head>
+
+@*<body class="canvas-menu">*@
+@RenderBody()
+</html>

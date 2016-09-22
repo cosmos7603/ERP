@@ -1,0 +1,109 @@
+﻿@model MenuModel
+@using AM.WebSite.Areas.Shared.Menu.Models
+@Html.Script("/Areas/Shared/Menu/JS/Menu.js")
+@Html.Raw(Html.AMActiveUser())
+
+<ul class="nav metismenu" id="side-menu">
+	@foreach (var moduleItem in Model.Modules)
+	{
+		<li>
+			@RenderModuleItem(moduleItem)
+			<ul class="nav nav-second-level collapse">
+				@foreach (var menuItem in moduleItem.MenuItems.OrderBy(x => x.Position))
+				{
+					@RenderMenuItem(menuItem)
+				}
+			</ul>
+		</li>
+	}
+</ul>
+@functions
+{
+	HtmlString RenderModuleItem(MenuModel.ModuleItem moduleItem)
+	{
+		var warningLabel = "";
+		if (moduleItem.WarningLabelCount > 0)
+			warningLabel = "<span class='label label-warning menu-warning-label'>" + moduleItem.WarningLabelCount + "</span>";
+		var s = "<a href='#'>" + "<i class='fa " + GetIcon(moduleItem.Title) + "'" + "></i>" + " <span class='nav-label'>" + moduleItem.Title + "</span>" + warningLabel + "<span class='fa arrow'></span></a>";
+
+		return new HtmlString(s);
+	}
+
+	private string GetIcon(string title)
+	{
+		var icon = "";
+		switch (title)
+		{
+			case "Reservations":
+				icon = "fa-paper-plane";
+				break;
+			case "Utilities":
+				icon = "fa-gear";
+				break;
+			case "Client":
+				icon = "fa-users";
+				break;
+			case "Accounting":
+				icon = "fa-money";
+				break;
+			case "Reports":
+				icon = "fa-bar-chart-o";
+				break;
+			case "Inventory":
+				icon = "fa-globe";
+				break;
+
+
+		}
+		return icon;
+	}
+
+	HtmlString RenderMenuItem(MenuModel.MenuItem menuItem)
+	{
+		var warningLabel = "";
+		if (menuItem.WarningLabelCount > 0)
+			warningLabel = "<span class='label label-warning menu-warning-label pull-middle'>" + menuItem.WarningLabelCount + "</span>";
+
+		var s = "";
+
+		var childs = menuItem.Childs.OrderBy(x => x.Position);
+
+		if (childs.Any())
+		{
+			s += "<li>";
+
+			if (!string.IsNullOrEmpty(menuItem.Path))
+				s += "<a href='" + menuItem.Path + "'>" + menuItem.Title + "<span class='fa arrow'></span>" + "</a>";
+			else
+				s += "<a href='#'>" + menuItem.Title + "<span class='fa arrow'></span>" + "</a>";
+
+			s += "<ul class='nav nav-third-level collapse'>";
+
+			s = childs.Aggregate(s, (current, child) => current + RenderSubmenuItem(child).ToString());
+
+			s += "</ul>";
+			s += "</li>";
+		}
+		else
+		{
+			s += "<li><a href='" + menuItem.Path + "'>" + menuItem.Title + " " + warningLabel + "</a>" + "</li>";
+		}
+
+		if (menuItem.Separator)
+			s += "<li class='divider'></li>";
+
+		return new HtmlString(s);
+	}
+
+	HtmlString RenderSubmenuItem(MenuModel.MenuItem menuItem)
+	{
+		var s = "";
+
+		s += "<li><a href='" + menuItem.Path + "' " + ">" + menuItem.Title + "</a></li>";
+
+		if (menuItem.Separator)
+			s += "<li class='divider'></li>";
+
+		return new HtmlString(s);
+	}
+}

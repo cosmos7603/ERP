@@ -1,0 +1,25 @@
+﻿@model AM.WebSite.Areas.Shared.Header.Models.CriticalNotificationModel
+
+@foreach (var item in Model.CriticalNotifications)
+{
+	<li>
+		<a href='@string.Format("javascript:legacysso('/{0}')",@item.ActionURL)' class="count-info">
+			@switch (item.Description)
+			{
+				case "Online payments in queue!":
+					<i class="fa  fa-credit-card" title="@item.Description"></i>
+					break;
+				case "CruisePRO bookings in queue!":
+					<i class="fa fa-anchor" title="@item.Description"></i>
+					break;
+				case "Group registrations in queue!":
+					<i class="fa fa-tag" title="@item.Description"></i>
+					break;
+				case "Lead requests in queue!":
+					<i class="fa fa-comments" title="@item.Description"></i>
+					break;
+			}
+			<span class="label label-warning">@item.Quantity</span>
+		</a>
+	</li>
+}

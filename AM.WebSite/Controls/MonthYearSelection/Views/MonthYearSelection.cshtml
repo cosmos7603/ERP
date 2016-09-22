@@ -1,0 +1,25 @@
+﻿@model MonthYearSelectionModel
+
+<div id="@Model.ID">
+	<div class="row">
+		<div class="col-xs-6">
+			<label>Month</label>
+			@Html.PSCombo("cboMonth_" + @Model.ID, Model.MonthSelectList)
+		</div>
+		<div class="col-xs-6">
+			<label>Year</label>
+			@Html.PSCombo("cboYear_"+ @Model.ID, Model.YearSelectList, new { style = "width: 100px" })
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    $('#@Model.ID').monthYearSelection(
+    {
+		ID: '@Model.ID',
+    	cboMonthID: 'cboMonth_@Model.ID',
+    	cboYearID: 'cboYear_@Model.ID',
+        initialMonthValue: '@Model.Month',
+        initialYearValue: '@Model.Year'
+    });
+</script>

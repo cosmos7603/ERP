@@ -1,0 +1,87 @@
+﻿@model AM.WebSite.Areas.Shared.Header.Models.HeaderModel
+
+@if (!AppInfo.PublicMode)
+{
+	@Html.AMTimeoutWarning()
+}
+
+<nav class="navbar navbar-static-top @Model.HeaderColorClass" role="navigation">
+
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	@if (!AppInfo.PublicMode)
+	{
+		<ul class="nav navbar-nav navbar-top-links">
+			<li>
+				<a class="navbar-minimalize" href="#"><i class="fa fa-bars"></i> </a>
+			</li>
+			@if (!(ViewContext.RouteData.GetRequiredString("controller").ToLower() == "dashboard" && ViewContext.RouteData.GetRequiredString("action").ToLower() == "index"))
+			{
+				if (@Model.HeaderColorClass == "navbar-blue")
+				{
+					<li><a href="/Main/Dashboard" class="btn btn-success" id="btnLinkDashboard">Dashboard</a></li>
+				}
+				else if (@Model.HeaderColorClass == "navbar-green")
+				{
+					<li><a href="/Main/Dashboard" class="btn btn-primary" id="btnLinkDashboard">Dashboard</a></li>
+				}
+
+			}
+			<li class="dropdown">
+				@Html.AMRecentItem()
+			</li>
+			<li class="dropdown">
+				@Html.AMNewItem()
+			</li>
+		</ul>
+		<ul class="nav navbar-nav navbar-nav-wide">
+			<li class="navbar-search-textbox navbar-search-block">
+				<form role="search" class="navbar-form-custom navbar-form-block" action="/Main/SmartSearchResult">
+					@Html.AMAutoCompleteSearch()
+				</form>
+			</li>
+
+		</ul>
+
+		<ul class="nav navbar-top-links navbar-right">
+			@if (AppInfo.ActiveStore.FullVersion)
+			{
+				@Html.AMCriticalNotifications()
+			}
+			<li>
+				<a class="right-sidebar-toggle">
+					<i class="fa fa-tasks"></i>
+				</a>
+			</li>
+			@*<li>
+					<div class="dropdown profile-element">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<span class="clear">
+								<span class="block m-t-xs">
+									<strong class="font-bold">@AppInfo.ActiveUser.UserName</strong>
+								</span> <span class="text-muted text-xs block">@AppInfo.ActiveUser.StoreName<b class="caret"></b></span>
+							</span>
+						</a>
+						<ul class="dropdown-menu animated fadeInRight m-t-xs"></ul>
+					</div>
+				</li>*@
+			<li><a href="/Accounts/Login/Logout"><i class="fa fa-sign-out"></i><span class="hidden-sm hidden-xs">Log out</span></a></li>
+		</ul>
+		<div class="clearfix"></div>
+
+		<div id="right-sidebar">
+			<div class="sidebar-container">
+				<ul class="nav nav-tabs navs-3">
+					<li class="active">
+						<a data-toggle="tab" href="#divStoreNewsTab">Messages</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div id="divStoreNewsTab" class="tab-pane active">
+						@Html.AMStoreNews()
+					</div>
+				</div>
+			</div>
+		</div>
+	}
+</nav>

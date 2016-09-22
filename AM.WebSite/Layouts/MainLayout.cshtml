@@ -1,0 +1,54 @@
+﻿@using AM.WebSite.HtmlHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Shared Head HTML -->
+	@Html.Partial("~/Shared/Views/Head.cshtml")
+
+	<!-- Styles-->
+	@Styles.Render("~/bundles/main-css")
+
+	<!-- Scripts -->
+	@Scripts.Render("~/bundles/main-js")
+
+	<!-- URLs -->
+	@Scripts.Render("~/Global/URLs")
+
+	<!-- Page scripts -->
+	@RenderSection("Scripts", required: false)
+</head>
+
+@*<body class="canvas-menu">*@
+<body>
+	<div id="wrapper">
+
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				@Html.AMMenu()
+			</div>
+		</nav>
+
+
+		<div id="page-wrapper" class="gray-bg">
+			<div class="row border-bottom">
+				<!-- Header Navbar -->
+				@Html.AMHeader()
+			</div>
+			@RenderSection("PageHeader", required: false)
+			<!-- Content Wrapper. Contains page content -->
+			<div class="wrapper wrapper-content animated fadeInRight">
+				@RenderBody()
+			</div>
+			<!-- Main Footer -->
+			<div class="footer">
+				@Html.AMFooter()
+			</div>
+		</div>
+
+		@*@Html.Partial("~/Layouts/SharedLayout.cshtml")*@
+		@Html.Partial("~/Shared/Views/Dialogs.cshtml")
+
+	</div>
+</body>
+</html>

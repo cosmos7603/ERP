@@ -1,0 +1,20 @@
+﻿@model ComboModel
+
+@Html.DropDownList(Model.ID, Model.DataSource, Model.DropDownOption, Model.HtmlAttributes)
+
+<script type="text/javascript">
+    var action = '@Model.Action';
+    var searchBox = @Model.SearchBox.ToString().ToLower();
+
+    var options = {
+        action: action,
+        placeholder: '@Model.DropDownOption',
+        ddlOption: '@Model.DropDownOption',
+        allowClear: false
+    };
+
+	if (!searchBox)
+        options.minimumResultsForSearch = Infinity;
+
+    $('#@Model.ID').combo(options);
+</script>

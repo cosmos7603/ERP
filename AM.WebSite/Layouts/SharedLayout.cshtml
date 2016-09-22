@@ -1,0 +1,24 @@
+﻿<!-- AJAX loading -->
+<div id="divAjaxLoading" style="display: none; position: absolute; width: 200px; padding: 5px; top: 0; left: 0; background-color: gray; color: white; border-bottom-left-radius: 0px; border-bottom-right-radius: 10px; font-weight: bold; font-family: 'Courier New';">
+	Loading, please wait...
+</div>
+
+<div style="display: none" id="uploadDownloadForms">
+	<!-- File Uploader handler -->
+	@using (Html.BeginForm("Upload", "DataFile", FormMethod.Post, new { id = "frmDataFileUpload", enctype = "multipart/form-data", @class = "hiddenForm"  }))
+	{
+		<input type="file" name="postedFile" id="hddDataFileUploadInput" style="opacity: 0; display: none;"><br />
+	}
+
+	<!-- Data File Download handler -->
+	@using (Html.BeginForm("Download", "DataFile", FormMethod.Post, new { id = "frmDataFileDownload" }))
+	{
+		<input type="hidden" id="hddDownloadDataFileKey" name="DataFileKey" />
+	}
+
+	<!-- Regular File Download handler -->
+	@using (Html.BeginForm("DownloadFile", "DataFile", FormMethod.Post, new { id = "frmFileDownload" }))
+	{
+		<input type="hidden" id="hddDownloadFileKey" name="FileKey" />
+	}
+</div>

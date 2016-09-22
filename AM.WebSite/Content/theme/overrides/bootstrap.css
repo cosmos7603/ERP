@@ -1,0 +1,19 @@
+﻿.alert-dismissable {
+	cursor: pointer;
+}
+
+.modal-dialog {
+	margin-top: 150px;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+.dropdown-menu > li > a {
+    padding: 2px 20px;
+}
+
+div.tooltip-inner {
+    max-width: 350px;
+}

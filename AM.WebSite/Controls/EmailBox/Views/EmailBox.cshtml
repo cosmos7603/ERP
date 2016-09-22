@@ -1,0 +1,8 @@
+﻿@model AM.WebSite.Controls.EmailBox.Models.EmailBoxModel
+
+<div class="input-group">
+	<div class="input-group-addon">
+		<i class="fa fa-envelope"></i>
+	</div>
+	@Html.TextBox(Model.ID, Model.Value, Model.HtmlAttributes)
+</div>

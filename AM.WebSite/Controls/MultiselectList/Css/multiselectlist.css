@@ -1,0 +1,60 @@
+﻿.multiselectList {
+	width: 100%;
+	padding: 0px;
+	border: 2px solid #CCC;
+	background-color: #fff;
+}
+
+	.multiselectList .search {
+		border: 0px;
+		border-radius: 0px;
+		background-color: white;
+		border-right: 0px;
+		width: 92%;
+		margin-bottom: 0px;
+		padding: 2px 1px;
+	}
+
+	.multiselectList .list {
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding: 0px;
+		border: 0px;
+	}
+
+		.multiselectList .list.disabled {
+			background-color: whitesmoke;
+		}
+
+	.multiselectList .item {
+		min-height: 32px;
+		padding: 0px;
+		background-color: #FFFFFF;
+		border-bottom: 1px solid #CCC;
+	}
+
+		.multiselectList .item label {
+			font-size: 15px;
+			color: black;
+			margin: 0px;
+			padding: 5px;
+			width: 100%;
+			cursor: pointer;
+			font-weight: normal;
+		}
+
+		.multiselectList .item.selected {
+			background-color: #C5E4F1;
+			border-bottom: 1px solid #CCACAC;
+			cursor: pointer;
+		}
+
+		.multiselectList .item.disabled {
+			background-color: whitesmoke;
+			cursor: pointer;
+		}
+
+		.multiselectList .item input[type='checkbox'] {
+			float: right;
+			margin: 6px 5px 1px 0px;
+		}

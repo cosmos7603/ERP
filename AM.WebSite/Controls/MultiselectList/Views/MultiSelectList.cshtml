@@ -1,0 +1,54 @@
+﻿@model AM.WebSite.Controls.MultiselectList.Models.MultiselectListModel
+
+<link href="~/Controls/MultiselectList/Css/multiselectlist.css" rel="stylesheet" />
+
+<div id="@Model.ID" class='multiselectList' style="width: @Model.Width; background-color: white;">
+	@if (Model.SearchBar)
+	{
+	<input id="txtSearch" class="search" type="text" value="" placeholder="Search..." />
+		<a id="lnkClearSearch" href="ClearSearch" tabindex="-1" style="display: none">
+			<span class="fa fa-times" style="float: right; margin-right: 3px; margin-top: 4px; color: lightgray; background-color: white"></span>
+		</a>
+		<div style="width: 100%; border-bottom: solid 2px silver"></div>
+	}
+	<div id="divList" class="multiselectList list" style="width: 100%; height: @Model.Height; overflow: auto;">
+
+		@if (Model.SelectedValues != null && Model.Items != null)
+		{
+			for (int i = 0; i < Model.SelectedValues.Count(); i++)
+			{
+				SelectListItem item = Model.Items.Where(x => x.Value == Model.SelectedValues[i]).FirstOrDefault();
+
+				if (item != null)
+				{
+		<div class='item selected'>
+			<label style="width: 100%">@item.Text<input name="@item.Value" type="checkbox" checked="checked" style="float: right" /></label>
+		</div>
+				}
+			}
+		}
+
+		@if (Model.Items != null)
+		{
+			foreach (SelectListItem item in Model.Items)
+			{
+				if (Model.SelectedValues != null && Model.SelectedValues.Contains(item.Value))
+				{
+					continue;
+				}
+
+		<div class='item'>
+			<label style="width: 100%">@item.Text<input name="@item.Value" type="checkbox" style="float: right" /></label>
+		</div>
+			}
+		}
+	</div>
+	@if (Model.SelectAll)
+	{
+		<label>Select All<input id="chkSelectAll" type="checkbox" class="pull-right" style="margin-top: -20px; position: @Model.Width" /></label>
+	}
+</div>
+
+<script type="text/javascript">
+	$("#@Model.ID").multiselectList().init();
+</script>
