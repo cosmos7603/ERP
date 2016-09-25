@@ -229,10 +229,10 @@ namespace AM.WebSite.MVC
 	#region Classes
 	public class DropDownOption
 	{
-		public static readonly string ALL = "-- All --";
-		public static readonly string SELECT = "-- Select --";
-		public static readonly string OTHER = "-- Other --";
-		public static readonly string NONE = "-- None --";
+		public static readonly string ALL = "-- Todos --";
+		public static readonly string SELECT = "-- Seleccione --";
+		public static readonly string OTHER = "-- Otro --";
+		public static readonly string NONE = "-- Ninguno --";
 		public static readonly string EMPTY = "--";
         public static readonly string REMOVE = "";
 	}

@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using AM.DAL;
 using AM.DAL.SPEntities;
 using AM.Services;
 using AM.Services.Business;
+using AM.Services.Grid;
 using AM.Services.Helpers;
+using AM.Utils;
 using AM.WebSite.Areas.Client.Models;
 using AM.WebSite.Consts;
 using AM.WebSite.MVC;
 using AM.WebSite.Shared.Controllers;
 using Entities.POCOEntities;
+using Filter = AM.Services.Grid.Filter;
 
 namespace AM.WebSite.Areas.Client
 {
@@ -42,6 +46,7 @@ namespace AM.WebSite.Areas.Client
 		[HttpPost]
 		public JsonResult List(ClientService.ClientSearchParameters p)
 		{
+		
 			var sr = ClientService.GetClientList(p);
 
 			if (!sr.Status)
@@ -56,10 +61,20 @@ namespace AM.WebSite.Areas.Client
 				x.LastName,
 				x.Active,
 				x.DNI,
-				x.CUIT
+				x.CUIT,
+				x.Province,
+				x.City,
+				ClientType = x.ClientType.Description,
+				Address1 = x.Address1 + " " + x.Address2,
+				x.Observations,
+				x.Telephone1,
+				x.Telephone2,
+				x.Email
 			});
 			return GetJsonResponse(sr);
 		}
+
+
 
 		public PartialViewResult ClientInfoModal(string setupMode, int? entityId)
 		{
@@ -72,6 +87,7 @@ namespace AM.WebSite.Areas.Client
 			if (setupMode == SetupMode.NEW)
 			{
 				model.InfoTitle = "Nuevo Cliente";
+				model.ClientTypesSelectList = ClientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id);
 			}
 			else if (setupMode == SetupMode.EDIT && entityId.HasValue)
 			{
@@ -84,7 +100,15 @@ namespace AM.WebSite.Areas.Client
 				model.Active = client.Active;
 				model.CUIT = client.CUIT;
 				model.DNI = client.DNI;
-				
+				model.Address1 = client.Address1;
+				model.Address2 = client.Address2;
+				model.Email = client.Email;
+				model.Observations = client.Observations;
+				model.Telephone1 = client.Telephone1;
+				model.Telephone2 = client.Telephone2;
+				model.City = client.City;
+				model.Province = client.Province;
+				model.ClientTypesSelectList = ClientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id).SelectItem(client.ClientTypeId);
 				//model.EditRights = 
 				//model.CanCompleteOrDeleteReminder = 
 			}
@@ -102,11 +126,19 @@ namespace AM.WebSite.Areas.Client
 				LastName = model.LastName,
 				ComercialName = model.ComercialName,
 				Active = model.Active,
-				ClientTypeId = 1,
+				ClientTypeId = model.ClientTypeId,
 				CUIT = model.CUIT,
-				DNI = model.DNI
+				DNI = model.DNI,
+				Address1 = model.Address1,
+				Address2 = model.Address2,
+				Email = model.Email,
+				Telephone1 = model.Telephone1,
+				Telephone2 = model.Telephone2,
+				City = model.City,
+				Province = model.Province,
+				Observations = model.Observations
 			};
-			
+
 			// Validate & Save
 			var sr = ClientService.SaveClient(client);
 

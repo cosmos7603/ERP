@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AM.Services.Grid;
 
 namespace AM.Services
 {
@@ -14,6 +15,9 @@ namespace AM.Services
 		public int PageIndex { get; set; }
 		public string SortField { get; set; }
 		public string SortDirection { get; set; }
+		public string SearchVal { get; set; }
+
+		public List<Filter> filters { get; set; }
 
 		// Output
 		public int RowCount { get; set; }

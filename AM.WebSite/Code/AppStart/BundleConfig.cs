@@ -71,7 +71,7 @@ namespace AM.WebSite
 				.Include("~/Content/theme/css/style.css")
 
 				// Overrides
-				//.Include("~/Content/theme/overrides/main.css")
+				.Include("~/Content/theme/overrides/main.css")
 				.Include("~/Content/theme/overrides/aspneterror.css")
 				.Include("~/Content/theme/overrides/autocomplete.css")
 				.Include("~/Content/theme/overrides/datatables.css")
@@ -87,6 +87,7 @@ namespace AM.WebSite
 
 				// libs
 				.Include("~/Content/libs/datatables/jquery.dataTables.js")
+				//.Include("~/Content/libs/datatables/jquery.dataTables.select.min.js")
 				//.Include("~/Content/libs/datatables/dataTables.bootstrap.js")
 				.Include("~/Content/libs/datepicker/bootstrap-datepicker.js")
 				.Include("~/Content/libs/input-mask/jquery.inputmask.bundle.min.js")

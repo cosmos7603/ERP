@@ -431,6 +431,7 @@
     <Content Include="Content\libs\datatables\images\sort_both.png" />
     <Content Include="Content\libs\datatables\images\sort_desc.png" />
     <Content Include="Content\libs\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Content\libs\datatables\jquery.dataTables.select.min.js" />
     <Content Include="Content\libs\datatables\jquery.dataTables.css" />
     <Content Include="Content\libs\datatables\jquery.dataTables.js" />
     <Content Include="Content\libs\datatables\jquery.dataTables.min.css" />

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using Newtonsoft.Json;
@@ -9,7 +10,34 @@ namespace AM.Utils
 {
     public static class ExtensionMethods
     {
-        [DebuggerStepThrough]
+
+		public static bool IsNumeric(this Type t)
+		{
+			var type = t.GetTypeWithoutNullability();
+			return
+				type == typeof(Int16) ||
+				type == typeof(Int32) ||
+				type == typeof(Int64) ||
+				type == typeof(UInt16) ||
+				type == typeof(UInt32) ||
+				type == typeof(UInt64) ||
+				type == typeof(decimal) ||
+				type == typeof(float) ||
+				type == typeof(double);
+		}
+
+		public static Type GetTypeWithoutNullability(this Type t)
+		{
+			return t.IsNullable() ? new NullableConverter(t).UnderlyingType : t;
+		}
+
+		public static bool IsNullable(this Type t)
+		{
+			return t.IsGenericType &&
+				   t.GetGenericTypeDefinition() == typeof(Nullable<>);
+		}
+
+		[DebuggerStepThrough]
         public static object ToDBNull(this object value)
         {
             if (value == null)

@@ -1,6 +1,12 @@
-﻿using AM.DAL;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using AM.DAL;
 using AM.Services.Models;
 using System.Runtime.Remoting.Messaging;
+using AM.Services.Grid;
+using AM.Utils;
 
 namespace AM.Services
 {
@@ -106,6 +112,65 @@ namespace AM.Services
 				// Remove context instance from the thread's bag
 				CallContext.SetData(DBContextName, null);	
 			}
+		}
+
+		protected static List<Filter> GetFilters(string searchVal)
+		{
+
+			double n;
+			bool isNumeric = double.TryParse(searchVal, out n);
+
+			PropertyInfo[] properties;
+			if (isNumeric)
+			{
+				properties = typeof(DAL.Client).GetProperties()
+			   .ToArray();
+			}
+			else
+			{
+				properties = typeof(DAL.Client).GetProperties().
+				   Where(a => a.PropertyType == typeof(string))
+			   .ToArray();
+			}
+
+			var filters = new List<Filter>();
+
+			if (!String.IsNullOrEmpty(searchVal))
+			{
+				foreach (var prop in properties)
+				{
+					ComparisonType comparisonType;
+
+					if (prop.PropertyType == typeof(string))
+					{
+						comparisonType = ComparisonType.Contains;
+						filters.Add(
+								new Filter
+								{
+									Comparison = comparisonType,
+									Property = prop,
+									Value = searchVal
+								}
+								);
+					}
+					else if (prop.PropertyType.IsNumeric())
+					{
+						comparisonType = ComparisonType.Equal;
+						filters.Add(
+					new Filter
+					{
+						Comparison = comparisonType,
+						Property = prop,
+						Value = searchVal.ToInt()
+					}
+				);
+					}
+				}
+
+			}
+
+			return filters;
+
 		}
 		#endregion
 	}

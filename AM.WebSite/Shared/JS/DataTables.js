@@ -5,8 +5,8 @@
 		responsive: true,
 		processing: true,
 		serverSide: true,
-		searching: false,
-		paging: false,
+		searching: true,
+		paging: true,
 		ordering: true,
 		info: true,
 		scrollCollapse: false,
@@ -24,7 +24,8 @@
 				PageIndex: 1,
 				PageSize: 0,
 				SortField: "",
-				SortDirection: "ASC"
+				SortDirection: "ASC",
+				SearchVal: ""
 			};
 
 			// Is sorting?
@@ -46,6 +47,12 @@
 				pager.PageIndex = (data.start / data.length) + 1;
 				pager.PageSize = data.length;
 			};
+
+			//Is searching
+			if (data.search)
+			{
+				pager.SearchVal = data.search.value;
+			}
 
 			// Prepare post data with params and pager info
 			var postData = $.extend(settings.oInit.params(), pager);
@@ -125,13 +132,14 @@
 
 				return $.formCheckChanges(function ()
 				{
-					$.clearValidations();
-					table.$('tr.selected').removeClass('selected');
-					$(tr).addClass('selected');
+					//$.clearValidations();
+					//table.$('tr.selected').removeClass('selected');
+					//$(tr).addClass('selected');
 
 					settings.oInit.onSelect(data);
 				});
-			});
+			}
+			);
 		}
 	});
 

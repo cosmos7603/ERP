@@ -136,6 +136,7 @@ namespace AM.DAL
 		#region DB Sets
 
 		public DbSet<Client> Client { get; set; }
+		public DbSet<ClientType> ClientType { get; set; }
 
 		#endregion
 
