@@ -1,40 +1,21 @@
 ﻿$(document).ready(function ()
 {
 	setupGrid();
-	attachEvents();
-	//showBlankDestination();
+
 });
 
 
 
 
-function attachEvents()
-{
-	$("#btnDelete").click(function ()
-	{
-		deleteClient();
-		return false;
-	});
-	$("#btnEdit").click(function ()
-	{
-		editClient();
-		return false;
-	});
-	$("#btnNew").click(function ()
-	{
-		addNewClient();
-		return false;
-	});
-
-}
 
 
-function addNewClient()
+
+function addNew()
 {
 	showClientModal({ setupMode: SETUP_MODE_NEW });
 }
 
-function deleteClient()
+function remove()
 {
 	var selectedRow = $('#dtgClient tbody tr.selected')[0];
 
@@ -60,7 +41,7 @@ function deleteClient()
 		});
 }
 
-function editClient()
+function edit()
 {
 	var selectedRow = $('#dtgClient tbody tr.selected')[0];
 	var clientId = selectedRow.id;
@@ -74,15 +55,10 @@ function editClient()
 
 function triggerSearch()
 {
-	loadClients();
+	loadGrid();
 }
 
-//function resetSearch()
-//{
-//	$("#ddlSearchDestArea").val("");
-//	$("#chkSearchSuppressInactive").checked(true);
-//	$("#ddlSearchDestArea").focus();
-//}
+
 
 function setupGrid()
 {
@@ -112,7 +88,7 @@ function setupGrid()
 			{ title: "Provincia", data: "Province", width: '10%' },
 			{ title: "DNI", data: "DNI", width: '10%' },
 			{ title: "CUIT", data: "CUIT", width: '10%' },
-			{ title: "Condición de IVA", data: "ClientType", width: '10%' },
+			{ title: "Condición de IVA", data: "ClientType.Description", width: '10%' },
 			{ title: "Activo", data: "Active", width: '10%', render: simple_checkbox }
 		],
 		paging: true,
@@ -124,15 +100,7 @@ function setupGrid()
 			else
 				enableActions(false);
 		}
-		////onDeselect: function (items)
-		////{
-		////	if ($('#dtgClient tbody tr.selected').length > 0)
-		////		enableActions(true);
-		////	else
-		////		enableActions(false);
-
-		////	return true;
-		////}
+	
 
 
 	});
@@ -152,222 +120,9 @@ function setupGrid()
 }
 
 
-function enableActions(enable)
-{
-	if (enable == undefined)
-		var enable = true;
-	$("#btnEdit").enable(enable);
-	$("#btnDelete").enable(enable);
-}
 
 
-function loadClients()
+function loadGrid()
 {
 	$("#dtgClient").DataTable().reload();
 }
-
-//function showBlankDestination()
-//{
-//	$("#divDestinationInfo").load(
-//        URLs.Utilities.DestinationSetup.DestinationInfo,
-//        {
-//        	SetupMode: SETUP_MODE_BLANK
-//        },
-//        function ()
-//        {
-//        	attachDestinationInfoEvents();
-//        	$.formReset();
-//        });
-//}
-
-//function showNewDestination()
-//{
-//	$("#divDestinationInfo").load(
-//        URLs.Utilities.DestinationSetup.DestinationInfo,
-//        {
-//        	SetupMode: SETUP_MODE_NEW
-//        },
-//        function ()
-//        {
-//        	attachDestinationInfoEvents();
-//        	collapseSearch();
-//        	$.formReady("#frmDestinationInfo");
-//        	$("#dtgDestination").DataTable().unselect();
-//        	$("#txtDestinationName").focus();
-//        });
-
-//}
-
-//function showEditDestination(destinationId)
-//{
-//	$("#divDestinationInfo").load(
-//        URLs.Utilities.DestinationSetup.DestinationInfo,
-//        {
-//        	SetupMode: SETUP_MODE_EDIT,
-//        	DestinationId: destinationId
-//        },
-//        function ()
-//        {
-//        	attachDestinationInfoEvents();
-//        	collapseSearch();
-//        	$.formReady("#frmDestinationInfo");
-//        	$("#txtDestinationName").focus();
-//        });
-//}
-
-//function collapseSearch()
-//{
-//	$("#SearchHeader").searchHeader().collapse();
-//}
-
-//function expandSearch()
-//{
-//	$("#SearchHeader").searchHeader().expand();
-//}
-
-//function attachDestinationInfoEvents()
-//{
-//	$("#btnNew").click(function ()
-//	{
-//		$.formCheckChanges(function ()
-//		{
-//			$.clearValidations();
-//			showNewDestination();
-//		});
-
-//		return false;
-//	});
-
-//	$("#btnSave").click(function ()
-//	{
-//		save();
-//		return false;
-//	});
-
-//	$("#btnCancel").click(function ()
-//	{
-//		$.formCheckChanges(function ()
-//		{
-//			$.clearValidations();
-//			expandSearch();
-//			showBlankDestination();
-//		});
-
-//		return false;
-//	});
-
-//	$("#btnDelete").click(function ()
-//	{
-//		deleteDestination();
-//		return false;
-//	});
-
-//	$("#btnReactivate").click(function ()
-//	{
-//		reactivateDestination();
-//		return false;
-//	});
-
-//	$("#btnConsolidate").click(function ()
-//	{
-//		consolidateDestination();
-//		return false;
-//	});
-//}
-
-//function save()
-//{
-//	var model = {
-//		DestinationId: SetupInfo.DestinationId,
-//		DestinationName: $("#txtDestinationName").val(),
-//		DestAreaId: $("#ddlDestArea").combo().val(),
-//		PpoDestinationId: $("#txtPpoDestinationId").val()
-//	};
-
-//	$.postForm(
-//        $("#frmDestinationInfo"),
-//        model,
-//        function ()
-//        {
-//        	loadClients();
-//        	expandSearch();
-//        	showBlankDestination();
-//        });
-//}
-
-//function deleteDestination()
-//{
-//	var destinationId = SetupInfo.DestinationId;
-//	var destinationName = SetupInfo.DestinationName;
-
-//	$.confirmDelete(
-//		"Destination",
-//		destinationName,
-//		destinationId,
-//		function (destinationId)
-//		{
-//			$.postData(
-//				URLs.Utilities.DestinationSetup.Delete,
-//				{ destinationId: destinationId },
-//				function ()
-//				{
-//					loadClients();
-//					showBlankDestination();
-//					expandSearch();
-//				});
-//		});
-//}
-
-//function reactivateDestination()
-//{
-//	$.postData(
-//		URLs.Utilities.DestinationSetup.Reactivate,
-//		{ destinationId: SetupInfo.DestinationId },
-//		function ()
-//		{
-//			loadClients();
-//			showBlankDestination();
-//			expandSearch();
-//		});
-//}
-
-//function consolidateDestination()
-//{
-//	try
-//	{
-//		$.popUp(URLs.Utilities.DestinationSetup.ConsolidateView, { destinationId: SetupInfo.DestinationId });
-//	}
-//	catch (ex)
-//	{
-//		console.log(ex);
-//	}
-
-//}
-
-//function confirmConsolidate()
-//{
-//	var model = {
-//		SourceDestinationId: SetupInfo.DestinationId,
-//		DestDestinationId: $("#frmConsolidate").find("#ddlDestination").select().val()
-//	};
-//	$.postForm(
-//        $("#frmConsolidate"),
-//        model,
-//        function ()
-//        {
-//        	$.closePopUp();
-//        	expandSearch();
-//        	loadClients();
-//        	showBlankDestination();
-//        },
-//		function ()
-//		{
-//			$.closePopUp();
-//		}
-//		);
-//}
-
-//function cancelConsolidate()
-//{
-//	$.closePopUp();
-//}

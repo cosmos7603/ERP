@@ -2,3 +2,15 @@
 *.suo
 *.db
 *.dll
+*.pdb
+bin/Debug/*
+obj/debug/*
+BLL/*
+DAL/*
+ENTITIES/*
+ERP/BIN
+INSPINIA/ERP
+INSPINIA_MVC5/BIN
+KendoMvcERP
+
+

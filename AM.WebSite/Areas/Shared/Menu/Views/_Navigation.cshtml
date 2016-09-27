@@ -38,9 +38,19 @@
 					</li>
 				</ul>
 			</li>*@
-			<li class="@Html.IsSelected(controller:"Client",action: "Index")">
+			<li class="@Html.IsSelected(controller: "Client", action: "Index")">
 				<a href="@Url.Action("Index", "Client")">
 					<i class="fa fa-desktop"></i> <span class="nav-label">Clientes</span></a>
+			</li>
+			<li class="@Html.IsSelected(controller: "Provider", action: "Index")">
+				<a href="@Url.Action("Index", "Provider")">
+					<i class="fa fa-desktop"></i> <span class="nav-label">Proveedores</span>
+				</a>
+			</li>
+			<li class="@Html.IsSelected(controller:"Product",action: "Index")">
+				<a href="@Url.Action("Index", "Product")">
+					<i class="fa fa-desktop"></i> <span class="nav-label">Productos</span>
+				</a>
 			</li>
 		</ul>
 	</div>

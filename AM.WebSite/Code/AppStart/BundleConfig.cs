@@ -10,7 +10,7 @@ namespace AM.WebSite
 			RegisterMainBundles(bundles);
 
 			// Force bundling, even on DEV, for testing
-			 BundleTable.EnableOptimizations = false;
+			BundleTable.EnableOptimizations = false;
 		}
 
 		private static void RegisterLoginBundles(BundleCollection bundles)
@@ -54,6 +54,7 @@ namespace AM.WebSite
 
 				// libs
 				.Include("~/Content/libs/autocomplete/jquery.autocomplete.css")
+				.Include("~/Content/libs/touchspin/jquery.bootstrap-touchspin.min.css")
 				//.Include("~/Content/libs/datatables/dataTables.bootstrap.css")
 				.Include("~/Content/libs/datepicker/datepicker3.css")
 				.Include("~/Content/libs/select2/select2.min.css")
@@ -100,6 +101,7 @@ namespace AM.WebSite
 				.Include("~/Content/libs/qtip/jquery.qtip.js")
 				.Include("~/Content/libs/tinymce/tinymce.min.js")
 				.Include("~/Content/libs/multiselect/multiselect.js")
+				.Include("~/Content/libs/touchspin/jquery.bootstrap-touchspin.min.js")
 
 				// Bootstrap
 				.Include("~/Content/theme/js/bootstrap.js")

@@ -4,47 +4,21 @@
 }
 @section Scripts {
 	@Html.Script("~/Areas/Client/JS/Client.js")
-@Html.Script("~/Areas/Client/JS/ClientInfoModal.js")
+	@Html.Script("~/Areas/Client/JS/ClientInfoModal.js")
 }
 
 
 
-@*<div class="row wrapper border-bottom white-bg page-heading">
-	<div class="col-lg-10">
-		<h2>Data Tables</h2>
-		<ol class="breadcrumb">
-			@*<li>
-					<a href="@Url.Action("Dashboard_1", "Dashboards")">Home</a>
-				</li>*@
-			@*<li>
-				<a>Tables</a>
-			</li>
-			<li class="active">
-				<strong>Data Tables</strong>
-			</li>*@
-		@*</ol>
-	</div>
-	<div class="col-lg-2">*@
-
-@*</div>
-</div>*@
 
 <div id="wrapper">
 	<div class="ibox float-e-margins" id="searchPanel">
 		@Html.PSSearchHeader("Clientes")
 		<div class="ibox-content">
-			<div class="row">
-				<div class="col-md-4">
-					<button id="btnNew" class="btn btn-primary">Nuevo</button>
-					<button id="btnEdit" class="btn btn-success" disabled>Editar</button>
-					<button id="btnDelete" class="btn btn-warning" disabled>Borrar</button>
-
-				</div>
-			</div>
+			@Html.PSCrudButtons()
 			<hr>
 			@*<div class="table-responsive">
-				<table id="dtgClient" class="table table-striped table-bordered table-hover"></table>
-			</div>*@
+					<table id="dtgClient" class="table table-striped table-bordered table-hover"></table>
+				</div>*@
 			@Html.PSDataTable("dtgClient")
 		</div>
 	</div>
@@ -90,114 +64,114 @@
 									<th>CSS grade</th>
 								</tr>*@
 
-						@*<thead>
-							<tr>
-								@*<th style="display: none">
-									Id*@
-									@*@Html.DisplayNameFor(model => model.Id)*@
-								@*</th>*@
-								@*<th>
-									Nombre Comercial*@
-									@*@Html.DisplayNameFor(model => model.ComercialName)*@
-								@*</th>
-								<th>
-									Nombre*@
-									@*@Html.DisplayNameFor(model => model.FirstName)*@
-								@*</th>
-								<th>
-									Apellido*@
-									@*@Html.DisplayNameFor(model => model.LastName)*@
-								@*</th>*@
-								@*<th>
-										@Html.DisplayNameFor(model => model.Email)
-									</th>
-									<th>
-										@Html.DisplayNameFor(model => model.Telephone1)
-									</th>
-									<th>
-										@Html.DisplayNameFor(model => model.Telephone2)
-									</th>
-									<th>
-										@Html.DisplayNameFor(model => model.Observations)
-									</th>
-									<th>
-										@Html.DisplayNameFor(model => model.Address1)
-									</th>
-									<th>
-										@Html.DisplayNameFor(model => model.City)
-									</th>
-									<th>
-										@Html.DisplayNameFor(model => model.Province)
-									</th>*@
-								@*<th>
-										@Html.DisplayNameFor(model => model.DNI)
-									</th>
-									<th>
-										@Html.DisplayNameFor(model => model.CUIT)
-									</th>*@
-							@*</tr>
+@*<thead>
+	<tr>
+		@*<th style="display: none">
+			Id*@
+@*@Html.DisplayNameFor(model => model.Id)*@
+@*</th>*@
+@*<th>
+	Nombre Comercial*@
+@*@Html.DisplayNameFor(model => model.ComercialName)*@
+@*</th>
+	<th>
+		Nombre*@
+@*@Html.DisplayNameFor(model => model.FirstName)*@
+@*</th>
+	<th>
+		Apellido*@
+@*@Html.DisplayNameFor(model => model.LastName)*@
+@*</th>*@
+@*<th>
+		@Html.DisplayNameFor(model => model.Email)
+	</th>
+	<th>
+		@Html.DisplayNameFor(model => model.Telephone1)
+	</th>
+	<th>
+		@Html.DisplayNameFor(model => model.Telephone2)
+	</th>
+	<th>
+		@Html.DisplayNameFor(model => model.Observations)
+	</th>
+	<th>
+		@Html.DisplayNameFor(model => model.Address1)
+	</th>
+	<th>
+		@Html.DisplayNameFor(model => model.City)
+	</th>
+	<th>
+		@Html.DisplayNameFor(model => model.Province)
+	</th>*@
+@*<th>
+		@Html.DisplayNameFor(model => model.DNI)
+	</th>
+	<th>
+		@Html.DisplayNameFor(model => model.CUIT)
+	</th>*@
+@*</tr>
 
-						</thead>
-						<tbody></tbody>
-					</table>*@
-					@*<tbody>*@
-					@*@foreach (var item in Model)
-						{
-							<tr>
-								<td style="display: none">
-									@Html.DisplayFor(modelItem => item.Id)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.ComercialName)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.FirstName)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.LastName)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.Email)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.Telephone1)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.Telephone2)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.Observations)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.Address1)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.City)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.Province)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.DNI)
-								</td>
-								<td>
-									@Html.DisplayFor(modelItem => item.CUIT)
-								</td>
+		</thead>
+		<tbody></tbody>
+	</table>*@
+@*<tbody>*@
+@*@foreach (var item in Model)
+	{
+		<tr>
+			<td style="display: none">
+				@Html.DisplayFor(modelItem => item.Id)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ComercialName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.FirstName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.LastName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Email)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Telephone1)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Telephone2)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Observations)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Address1)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.City)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Province)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.DNI)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.CUIT)
+			</td>
 
-								@*<td>
-										@Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary btn-sm"})
-										@Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
-										@Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
-									</td>*@
-					@*</tr>*@
-					@*}*@
-					@*</tbody>
-						</table>*@
+			@*<td>
+					@Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary btn-sm"})
+					@Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
+					@Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-white btn-sm"})
+				</td>*@
+@*</tr>*@
+@*}*@
+@*</tbody>
+	</table>*@
 
-				@*</div>
+@*</div>
+				</div>
 			</div>
 		</div>
-	</div>
 
-</div>*@
+	</div>*@
 

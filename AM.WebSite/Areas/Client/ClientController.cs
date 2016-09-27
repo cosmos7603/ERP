@@ -46,7 +46,7 @@ namespace AM.WebSite.Areas.Client
 		[HttpPost]
 		public JsonResult List(ClientService.ClientSearchParameters p)
 		{
-		
+
 			var sr = ClientService.GetClientList(p);
 
 			if (!sr.Status)
@@ -64,7 +64,11 @@ namespace AM.WebSite.Areas.Client
 				x.CUIT,
 				x.Province,
 				x.City,
-				ClientType = x.ClientType.Description,
+				ClientType = new ClientType
+				{
+					Id = x.ClientType.Id,
+					Description = x.ClientType.Description
+				},
 				Address1 = x.Address1 + " " + x.Address2,
 				x.Observations,
 				x.Telephone1,

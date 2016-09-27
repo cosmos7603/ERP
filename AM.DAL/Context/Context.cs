@@ -118,6 +118,9 @@ namespace AM.DAL
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Client>().ToTable("Client");
+			modelBuilder.Entity<Provider>().ToTable("Provider");
+			modelBuilder.Entity<Product>().ToTable("Product");
+			modelBuilder.Entity<ProductFamily>().ToTable("ProductFamily");
 		}
 
 		#region Constructor
@@ -137,6 +140,12 @@ namespace AM.DAL
 
 		public DbSet<Client> Client { get; set; }
 		public DbSet<ClientType> ClientType { get; set; }
+
+		public DbSet<Provider> Provider { get; set; }
+
+		public DbSet<Product> Product { get; set; }
+
+		public DbSet<ProductFamily> ProductFamily { get; set; }
 
 		#endregion
 

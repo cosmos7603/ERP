@@ -55,22 +55,3 @@ function saveClientInfo()
 
 	return false;
 }
-
-//function deleteClient()
-//{
-//	var clientId = $("#frmClientInfo").find("#hddAppointmentId").val();
-//	$.confirmDelete(
-//		"Client",
-//		$("#frmClientInfo").find("#txtClient").val(),
-//		clientId,
-//		function (clientId)
-//		{
-//			$.postData(
-//				'Client/Delete',
-//				{ clientId: clientId },
-//				function ()
-//				{
-//					loadClients();
-//				});
-//		});
-//}

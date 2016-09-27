@@ -153,6 +153,9 @@
     <Compile Include="Entities\Business\CabinSize.cs" />
     <Compile Include="Entities\Business\CEActivity.cs" />
     <Compile Include="Entities\Business\Check.cs" />
+    <Compile Include="Entities\NewBusiness\ProductFamily.cs" />
+    <Compile Include="Entities\NewBusiness\Product.cs" />
+    <Compile Include="Entities\NewBusiness\Provider.cs" />
     <Compile Include="Entities\NewBusiness\ClientType.cs" />
     <Compile Include="Entities\NewBusiness\Client.cs" />
     <Compile Include="Entities\Business\Code.cs" />

@@ -1,0 +1,117 @@
+﻿
+@model AM.WebSite.Areas.Provider.Models.ProviderModel
+<div class="modal fade" role="dialog" id="providerModal">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			@using (Html.BeginForm("Save", "Provider", FormMethod.Post, new { id = "frmProviderInfo", autocomplete = "off", role = "form" }))
+			{
+				<div class="modal-header">
+					<div class="pull-right required-label">(<span class="required-indicator"></span>) Campos requeridos</div>
+					<h4 class="modal-title">@Model.InfoTitle</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row m-t-sm" style="display: none">
+						<div class="col-sm-10">
+							<label>Id</label>
+							@Html.TextBox("txtId", Model.Id, new { })
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Proveedor <span class="required-indicator"></span></label>
+							@Html.TextBox("txtComercialName", Model.ComercialName, new { @class = "form-control required " })
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Nombre <span class="required-indicator"></span></label>
+							@Html.TextBox("txtFirstName", Model.FirstName, new { @class = "form-control required" })
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Apellido <span class="required-indicator"></span></label>
+							@Html.TextBox("txtLastName", Model.LastName, new { @class = "form-control required" })
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Email </label>
+							@Html.TextBox("txtEmail", Model.Email, new { @class = "form-control" , @type = "email"})
+						</div>
+					</div>
+
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>CUIT <span class="required-indicator"></span></label>
+							@Html.TextBox("txtCuit", Model.CUIT, new { @class = "form-control required" })
+						</div>
+					</div>
+
+
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Teléfono </label>
+							@Html.TextBox("txtTelephone1", Model.Telephone1, new { @class = "form-control" })
+						</div>
+					</div>
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Teléfono 2 </label>
+							@Html.TextBox("txtTelephone2", Model.Telephone2, new { @class = "form-control" })
+						</div>
+					</div>
+
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Domicilio </label>
+							@Html.TextBox("txtAddress1", Model.Address1, new { @class = "form-control" })
+						</div>
+					</div>
+
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							@Html.TextBox("txtAddress2", Model.Address2, new { @class = "form-control" })
+						</div>
+					</div>
+
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Localidad </label>
+							@Html.TextBox("txtCity", Model.City, new { @class = "form-control" })
+						</div>
+					</div>
+
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label>Provincia </label>
+							@Html.TextBox("txtProvince", Model.Province, new { @class = "form-control" })
+						</div>
+					</div>
+
+					<div class="row m-t-sm">
+						<div class="col-sm-10">
+							<label> Observaciones </label>
+							@Html.TextArea("txtObservations", Model.Observations, new { @class = "form-control" })
+						</div>
+					</div>
+
+					<div class="row m-t-sm">
+						<div class="col-sm-2">
+							<label style="display: block">Activo</label>
+							@Html.PSCheckBox("chkActive", Model.Active)
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button id="btnSaveProvider" class="btn btn-primary" style="margin-bottom: 0">Guardar</button>
+					<button data-dismiss="modal" class="btn btn-default">Cancelar</button>
+					@*@if (Model.Id != 0 /*&& Model.CanCompleteOrDeleteReminder*/)
+						{
+							<button id="btnDeleteProvider" class="btn btn-danger">Delete</button>
+						}*@
+				</div>
+			}
+		</div>
+	</div>
+</div>

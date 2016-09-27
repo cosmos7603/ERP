@@ -37,7 +37,7 @@
 					<div class="row m-t-sm">
 						<div class="col-sm-10">
 							<label>Email </label>
-							@Html.TextBox("txtEmail", Model.Email, new { @class = "form-control" , @type = "email"})
+							@Html.TextBox("txtEmail", Model.Email, new { @class = "form-control", @type = "email" })
 						</div>
 					</div>
 
@@ -51,7 +51,7 @@
 					<div class="row m-t-sm">
 						<div class="col-sm-10">
 							<label>Condición de IVA <span class="required-indicator"></span></label>
-							@Html.PSDropDown("ddlClientType", Model.ClientTypesSelectList, DropDownOption.SELECT)
+							@Html.PSDropDown("ddlClientType", Model.ClientTypesSelectList, DropDownOption.SELECT, new { @class = "form-control required" })
 						</div>
 					</div>
 
@@ -105,7 +105,7 @@
 					<div class="row m-t-sm">
 						<div class="col-sm-10">
 							<label> Observaciones </label>
-							@Html.TextBox("txtObservations", Model.Observations, new { @class = "form-control" })
+							@Html.TextArea("txtObservations", Model.Observations, new { @class = "form-control" })
 						</div>
 					</div>
 
