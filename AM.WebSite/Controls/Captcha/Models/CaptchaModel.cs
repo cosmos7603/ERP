@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace AM.WebSite.Controls.Captcha.Models
+﻿namespace AM.WebSite.Controls.Captcha.Models
 {
     public class CaptchaModel
     {

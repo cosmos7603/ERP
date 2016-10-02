@@ -1,7 +1,6 @@
-﻿using AM.WebSite.Controls.Captcha;
-using AM.WebSite.Controls.Captcha.Models;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using AM.WebSite.Controls.Captcha;
 
 namespace AM.WebSite.HtmlHelpers
 {

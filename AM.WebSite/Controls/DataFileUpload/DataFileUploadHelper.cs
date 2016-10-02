@@ -1,8 +1,6 @@
-﻿using AM.WebSite.Controls.Captcha;
-using AM.WebSite.Controls.Captcha.Models;
-using AM.WebSite.Controls.DataFileUpload.Models;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using AM.WebSite.Controls.DataFileUpload.Models;
 
 namespace AM.WebSite.HtmlHelpers
 {

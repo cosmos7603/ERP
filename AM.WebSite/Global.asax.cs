@@ -1,16 +1,19 @@
-﻿using AM.Services;
-using AM.Services.Support;
-using System;
+﻿using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AM.Services;
 using AM.Services.Models;
+using AM.WebSite.Areas.Shared.Error;
 
 namespace AM.WebSite
 {
 	public class MvcApplication : HttpApplication
 	{
+
+	
+
 		protected void Application_Start()
 		{
 			// Configure Mini Profiler
@@ -56,7 +59,7 @@ namespace AM.WebSite
 		protected void Application_Error(object sender, EventArgs e)
 		{
 			Exception exception = Server.GetLastError();
-			HttpContextWrapper contextWrapper = new HttpContextWrapper(this.Context);
+			HttpContextWrapper contextWrapper = new HttpContextWrapper(Context);
 			RouteData routeData = new RouteData();
 
 			// Clear error status
@@ -70,7 +73,7 @@ namespace AM.WebSite
 			routeData.Values.Add("action", "Exception");
 			routeData.Values.Add("exception", exception);
 
-			IController controller = new Areas.Shared.Error.ErrorController();
+			IController controller = new ErrorController();
 			RequestContext requestContext = new RequestContext(contextWrapper, routeData);
 
 			try

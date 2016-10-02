@@ -1,6 +1,6 @@
-﻿using AM.WebSite.Controls.MultiselectList.Models;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using AM.WebSite.Controls.MultiselectList.Models;
 
 namespace AM.WebSite.HtmlHelpers
 {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
+﻿using System.Web;
 using AM.Services;
 using AM.Services.Models;
 using AM.Services.Support;
@@ -22,7 +18,7 @@ namespace AM.WebSite
 			Config.Paths.EmailTemplates = httpApplication.Server.MapPath("~/Content/Emails");
 
 			// Load all other configs from database
-			ConfigService.LoadConfig();
+			//ConfigService.LoadConfig();
 
 			// Initialize temp folder
 			FileService.InitializeTempFolder();

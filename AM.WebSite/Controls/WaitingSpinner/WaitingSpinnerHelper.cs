@@ -1,10 +1,6 @@
-﻿using AM.WebSite.Controls.Tabs.Models;
-using AM.WebSite.Controls.WaitingSpinner.Consts;
-using AM.WebSite.Controls.WaitingSpinner.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using AM.WebSite.Controls.WaitingSpinner.Models;
 
 namespace AM.WebSite.HtmlHelpers
 {

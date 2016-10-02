@@ -1,10 +1,6 @@
-﻿using System;
-using System.Configuration;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AM.Services;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Corpnet.Profiling.EF6;
+using Corpnet.Profiling.MVC;
 
 namespace AM.WebSite
 {
@@ -13,10 +9,10 @@ namespace AM.WebSite
 		public static void RegisterProfiling()
 		{
 			// Initialize EF profiling
-			Corpnet.Profiling.EF6.EFProfiling.Initialize();
+			EFProfiling.Initialize();
 
 			// Initialize MVC profiling
-			GlobalFilters.Filters.Add(new Corpnet.Profiling.MVC.ProfilingActionFilter());
+			GlobalFilters.Filters.Add(new ProfilingActionFilter());
 		}
 	}
 }

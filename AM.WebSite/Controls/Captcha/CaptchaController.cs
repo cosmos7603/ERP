@@ -1,15 +1,13 @@
-﻿using AM.Utils;
-using AM.WebSite.Controls.Captcha.Models;
-using AM.WebSite.Shared.Controllers;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using AM.Utils;
+using AM.WebSite.Controls.Captcha.Models;
+using AM.WebSite.Shared.Controllers;
 
 namespace AM.WebSite.Controls.Captcha
 {
@@ -56,7 +54,7 @@ namespace AM.WebSite.Controls.Captcha
 
             using (var mem = new MemoryStream())
             using (var bmp = new Bitmap(130, 30))
-            using (var gfx = Graphics.FromImage((Image)bmp))
+            using (var gfx = Graphics.FromImage(bmp))
             {
                 gfx.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
                 gfx.SmoothingMode = SmoothingMode.AntiAlias;
@@ -80,9 +78,9 @@ namespace AM.WebSite.Controls.Captcha
                 gfx.DrawString(captcha, new Font("Tahoma", 16), Brushes.Gray, 2, 3);
 
                 // Render as Png 
-                bmp.Save(mem, System.Drawing.Imaging.ImageFormat.Png);
+                bmp.Save(mem, ImageFormat.Png);
 
-                model.Image = System.Convert.ToBase64String(mem.GetBuffer());
+                model.Image = Convert.ToBase64String(mem.GetBuffer());
                 model.EncryptedValue = CustomEncrypt.Encrypt(captcha.Replace(" ", ""));
             }
 

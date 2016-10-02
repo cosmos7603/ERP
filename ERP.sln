@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.Services", "AM.Services\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM.Utils", "AM.Utils\AM.Utils.csproj", "{7C8351B3-289F-460C-86D1-8667255A0373}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KendoUIApp", "KendoUIApp\KendoUIApp.csproj", "{339E63A8-09E6-43A0-BF5F-4D671CA3A0BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KendoMvcERP", "..\dynamika-app\ERP\KendoMvcERP\KendoMvcERP.csproj", "{825A43B8-EAE3-4645-A659-DAACEEB571FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +113,22 @@ Global
 		{7C8351B3-289F-460C-86D1-8667255A0373}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C8351B3-289F-460C-86D1-8667255A0373}.Release|x86.ActiveCfg = Release|Any CPU
 		{7C8351B3-289F-460C-86D1-8667255A0373}.Release|x86.Build.0 = Release|Any CPU
+		{339E63A8-09E6-43A0-BF5F-4D671CA3A0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339E63A8-09E6-43A0-BF5F-4D671CA3A0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339E63A8-09E6-43A0-BF5F-4D671CA3A0BB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{339E63A8-09E6-43A0-BF5F-4D671CA3A0BB}.Debug|x86.Build.0 = Debug|Any CPU
+		{339E63A8-09E6-43A0-BF5F-4D671CA3A0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339E63A8-09E6-43A0-BF5F-4D671CA3A0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339E63A8-09E6-43A0-BF5F-4D671CA3A0BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{339E63A8-09E6-43A0-BF5F-4D671CA3A0BB}.Release|x86.Build.0 = Release|Any CPU
+		{825A43B8-EAE3-4645-A659-DAACEEB571FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{825A43B8-EAE3-4645-A659-DAACEEB571FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{825A43B8-EAE3-4645-A659-DAACEEB571FA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{825A43B8-EAE3-4645-A659-DAACEEB571FA}.Debug|x86.Build.0 = Debug|Any CPU
+		{825A43B8-EAE3-4645-A659-DAACEEB571FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{825A43B8-EAE3-4645-A659-DAACEEB571FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{825A43B8-EAE3-4645-A659-DAACEEB571FA}.Release|x86.ActiveCfg = Release|Any CPU
+		{825A43B8-EAE3-4645-A659-DAACEEB571FA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

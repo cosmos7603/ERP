@@ -1,6 +1,6 @@
 ﻿
 @model AM.WebSite.Areas.Provider.Models.ProviderModel
-<div class="modal fade" role="dialog" id="providerModal">
+<div class="modal fade" role="dialog" id="entityModal">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			@using (Html.BeginForm("Save", "Provider", FormMethod.Post, new { id = "frmProviderInfo", autocomplete = "off", role = "form" }))
@@ -104,12 +104,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button id="btnSaveProvider" class="btn btn-primary" style="margin-bottom: 0">Guardar</button>
-					<button data-dismiss="modal" class="btn btn-default">Cancelar</button>
-					@*@if (Model.Id != 0 /*&& Model.CanCompleteOrDeleteReminder*/)
-						{
-							<button id="btnDeleteProvider" class="btn btn-danger">Delete</button>
-						}*@
+					<button id="btnSave" class="btn btn-primary" style="margin-bottom: 0">Guardar</button>
+					<button id="btnCancel" data-dismiss="modal" class="btn btn-default">Cancelar</button>
 				</div>
 			}
 		</div>

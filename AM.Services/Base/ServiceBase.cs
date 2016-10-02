@@ -5,19 +5,40 @@ using System.Reflection;
 using AM.DAL;
 using AM.Services.Models;
 using System.Runtime.Remoting.Messaging;
+using AM.Services.Extensions;
 using AM.Services.Grid;
 using AM.Utils;
+using AutoMapper;
+using DAL;
 
 namespace AM.Services
 {
-	public class ServiceBase
+	public abstract class ServiceBase
 	{
 		#region Consts
 		private const string DBContextName = "DBContext";
 		private const string IdentityContextName = "Identity";
-		private const string BrandContextName = "Brand";
-		private const string StoreContextName = "Store";
 		#endregion
+
+		protected static DB DB
+		{
+			get
+			{
+				// Find DB on this thread's bag
+				DB db = CallContext.GetData(DBContextName) as DB;
+
+				// If it doesn't exists, create it
+				if (db == null)
+				{
+					db = new DB();
+
+					// Save the context on the thread's bag
+					CallContext.SetData(DBContextName, db);
+				}
+
+				return db;
+			}
+		}
 
 		#region Properties
 		protected static DBERP DBERP
@@ -40,34 +61,11 @@ namespace AM.Services
 			}
 		}
 
-		protected static DB DB
-		{
-			get
-			{
-				// Find DB on this thread's bag
-				DB db = CallContext.GetData(DBContextName) as DB;
-
-				// If it doesn't exists, create it
-				if (db == null)
-				{
-					db = new DB();
-
-					// Save the context on the thread's bag
-					CallContext.SetData(DBContextName, db);
-				}
-
-				return db;
-			}
-		}
 
 		protected static ServiceUserIdentity Identity => CallContext.GetData(IdentityContextName) as ServiceUserIdentity ?? new ServiceUserIdentity
 		{
 			AuditLogin = "system"
 		};
-
-		protected static ServiceStore Store => CallContext.GetData(StoreContextName) as ServiceStore ?? new ServiceStore();
-
-		protected static ServiceBrand Brand => CallContext.GetData(BrandContextName) as ServiceBrand ?? new ServiceBrand();
 
 		#endregion
 
@@ -75,16 +73,6 @@ namespace AM.Services
 		public static void SetIdentity(ServiceUserIdentity identity)
 		{
 			CallContext.SetData(IdentityContextName, identity);
-		}
-
-		public static void SetBrand(ServiceBrand brand)
-		{
-			CallContext.SetData(BrandContextName, brand);
-		}
-
-		public static void SetStore(ServiceStore store)
-		{
-			CallContext.SetData(StoreContextName, store);
 		}
 		#endregion
 
@@ -110,7 +98,7 @@ namespace AM.Services
 				db.Dispose();
 
 				// Remove context instance from the thread's bag
-				CallContext.SetData(DBContextName, null);	
+				CallContext.SetData(DBContextName, null);
 			}
 		}
 
@@ -172,6 +160,32 @@ namespace AM.Services
 			return filters;
 
 		}
+
+
+		//public virtual ServiceResponse GetAll()
+		//{
+		//	try
+		//	{
+		//		var sr = new ServiceResponse();
+		//		List<T> listEntities;
+		//		using (var unitOfWork = new UnitOfWork<T>())
+		//		{
+		//			listEntities = unitOfWork.Repository.GetAll().ToList();
+		//		}
+		//		sr.Data = listEntities;
+		//		sr.ReturnValue = listEntities.Count;
+		//		return sr;
+		//	}
+
+
+		//	catch (Exception ex)
+		//	{
+		//		throw ex;
+		//	}
+		//}
+
+	
+
 		#endregion
 	}
 }

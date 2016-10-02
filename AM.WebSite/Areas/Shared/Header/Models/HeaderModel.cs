@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-
-namespace AM.WebSite.Areas.Shared.Header.Models
+﻿namespace AM.WebSite.Areas.Shared.Header.Models
 {
 	public class HeaderModel
     {

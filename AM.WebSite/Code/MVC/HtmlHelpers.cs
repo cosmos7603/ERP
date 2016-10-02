@@ -1,16 +1,13 @@
-﻿using AM.Services;
-using AM.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
-using System.Web.Routing;
 
 namespace AM.WebSite.MVC
 {
-	public static partial class HtmlHelperExtensions
+	public static class HtmlHelperExtensions
 	{
 		#region Scripts
 		public static MvcHtmlString Script(this HtmlHelper htmlHelper, string url)
@@ -216,7 +213,7 @@ namespace AM.WebSite.MVC
 			else if (text != "")
 			{
 				List<SelectListItem> items = selectList.ToList();
-				SelectListItem newItem = new SelectListItem() { Value = value, Text = text };
+				SelectListItem newItem = new SelectListItem { Value = value, Text = text };
 				items.Insert(0, newItem);
 				selectList = new SelectList(items, "Value", "Text", value);
 			}

@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace AM.WebSite
@@ -15,11 +14,7 @@ namespace AM.WebSite
 			routes.MapMvcAttributeRoutes();
 
 			// Default routes
-			routes.MapRoute(
-				name: "Default",
-				url: "{controller}/{action}/{id}",
-				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-				namespaces: new[] { "AM.WebSite.Controllers" }
+			routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional }, new[] { "AM.WebSite.Controllers" }
 			);
 		}
 	}

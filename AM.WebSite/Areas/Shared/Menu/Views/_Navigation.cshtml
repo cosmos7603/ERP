@@ -21,7 +21,7 @@
 					IN+
 				</div>
 			</li>
-			<li class="@Html.IsSelected(controller:"Home",action: "Index")">
+			<li class="@Html.IsSelected("Home", "Index")">
 				<a href="@Url.Action("Index", "Home")">
 					<i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span> </a>
 			</li>
@@ -38,20 +38,49 @@
 					</li>
 				</ul>
 			</li>*@
-			<li class="@Html.IsSelected(controller: "Client", action: "Index")">
+
+
+
+
+
+			<li class="@Html.IsSelected("Client,Provider,Product")">
+				<a href="#">
+					<i class="fa fa-laptop"></i> <span class="nav-label">Base de datos</span> <span class="fa arrow"></span>
+				</a>
+				<ul class="nav nav-second-level collapse in">
+					<li class="@Html.IsSelected("Client", "Index")">
+						<a href="@Url.Action("Index", "Client")">
+							<i class="fa fa-desktop"></i> <span class="nav-label">Clientes</span>
+						</a>
+					</li>
+					<li class="@Html.IsSelected("Provider", "Index")">
+						<a href="@Url.Action("Index", "Provider")">
+							<i class="fa fa-desktop"></i> <span class="nav-label">Proveedores</span>
+						</a>
+					</li>
+					<li class="@Html.IsSelected("Product", "Index")">
+						<a href="@Url.Action("Index", "Product")">
+							<i class="fa fa-desktop"></i> <span class="nav-label">Productos</span>
+						</a>
+					</li>
+
+				</ul>
+			</li>
+
+			@*<li class="@Html.IsSelected("Client", "Index")">
 				<a href="@Url.Action("Index", "Client")">
 					<i class="fa fa-desktop"></i> <span class="nav-label">Clientes</span></a>
 			</li>
-			<li class="@Html.IsSelected(controller: "Provider", action: "Index")">
+			<li class="@Html.IsSelected("Provider", "Index")">
 				<a href="@Url.Action("Index", "Provider")">
 					<i class="fa fa-desktop"></i> <span class="nav-label">Proveedores</span>
 				</a>
 			</li>
-			<li class="@Html.IsSelected(controller:"Product",action: "Index")">
+			<li class="@Html.IsSelected("Product", "Index")">
 				<a href="@Url.Action("Index", "Product")">
 					<i class="fa fa-desktop"></i> <span class="nav-label">Productos</span>
 				</a>
-			</li>
+			</li>*@
 		</ul>
 	</div>
 </nav>

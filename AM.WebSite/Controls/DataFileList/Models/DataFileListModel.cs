@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace AM.WebSite.Controls.DataFileList.Models
 {
@@ -17,7 +13,7 @@ namespace AM.WebSite.Controls.DataFileList.Models
 		
 		public string ProgressBarID
 		{
-			get { return this.ID + "ProgressBar"; }
+			get { return ID + "ProgressBar"; }
 		}
 
 		public DataFileListModel()

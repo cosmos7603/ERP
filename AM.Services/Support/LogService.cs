@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 
-namespace AM.Services.Support
+namespace AM.Services
 {
 	#region Enums
 	public enum EventCode

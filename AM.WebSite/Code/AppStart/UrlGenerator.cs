@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
-using System.IO;
 
 namespace AM.WebSite
 {
@@ -27,10 +27,10 @@ namespace AM.WebSite
 
 		public string Generate()
 		{
-			List<ControllerInfo> controllers = this.ControllerAssembly.GetTypes()
-					.Where(type => typeof(System.Web.Mvc.Controller).IsAssignableFrom(type) && !type.IsAbstract)
-					.Select(x => new ControllerInfo()
-					{
+			List<ControllerInfo> controllers = ControllerAssembly.GetTypes()
+					.Where(type => typeof(Controller).IsAssignableFrom(type) && !type.IsAbstract)
+					.Select(x => new ControllerInfo
+								{
 						Controller = x,
 						RouteAttribute = x.GetCustomAttribute(typeof(RouteAttribute)) as RouteAttribute
 					})
@@ -39,7 +39,7 @@ namespace AM.WebSite
 
 			_result = GetNode(0, controllers);
 
-			return "var URLs = " + _result.GetUrls(this.BaseUrl) + ";";
+			return "var URLs = " + _result.GetUrls(BaseUrl) + ";";
 		}
 
 		private TreeNode GetNode(int level, List<ControllerInfo> controllers)
@@ -77,20 +77,20 @@ namespace AM.WebSite
 		private class TreeNode
 		{
 			public string Key { get; set; }
-			public List<ControllerInfo> Controllers { get; set; }
-			public List<TreeNode> Items { get; set; }
+			public List<ControllerInfo> Controllers { get; }
+			public List<TreeNode> Items { get; }
 
 			public TreeNode()
 			{
-				this.Controllers = new List<ControllerInfo>();
-				this.Items = new List<TreeNode>();
+				Controllers = new List<ControllerInfo>();
+				Items = new List<TreeNode>();
 			}
 
 			public string GetUrls(string baseUrl)
 			{
 				StringBuilder sb = new StringBuilder();
 
-				foreach (TreeNode node in this.Items)
+				foreach (TreeNode node in Items)
 				{
 					string urls = node.GetUrls(baseUrl);
 
@@ -103,7 +103,7 @@ namespace AM.WebSite
 					}
 				}
 
-				foreach (ControllerInfo item in this.Controllers)
+				foreach (ControllerInfo item in Controllers)
 				{
 					// Home is special...
 					if (item.ControllerName == "HomeController")
@@ -129,16 +129,16 @@ namespace AM.WebSite
 
 				string template = "{{ \n {0}\n}}";
 
-				if (!string.IsNullOrEmpty(this.Key))
+				if (!string.IsNullOrEmpty(Key))
 					template = "{1}: {{ \n {0}\n}}";
 
-				return string.Format(template, sb, this.Key);
+				return string.Format(template, sb, Key);
 			}
 		}
 
 		private class ControllerInfo
 		{
-			public string ControllerName { get { return this.Controller.Name; } }
+			public string ControllerName { get { return Controller.Name; } }
 			public Type Controller { get; set; }
 			public RouteAttribute RouteAttribute { get; set; }
 			private string[] _area;
@@ -149,7 +149,7 @@ namespace AM.WebSite
 				{
 					if (RouteAttribute != null)
 					{
-						string route = this.RouteAttribute.Template;
+						string route = RouteAttribute.Template;
 
 						if (route.Contains("/{"))
 						{
@@ -162,8 +162,7 @@ namespace AM.WebSite
 
 						return route;
 					}
-					else
-						return string.Format("{0}/", this.ControllerName.Substring(0, this.ControllerName.LastIndexOf("Controller")));
+					return string.Format("{0}/", ControllerName.Substring(0, ControllerName.LastIndexOf("Controller")));
 				}
 			}
 
@@ -173,10 +172,10 @@ namespace AM.WebSite
 				{
 					if (_area == null)
 					{
-						if (this.Route.EndsWith("/"))
-							_area = this.Route.Substring(0, this.Route.Length - 1).Split('/');
+						if (Route.EndsWith("/"))
+							_area = Route.Substring(0, Route.Length - 1).Split('/');
 						else
-							_area = this.Route.Split('/');
+							_area = Route.Split('/');
 					}
 
 					return _area;
@@ -186,17 +185,16 @@ namespace AM.WebSite
 
 			public string GetArea(int idx)
 			{
-				if (idx >= this.Areas.Length)
+				if (idx >= Areas.Length)
 					return "";
-				else
-					return this.Areas[idx];
+				return Areas[idx];
 			}
 
 			public string GetUrls(string baseUrl)
 			{
 				string tabs = "\n";
 
-				int countTab = this.Route.Split('/').Length;
+				int countTab = Route.Split('/').Length;
 
 				for (int i = 0; i < countTab; i++)
 					tabs += "\t";
@@ -207,24 +205,23 @@ namespace AM.WebSite
 
 				foreach (string action in actions)
 				{
-					urls.AppendFormat("{3}\t{0}: '{1}{2}{0}',", action, baseUrl, this.Route, tabs);
+					urls.AppendFormat("{3}\t{0}: '{1}{2}{0}',", action, baseUrl, Route, tabs);
 				}
 
 				if (urls.Length > 0)
-					return string.Format("{2}{0}:{{{2}{1}{2}}}", this.Areas.Last(), urls.Remove(urls.Length - 1, 1), tabs);
-				else
-					return "";
+					return string.Format("{2}{0}:{{{2}{1}{2}}}", Areas.Last(), urls.Remove(urls.Length - 1, 1), tabs);
+				return "";
 			}
 
 			private List<string> GetActions()
 			{
 
-				var list = this.Controller
+				var list = Controller
 					.GetMethods(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.Instance)
-					.Where(m => !m.GetCustomAttributes(typeof(System.Runtime.CompilerServices.CompilerGeneratedAttribute), true).Any()
+					.Where(m => !m.GetCustomAttributes(typeof(CompilerGeneratedAttribute), true).Any()
 								&& (m.ReturnType.IsSubclassOf(typeof(ActionResult)) || m.ReturnType.IsAssignableFrom(typeof(ActionResult))))
 					.Select(x => x.Name)
-					.ToList<string>();
+					.ToList();
 
 				return list.Distinct().ToList();
 

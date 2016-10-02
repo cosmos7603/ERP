@@ -68,22 +68,21 @@ namespace AM.DAL
 		public DbSet<MktgActivityPromotion> MktgActivityPromotion { get; set; }
 		public DbSet<Promotion> Promotion { get; set; }
 		public DbSet<MktgActivityStore> MktgActivityStore { get; set; }
-        public DbSet<MktgActivityDelivery> MktgActivityDelivery { get; set; }
-        public DbSet<Customer> Customer { get; set; }
-        public DbSet<Reservation> Reservation { get; set; }
-        public DbSet<ResPass> ResPass { get; set; }
-        public DbSet<Grp> Grp { get; set; }
-		public DbSet<LineItem> LineItem { get; set; }    
-        public DbSet<CorporateCharge> CorporateCharge { get; set; }
-        public DbSet<CorporateChargeReason> CorporateChargeReason { get; set; }
-        public DbSet<Branch> Branch { get; set; }
+		public DbSet<MktgActivityDelivery> MktgActivityDelivery { get; set; }
+		public DbSet<Customer> Customer { get; set; }
+		public DbSet<Reservation> Reservation { get; set; }
+		public DbSet<ResPass> ResPass { get; set; }
+		public DbSet<Grp> Grp { get; set; }
+		public DbSet<LineItem> LineItem { get; set; }
+		public DbSet<CorporateCharge> CorporateCharge { get; set; }
+		public DbSet<CorporateChargeReason> CorporateChargeReason { get; set; }
+		public DbSet<Branch> Branch { get; set; }
 		public DbSet<GrpLinePricing> GrpLinePricing { get; set; }
 		public DbSet<GrpSegment> GrpSegment { get; set; }
-        public DbSet<LinePass> LinePass { get; set; }
-        public DbSet<Itinerary> Itinerary { get; set; }
-        public DbSet<ItineraryDay> ItineraryDay { get; set; }
-        public DbSet<Cruise> Cruise { get; set; }
-
+		public DbSet<LinePass> LinePass { get; set; }
+		public DbSet<Itinerary> Itinerary { get; set; }
+		public DbSet<ItineraryDay> ItineraryDay { get; set; }
+		public DbSet<Cruise> Cruise { get; set; }
 		#endregion
 
 		#region Functions

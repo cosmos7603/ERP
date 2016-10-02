@@ -1,6 +1,6 @@
 ﻿
-@model AM.WebSite.Areas.Client.Models.ClientModel
-<div class="modal fade" role="dialog" id="clientModal">
+@model AM.WebSite.Areas.Client.Models.Client
+<div class="modal fade" role="dialog" id="entityModal">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			@using (Html.BeginForm("Save", "Client", FormMethod.Post, new { id = "frmClientInfo", autocomplete = "off", role = "form" }))
@@ -117,12 +117,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button id="btnSaveClient" class="btn btn-primary" style="margin-bottom: 0">Guardar</button>
-					<button data-dismiss="modal" class="btn btn-default">Cancelar</button>
-					@*@if (Model.Id != 0 /*&& Model.CanCompleteOrDeleteReminder*/)
-						{
-							<button id="btnDeleteClient" class="btn btn-danger">Delete</button>
-						}*@
+					<button id="btnSave" class="btn btn-primary" style="margin-bottom: 0">Guardar</button>
+					<button id="btnCancel" data-dismiss="modal" class="btn btn-default">Cancelar</button>
 				</div>
 			}
 		</div>

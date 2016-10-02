@@ -4,18 +4,18 @@
 		<button id="btnNew" class="btn btn-primary">Nuevo</button>
 		<button id="btnEdit" class="btn btn-success" disabled>Editar</button>
 		<button id="btnDelete" class="btn btn-warning" disabled>Borrar</button>
-		<button id="btnRefresh" class="btn btn-danger">Refrescar</button>
+		@*<button id="btnRefresh" class="btn btn-danger">Refrescar</button>*@
 	</div>
 </div>
 
 
 <script type="text/javascript">
-	$(document).ready(function()
+	$(document).ready(function ()
 	{
-		
+
 		$("#btnDelete").click(function ()
 		{
-			remove();
+			removeEntity();
 			return false;
 		});
 		$("#btnEdit").click(function ()
@@ -28,21 +28,73 @@
 			addNew();
 			return false;
 		});
-
 		$("#btnRefresh").click(function ()
 		{
 			enableActions(false);
 			loadGrid();
 			return false;
 		});
-
 	});
-
+	function onRowSelected()
+	{
+		enableActions();
+	}
+	function onGridLoad()
+	{
+		enableActions(false);
+	}
 	function enableActions(enable)
 	{
 		if (enable == undefined)
 			var enable = true;
 		$("#btnEdit").enable(enable);
 		$("#btnDelete").enable(enable);
+	}
+	function loadGrid()
+	{
+		$('#grid').data('kendoGrid').dataSource.read();
+	}
+
+	function addNew()
+	{
+		showModal({ setupMode: SETUP_MODE_NEW });
+	}
+
+	function edit()
+	{
+		var grid = $("#grid").data("kendoGrid");
+		var id = grid.dataItem(grid.select()).id;
+		showModal({ setupMode: SETUP_MODE_EDIT, entityId: id });
+		return false;
+	}
+
+	function triggerSearch()
+	{
+		loadGrid();
+	}
+
+	function showModal(model)
+	{
+		$.partialView("#entityModalContainer", 'EntityInfoModal', model, function ()
+		{
+			$('#entityModal').modal('show');
+			attachEntityModalHandlers();
+		});
+	}
+
+	function attachEntityModalHandlers()
+	{
+
+		$("#btnSave").click(function ()
+		{
+			saveEntityInfo();
+			return false;
+		});
+
+		//$("#btnDelete").click(function ()
+		//{
+		//	removeEntity();
+		//	return false;
+		//});
 	}
 </script>

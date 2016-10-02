@@ -1,6 +1,4 @@
 ﻿using System;
-using AM.Services;
-using AM.WebSite.Areas.Shared.Header.Models;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
@@ -32,6 +30,21 @@ namespace AM.WebSite.HtmlHelpers
 			return controller.ToLower() == currentController.ToLower() && action.ToLower() == currentAction.ToLower() ?
 				cssClass : String.Empty;
 		}
+
+
+		public static string IsSelected(this HtmlHelper html, params string[] controllers)
+		{
+			var selected = "";
+			var cssClass = "active";
+			foreach (var controller in controllers)
+			{
+				html.IsSelected(controller);
+				if (selected == cssClass)
+					break;
+			}
+			return selected;
+		}
+
 
 		public static string PageClass(this HtmlHelper html)
 		{

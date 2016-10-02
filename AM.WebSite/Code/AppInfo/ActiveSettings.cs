@@ -1,7 +1,4 @@
-﻿using AM.Services;
-using AM.Services.Models;
-
-namespace AM.WebSite
+﻿namespace AM.WebSite
 {
     public class ActiveSettings
     {

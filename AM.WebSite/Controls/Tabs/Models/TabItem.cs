@@ -14,7 +14,7 @@
 		{
 			get
 			{
-				return "tab" + GetID(this.Title);
+				return "tab" + GetID(Title);
 			}
 		}
 
@@ -22,7 +22,7 @@
 		{
 			get
 			{
-				return "div" + GetID(this.Title);
+				return "div" + GetID(Title);
 			}
 		}
 
@@ -30,7 +30,7 @@
         {
             get
             {
-                return "tabPane" + GetID(this.Title);
+                return "tabPane" + GetID(Title);
             }
         }
 

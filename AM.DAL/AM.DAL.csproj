@@ -335,6 +335,8 @@
     <Compile Include="QueryResults\ReportServer.cs" />
     <Compile Include="QueryResults\UserResult.cs" />
     <Compile Include="QueryResults\VendorResult.cs" />
+    <Compile Include="Repository\Abstract\RepositoryBase.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -353,7 +355,9 @@
       <Name>AM.Utils</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Repository\Concrete\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

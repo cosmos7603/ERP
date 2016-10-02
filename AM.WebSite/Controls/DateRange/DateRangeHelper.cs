@@ -1,7 +1,7 @@
-﻿using AM.WebSite.Controls.DateRange;
-using AM.WebSite.Controls.DateRange.Models;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using AM.WebSite.Controls.DateRange;
+using AM.WebSite.Controls.DateRange.Models;
 
 namespace AM.WebSite.HtmlHelpers
 {

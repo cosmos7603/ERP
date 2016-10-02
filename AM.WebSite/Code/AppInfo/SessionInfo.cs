@@ -1,10 +1,9 @@
-﻿using AM.Services;
-using AM.Utils;
-using AM.WebSite;
-using System;
-using System.Web;
+﻿using System;
 using System.Linq;
+using System.Web;
+using AM.Services;
 using AM.Services.Support;
+using AM.Utils;
 
 namespace AM.WebSite
 {
@@ -55,13 +54,13 @@ namespace AM.WebSite
 
 		private static void WriteCookie(SessionInfo sessionInfo)
 		{
-			var ucCookie = new HttpCookie(SessionInfo.COOKIE_NAME, SessionInfo.Serialize(sessionInfo));
+			var ucCookie = new HttpCookie(COOKIE_NAME, Serialize(sessionInfo));
 			HttpContext.Current.Response.Cookies.Add(ucCookie);
 		}
 
 		private static void DeleteCookie()
 		{
-			var ucCookie = new HttpCookie(SessionInfo.COOKIE_NAME, "");
+			var ucCookie = new HttpCookie(COOKIE_NAME, "");
 			ucCookie.Expires = DateTime.Now.AddYears(-1);
 			HttpContext.Current.Response.Cookies.Add(ucCookie);
 		}
@@ -91,13 +90,13 @@ namespace AM.WebSite
 
         public static SessionInfo GetSessionInfo()
 		{
-			var sessionInfoCookie = ReadCookie(SessionInfo.COOKIE_NAME);
+			var sessionInfoCookie = ReadCookie(COOKIE_NAME);
 			var si = new SessionInfo();
 
 			// Cookie not exists?
             if (sessionInfoCookie != null)
 			{
-				si = SessionInfo.Deserialize(sessionInfoCookie);
+				si = Deserialize(sessionInfoCookie);
 
 				// Existing cookie, but corrupted
 				if (si == null)

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AM.WebSite.Areas.Shared.Error.Models
+﻿namespace AM.WebSite.Areas.Shared.Error.Models
 {
 	public class ExceptionModel
 	{

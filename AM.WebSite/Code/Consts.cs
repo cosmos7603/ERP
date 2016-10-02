@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using AM.Utils;
-using System;
-
-namespace AM.WebSite.Consts
+﻿namespace AM.WebSite.Consts
 {
 	public class SetupMode
 	{

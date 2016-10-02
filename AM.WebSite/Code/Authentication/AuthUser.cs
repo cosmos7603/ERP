@@ -9,7 +9,7 @@ namespace AM.WebSite.Security
 			return true;
 		}
 
-		public IIdentity Identity { get; private set; }
+		public IIdentity Identity { get; }
 
 		#region Properties
 		public string Login { get; set; }

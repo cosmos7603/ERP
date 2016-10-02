@@ -1,10 +1,9 @@
-﻿using AM.WebSite.Controls.DateRange.Models;
-using AM.WebSite;
-using AM.WebSite.Shared.Controllers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using AM.WebSite.Controls.DateRange.Models;
+using AM.WebSite.Shared.Controllers;
 
 namespace AM.WebSite.Controls.DateRange
 {
@@ -192,7 +191,7 @@ namespace AM.WebSite.Controls.DateRange
 		{
 			DateTime today = DateTime.Today;
 			int year = today.Year;
-			DateTime[] startOfQuarters = new DateTime[] {
+			DateTime[] startOfQuarters = {
 					new DateTime(year, 1, 1),
 					new DateTime(year, 4, 1),
 					new DateTime(year, 7, 1),
@@ -206,7 +205,7 @@ namespace AM.WebSite.Controls.DateRange
 		{
 			DateTime today = DateTime.Today;
 			int year = today.Year;
-			DateTime[] endOfQuarters = new DateTime[] {
+			DateTime[] endOfQuarters = {
 					new DateTime(year, 3, 31),
 					new DateTime(year, 6, 30),
 					new DateTime(year, 9, 30),

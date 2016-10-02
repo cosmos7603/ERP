@@ -1,6 +1,4 @@
-﻿@using AM.WebSite.HtmlHelpers
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<!-- Shared Head HTML -->
@@ -12,11 +10,31 @@
 	<!-- Scripts -->
 	@Scripts.Render("~/bundles/main-js")
 
+	@*@{
+		var culture = System.Globalization.CultureInfo.CurrentCulture.ToString();
+	}*@
+
+
+
 	<!-- URLs -->
 	@*@Scripts.Render("~/Global/URLs")*@
 
 	<!-- Page scripts -->
-	@RenderSection("Scripts", required: false)
+	@RenderSection("Scripts", false)
+
+	<script>
+		function sync_handler(e)
+		{
+			this.read();
+		}
+
+		function error_handler(e)
+		{
+			this.read();
+		}
+	</script>
+
+
 </head>
 
 @*<body class="canvas-menu">*@
@@ -35,7 +53,7 @@
 				<!-- Header Navbar -->
 				@Html.AMHeader()
 			</div>
-			@RenderSection("PageHeader", required: false)
+			@RenderSection("PageHeader", false)
 			<!-- Content Wrapper. Contains page content -->
 			<div class="wrapper wrapper-content animated fadeInRight">
 				@RenderBody()

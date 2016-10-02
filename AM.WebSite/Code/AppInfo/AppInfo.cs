@@ -1,17 +1,13 @@
-﻿using AM.DAL;
-using AM.Services;
-using AM.Services.Models;
-using AM.WebSite.Security;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Configuration;
 using System.Globalization;
 using System.Reflection;
 using System.Threading;
 using System.Web;
 using System.Web.Security;
-using System.Linq;
+using AM.Services.Models;
+using AM.WebSite.Security;
+using Newtonsoft.Json;
 
 namespace AM.WebSite
 {
@@ -95,7 +91,7 @@ namespace AM.WebSite
 
 		public static string AppName
 		{
-			get { return "AgentMate"; }
+			get { return "ERP"; }
 		}
 		#endregion
 
@@ -293,7 +289,7 @@ namespace AM.WebSite
 
 		public static void SetDateFormat()
 		{
-			CultureInfo newCulture = (CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+			CultureInfo newCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
 			newCulture.DateTimeFormat.ShortDatePattern = "dd MMM yyyy";
 			newCulture.DateTimeFormat.DateSeparator = " ";
 			Thread.CurrentThread.CurrentCulture = newCulture;
@@ -318,7 +314,7 @@ namespace AM.WebSite
 			public WebConfigSettings()
 			{
 				ConnectionString = ConfigurationManager.ConnectionStrings["ERPEntities"].ConnectionString;
-				EncryptionKey = ConfigurationManager.AppSettings["encryptionKey"].ToString();
+				EncryptionKey = ConfigurationManager.AppSettings["encryptionKey"];
 			}
 		}
 		#endregion

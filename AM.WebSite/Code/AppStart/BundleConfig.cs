@@ -25,6 +25,7 @@ namespace AM.WebSite
 				.Include("~/Content/theme/overrides/login.css")
 				.Include("~/Content/theme/css/animate.css")
 				.Include("~/Content/theme/css/style.css")
+			
 			);
 
 			// Javascript
@@ -42,6 +43,7 @@ namespace AM.WebSite
 				.Include("~/Shared/JS/BrowserDetection.js")
 				.Include("~/Shared/JS/JQExtensions.js")
 				.Include("~/Shared/JS/Shared.js")
+
 				);
 		}
 
@@ -79,6 +81,14 @@ namespace AM.WebSite
 				.Include("~/Content/theme/overrides/bootstrap.css")
 				//.Include("~/Content/theme/overrides/style.css")
 				//.Include("~/Content/theme/overrides/navbar.css")
+				//Kendo
+				.Include("~/Content/libs/kendo/2016.3.914/kendo.common.min.css")
+				.Include("~/Content/libs/kendo/2016.3.914/kendo.common-bootstrap.min.css")
+				.Include("~/Content/libs/kendo/2016.3.914/kendo.bootstrap.min.css")
+				.Include("~/Content/libs/kendo/2016.3.914/kendo.mobile.all.min.css")
+				//.Include("~/Content/libs/kendo/2016.3.914/kendo.dataviz.min.css")
+				//.Include("~/Content/libs/kendo/2016.3.914/kendo.material.min.css")
+				//.Include("~/Content/libs/kendo/2016.3.914/kendo.dataviz.material.min.css")
 				);
 
 			// Javascript
@@ -158,7 +168,18 @@ namespace AM.WebSite
 				.Include("~/Controls/DateRange/JS/DateRange.js")
 				.Include("~/Controls/MonthYear/JS/MonthYear.js")
 				.Include("~/Controls/RichEditor/JS/RichEditor.js")
-				.Include("~/Controls/MultiselectList/JS/MultiselectList.js"));
-		}
+				.Include("~/Controls/MultiselectList/JS/MultiselectList.js")
+				//Kendo
+				.Include("~/Content/libs/kendo/2016.3.914/angular.min.js")
+				.Include("~/Content/libs/kendo/2016.3.914/jszip.min.js")
+				.Include("~/Content/libs/kendo/2016.3.914/kendo.all.min.js")
+				.Include("~/Content/libs/kendo/2016.3.914/cultures/kendo.culture.es-AR.min.js")
+				.Include("~/Content/libs/kendo/2016.3.914/messages/kendo.messages.es-ES.min.js")
+				.Include("~/Content/libs/kendo/2016.3.914/kendo.aspnetmvc.min.js")
+				.Include("~/Content/libs/kendo/2016.3.914/kendo.modernizr.custom.js")
+				);
+			
+			
+        }
 	}
 }
