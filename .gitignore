@@ -12,5 +12,8 @@ ERP/BIN
 INSPINIA/ERP
 INSPINIA_MVC5/BIN
 KendoMvcERP
-
+bin/Debug
+obj/debug
+bin
+obj
 

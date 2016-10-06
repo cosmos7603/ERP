@@ -38,7 +38,7 @@ namespace AM.WebSite.HtmlHelpers
 			var cssClass = "active";
 			foreach (var controller in controllers)
 			{
-				html.IsSelected(controller);
+				selected = html.IsSelected(controller);
 				if (selected == cssClass)
 					break;
 			}

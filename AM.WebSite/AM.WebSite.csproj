@@ -143,6 +143,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Operation\OperationController.cs" />
+    <Compile Include="Areas\Sale\Models\Sale.cs" />
+    <Compile Include="Areas\Treasury\TreasuryController.cs" />
+    <Compile Include="Areas\Report\ReportController.cs" />
+    <Compile Include="Areas\Outflow\OutflowController.cs" />
+    <Compile Include="Areas\Sale\SaleController.cs" />
     <Compile Include="Areas\Product\Models\ProductModel.cs" />
     <Compile Include="Areas\Product\ProductController.cs" />
     <Compile Include="Areas\Provider\ProviderController.cs" />
@@ -157,6 +163,8 @@
     <Compile Include="Areas\Shared\Menu\MenuHelper.cs" />
     <Compile Include="Areas\Shared\Menu\Model\MenuModel.cs" />
     <Compile Include="Areas\Shared\SessionInfo\Model\SessionInfoModel.cs" />
+    <Content Include="Areas\Outflow\JS\Client.js" />
+    <Content Include="Areas\Sale\JS\Sale.js" />
     <Content Include="Areas\Product\JS\Product.js" />
     <Content Include="Areas\Provider\JS\Provider.js" />
     <Content Include="Areas\Client\JS\Client.js" />
@@ -173,6 +181,8 @@
     <Compile Include="Controls\Auto\Models\AutoModel.cs" />
     <Compile Include="Controls\Captcha\CaptchaHelper.cs" />
     <Compile Include="Controls\CheckBox\CheckBoxHelper.cs" />
+    <Compile Include="Controls\SalesSummary\Models\SalesSummaryModel.cs" />
+    <Compile Include="Controls\SalesSummary\SalesSummaryHelper.cs" />
     <Compile Include="Controls\CrudButtons\CrudButtonsHelper.cs" />
     <Compile Include="Controls\IntBox\Models\IntBoxModel.cs" />
     <Compile Include="Controls\RichEditor\RichEditorHelper.cs" />
@@ -504,6 +514,13 @@
     <Content Include="Content\libs\kendo\2015.2.902\angular.min.js" />
     <Content Include="Content\libs\kendo\2015.2.902\jquery.min.js" />
     <Content Include="Content\libs\kendo\2015.2.902\jszip.min.js" />
+    <Content Include="Areas\Sale\Views\Index.cshtml" />
+    <Content Include="Areas\Outflow\Views\OtherExpense.cshtml" />
+    <Content Include="Areas\Outflow\Views\Purchase.cshtml" />
+    <Content Include="Areas\Report\Views\Index.cshtml" />
+    <Content Include="Areas\Treasury\Views\Index.cshtml" />
+    <Content Include="Areas\Operation\Views\Index.cshtml" />
+    <Content Include="Areas\Sale\Views\SaleInfoModal.cshtml" />
     <None Include="Content\libs\kendo\2015.2.902\kendo.all-vsdoc.js" />
     <None Include="Content\libs\kendo\2015.2.902\kendo.all.min.intellisense.js" />
     <Content Include="Content\libs\kendo\2015.2.902\kendo.all.min.js" />
@@ -2488,6 +2505,7 @@
     <Content Include="Content\libs\kendo\2016.3.914\kendo.web.min.js.map" />
     <Content Include="Content\libs\kendo\2016.3.914\kendo.webcomponents.min.js.map" />
     <Content Include="Content\libs\kendo\2016.3.914\kendo.window.min.js.map" />
+    <Content Include="Controls\SalesSummary\Views\SalesSummary.cshtml" />
     <None Include="Shared\JS\spanish.lang" />
     <Content Include="Shared\JS\SSO.js" />
     <Content Include="Shared\JS\UnsavedChanges.js" />
@@ -2594,16 +2612,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49675</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/PrimeroERP/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

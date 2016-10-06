@@ -152,7 +152,6 @@ namespace AM.Services
 		{
 			try
 			{
-				//var sr = new ServiceResponse();
 				DataSourceResult dataSourceResult;
 				using (var unitOfWork = new UnitOfWork<T>())
 				{
@@ -164,7 +163,7 @@ namespace AM.Services
 					{
 						throw ex;
 					}
-					unitOfWork.Dispose();
+					//unitOfWork.Dispose();
 				}
 				//sr.Data = listEntities;
 				//sr.ReturnValue = listEntities.Count;
@@ -177,6 +176,8 @@ namespace AM.Services
 				throw ex;
 			}
 		}
+
+
 
 		public virtual ServiceResponse Add(T poco)
 		{
@@ -253,40 +254,42 @@ namespace AM.Services
 			return sr;
 		}
 
-		public virtual List<T> GetPaged(IList<IFilterDescriptor> filters, IList<SortDescriptor> sort, int page, int rows, IList<AggregateDescriptor> aggregates, out int totalCount)
-		{
-			try
-			{
-				using (var unitOfWork = new UnitOfWork<T>())
-				{
-					totalCount = unitOfWork.Repository.GetAll().AsQueryable().Where(filters).Count();
 
-					IQueryable<T> query = (IQueryable<T>)unitOfWork.Repository.GetAll()
-						.AsQueryable()
-						.Where(filters);
-					if (sort != null && sort.Count > 0)
-					{
-						query = query.OrderBy(sort);
-					}
-					else
-					{
-						query = query.OrderByDescending(x => x.Id);
-					}
 
-					totalCount = query.Count();
-					List<T> resultList = query.Skip((page - 1) * rows).Take(rows).ToList();
+		//public virtual List<T> GetPaged(IList<IFilterDescriptor> filters, IList<SortDescriptor> sort, int page, int rows, IList<AggregateDescriptor> aggregates, out int totalCount)
+		//{
+		//	try
+		//	{
+		//		using (var unitOfWork = new UnitOfWork<T>())
+		//		{
+		//			totalCount = unitOfWork.Repository.GetAll<R>().AsQueryable().Where(filters).Count();
 
-					//Mapper.CreateMap<T, T>();
-					//return Mapper.Map<List<T>, List<T>>(resultList);
+		//			IQueryable<T> query = (IQueryable<T>)unitOfWork.Repository.GetAll()
+		//				.AsQueryable()
+		//				.Where(filters);
+		//			if (sort != null && sort.Count > 0)
+		//			{
+		//				query = query.OrderBy(sort);
+		//			}
+		//			else
+		//			{
+		//				query = query.OrderByDescending(x => x.Id);
+		//			}
 
-					return resultList;
-				}
-			}
-			catch (Exception ex)
-			{
-				throw ex;
-			}
-		}
+		//			totalCount = query.Count();
+		//			List<T> resultList = query.Skip((page - 1) * rows).Take(rows).ToList();
+
+		//			//Mapper.CreateMap<T, T>();
+		//			//return Mapper.Map<List<T>, List<T>>(resultList);
+
+		//			return resultList;
+		//		}
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		throw ex;
+		//	}
+		//}
 		public T GetById(int id)
 		{
 			try

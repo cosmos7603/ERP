@@ -35,6 +35,11 @@
 	</script>
 
 
+	@Html.RenderObject("currentAction", @HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString());
+	@Html.RenderObject("currentController", @HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString());
+	@Html.RenderObject("currentURL", Request.Url.AbsolutePath);
+	
+
 </head>
 
 @*<body class="canvas-menu">*@

@@ -37,7 +37,8 @@ $.redirect = function (url)
 }
 
 // Open new window to a page on client side
-$.openSite = function (url) {
+$.openSite = function (url)
+{
 	window.open(url, "_blank", "directories=no, status=yes, menubar=yes, scrollbars=yes, resizable=yes,width=1000, height=800,top=200,left=200");
 }
 
@@ -67,110 +68,113 @@ $.viewReport = function (reportName, orderField, id, headerText)
 
 $.viewReportPost = function (reportParametersDictionary, target)
 {
-    if (target == null)
-        var map = window.open("", "Map", "directories=no, status=no, menubar=no, scrollbars=yes, resizable=no,width=1000, height=800,top=200,left=200");
- 
-    // Create a form
-    var mapForm = document.createElement("form");
-    mapForm.id = "frmGenerateReport";
-    mapForm.name = "frmGenerateReport";
-    if (target == null)
-    {
-        mapForm.target = "Map";
-        mapForm.action = URLs.Reports.Viewer.Index;
-    }
+	if (target == null)
+		var map = window.open("", "Map", "directories=no, status=no, menubar=no, scrollbars=yes, resizable=no,width=1000, height=800,top=200,left=200");
 
-    else
-    {
-        mapForm.action = URLs.Reports.Viewer.GetReport;
-        mapForm.target = target;
-    } 
-    
-    mapForm.method = "POST";
+	// Create a form
+	var mapForm = document.createElement("form");
+	mapForm.id = "frmGenerateReport";
+	mapForm.name = "frmGenerateReport";
+	if (target == null)
+	{
+		mapForm.target = "Map";
+		mapForm.action = URLs.Reports.Viewer.Index;
+	}
 
-    for (var i = 0; i < reportParametersDictionary.length; i++)
-    {
-        // Create an input
-        var mapInput = document.createElement("input");
-        mapInput.type = "text";
-        mapInput.name = "reportParameters[" + reportParametersDictionary[i].Key + "]";
-        mapInput.value = reportParametersDictionary[i].Value;
-        // Add the input to the form
-        mapForm.appendChild(mapInput);
-    }
-    // Add the form to dom
-    //document.body.appendChild(mapForm);
-    mapForm.submit(function (e) {
-        e.preventDefault();
-        e.returnValue = false;
-        return false;
-    });
+	else
+	{
+		mapForm.action = URLs.Reports.Viewer.GetReport;
+		mapForm.target = target;
+	}
+
+	mapForm.method = "POST";
+
+	for (var i = 0; i < reportParametersDictionary.length; i++)
+	{
+		// Create an input
+		var mapInput = document.createElement("input");
+		mapInput.type = "text";
+		mapInput.name = "reportParameters[" + reportParametersDictionary[i].Key + "]";
+		mapInput.value = reportParametersDictionary[i].Value;
+		// Add the input to the form
+		mapForm.appendChild(mapInput);
+	}
+	// Add the form to dom
+	//document.body.appendChild(mapForm);
+	mapForm.submit(function (e)
+	{
+		e.preventDefault();
+		e.returnValue = false;
+		return false;
+	});
 }
 
-$.exportReport = function (reportParametersDictionary) {
-    // Create a form
-    var mapForm = document.createElement("form");
+$.exportReport = function (reportParametersDictionary)
+{
+	// Create a form
+	var mapForm = document.createElement("form");
 
-    mapForm.action = URLs.Reports.Viewer.ExportReport;
-    mapForm.target = "_blank";
-    mapForm.method = "POST";
+	mapForm.action = URLs.Reports.Viewer.ExportReport;
+	mapForm.target = "_blank";
+	mapForm.method = "POST";
 
-    for (var i = 0; i < reportParametersDictionary.length; i++)
-    {
-        // Create an input
-        var mapInput = document.createElement("input");
-        mapInput.type = "text";
-        mapInput.name = "reportParameters[" + reportParametersDictionary[i].Key + "]";
-        mapInput.value = reportParametersDictionary[i].Value;
-        // Add the input to the form
-        mapForm.appendChild(mapInput);
-    }
-    // Add the form to dom
-    document.body.appendChild(mapForm);
-    mapForm.submit();
+	for (var i = 0; i < reportParametersDictionary.length; i++)
+	{
+		// Create an input
+		var mapInput = document.createElement("input");
+		mapInput.type = "text";
+		mapInput.name = "reportParameters[" + reportParametersDictionary[i].Key + "]";
+		mapInput.value = reportParametersDictionary[i].Value;
+		// Add the input to the form
+		mapForm.appendChild(mapInput);
+	}
+	// Add the form to dom
+	document.body.appendChild(mapForm);
+	mapForm.submit();
 }
 
-$.emailReport = function (reportParametersDictionary) {
-    // Create a form
-    var mapForm = document.createElement("form");
+$.emailReport = function (reportParametersDictionary)
+{
+	// Create a form
+	var mapForm = document.createElement("form");
 
-    mapForm.action = URLs.Reports.Viewer.EmailReport;
-    mapForm.target = "_blank";
-    mapForm.method = "POST";
+	mapForm.action = URLs.Reports.Viewer.EmailReport;
+	mapForm.target = "_blank";
+	mapForm.method = "POST";
 
-    for (var i = 0; i < reportParametersDictionary.length; i++)
-    {
-        // Create an input
-        var mapInput = document.createElement("input");
-        mapInput.type = "text";
-        mapInput.name = "reportParameters[" + reportParametersDictionary[i].Key + "]";
-        mapInput.value = reportParametersDictionary[i].Value;
-        // Add the input to the form
-        mapForm.appendChild(mapInput);
-    }
-    // Add the form to dom
-    document.body.appendChild(mapForm);
-    mapForm.submit();
+	for (var i = 0; i < reportParametersDictionary.length; i++)
+	{
+		// Create an input
+		var mapInput = document.createElement("input");
+		mapInput.type = "text";
+		mapInput.name = "reportParameters[" + reportParametersDictionary[i].Key + "]";
+		mapInput.value = reportParametersDictionary[i].Value;
+		// Add the input to the form
+		mapForm.appendChild(mapInput);
+	}
+	// Add the form to dom
+	document.body.appendChild(mapForm);
+	mapForm.submit();
 }
 
 // Download several data files (with encrypted link)
 $.downloadFiles = function (files)
 {
-    //Remove any existing download iframe
-    $(".download-iframe").remove();
+	//Remove any existing download iframe
+	$(".download-iframe").remove();
 
-    var formActionUrl = $("#frmFileDownload").attr("action");
+	var formActionUrl = $("#frmFileDownload").attr("action");
 
-    //Add a download iframe and form for each file to be downloaded and submit the form
-    for (var i = 0; i < files.length; ++i)
-    {
-        var iframeHtml = "<iframe id=\"downloadIframe" + i + "\" class=\"download-iframe\"></iframe>";
-        var formHtml = "<form action=\""+ formActionUrl +"\" method=\"post\"><input type=\"hidden\" name=\"fileKey\" value=\"" + files[i] + "\"/></form>";
+	//Add a download iframe and form for each file to be downloaded and submit the form
+	for (var i = 0; i < files.length; ++i)
+	{
+		var iframeHtml = "<iframe id=\"downloadIframe" + i + "\" class=\"download-iframe\"></iframe>";
+		var formHtml = "<form action=\"" + formActionUrl + "\" method=\"post\"><input type=\"hidden\" name=\"fileKey\" value=\"" + files[i] + "\"/></form>";
 
-        $("#uploadDownloadForms").append(iframeHtml);
-        $("#downloadIframe" + i).contents().find("body").html(formHtml);
-        $("#downloadIframe" + i).contents().find("form")[0].submit();
-    }
+		$("#uploadDownloadForms").append(iframeHtml);
+		$("#downloadIframe" + i).contents().find("body").html(formHtml);
+		$("#downloadIframe" + i).contents().find("form")[0].submit();
+	}
 }
 
 // Download data file (with encrypted link)
@@ -294,16 +298,16 @@ $.showInfo = function (msg)
 	toastr.info("", msg);
 }
 
-$.showError= function(msg, errors)
+$.showError = function (msg, errors)
 {
 	var errorHtml = "<ul class=\"error-list\">";
-	errors.forEach(function (item) { errorHtml += "<li>" + item +"</li>" });
+	errors.forEach(function (item) { errorHtml += "<li>" + item + "</li>" });
 	errorHtml += "</ul>";
 
 	toastr.error(errorHtml, msg, { timeOut: 10000 });
 }
 
-$.showSuccess = function(msg)
+$.showSuccess = function (msg)
 {
 	toastr.success("", msg);
 }
@@ -313,27 +317,46 @@ $.showWarning = function (msg)
 	toastr.warning("", msg);
 }
 
-$.clearNotifications = function()
+$.clearNotifications = function ()
 {
 	toastr.clear();
 }
 
-$.toJSDate = function(value) {
-    var pattern = /Date\(([^)]+)\)/;
-    var results = pattern.exec(value);
-    var dt = new Date(parseFloat(results[1]));
-    return dt;
+$.toJSDate = function (value)
+{
+	var pattern = /Date\(([^)]+)\)/;
+	var results = pattern.exec(value);
+	var dt = new Date(parseFloat(results[1]));
+	return dt;
 }
 
-$.toDictionary = function (objectToConvert) {
-    sourceMapping = objectToConvert;
-    var someMapping = [];
-    for (var key in sourceMapping)
-    {
-        if (sourceMapping.hasOwnProperty(key))
-        {
-            someMapping.push({ Key: key, Value: sourceMapping[key] });
-        }
-    }
-    return someMapping;
+$.toDictionary = function (objectToConvert)
+{
+	sourceMapping = objectToConvert;
+	var someMapping = [];
+	for (var key in sourceMapping)
+	{
+		if (sourceMapping.hasOwnProperty(key))
+		{
+			someMapping.push({ Key: key, Value: sourceMapping[key] });
+		}
+	}
+	return someMapping;
+}
+
+
+$.getAbsoluteUrl = function (relativePath)
+{
+
+	var baserUrl = currentURL.replace(currentAction, "");
+	var url = "";
+	if (baserUrl.slice(-1) == '/')
+	{
+		url = baserUrl + relativePath;
+	}
+	else
+	{
+		url = baserUrl + "/" + relativePath;
+	}
+	return url;
 }

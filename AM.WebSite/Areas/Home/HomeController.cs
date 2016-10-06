@@ -5,6 +5,7 @@ namespace AM.WebSite.Areas.Home
 {
 	//[Authorize]
 	[ViewsPath("~/Areas/Home/Views")]
+	[Route("Home/{action=index}")]
 	public class HomeController : BaseController
 	{
 		public ActionResult Index()

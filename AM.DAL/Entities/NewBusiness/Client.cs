@@ -11,7 +11,7 @@ namespace AM.DAL
 			//this.Sales = new HashSet<Sale>();
 		}
 
-		[Display(Name = "Nombre Comercial")]
+		[Display(Name = "Cliente")]
 		public string ComercialName { get; set; }
 		[Display(Name = "Email")]
 		public string Email { get; set; }
@@ -47,7 +47,7 @@ namespace AM.DAL
 		public bool Active { get; set; }
 
 		public virtual ClientType ClientType { get; set; }
-		
+
 		//public virtual ICollection<Sale> Sales { get; set; }
 
 	}

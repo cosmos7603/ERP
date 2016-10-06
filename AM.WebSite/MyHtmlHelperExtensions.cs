@@ -25,8 +25,6 @@ namespace AM.WebSite
 
 				//.Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName(className + "Editor").Window(window => window.Width(600).Resizable().Scrollable(true).Title(title)))
 				.Name(name)
-				.Groupable()
-				.Pageable()
 				.Sortable()
 				.Scrollable()
 				.Selectable(selectable => selectable
@@ -60,9 +58,9 @@ namespace AM.WebSite
 					.Refresh(true)
 					.PageSizes(true)
 					.ButtonCount(5))
-				.Groupable();
-
-
+				.Groupable()
+				  .ColumnMenu()
+				;
 		}
 
 

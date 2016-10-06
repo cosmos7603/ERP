@@ -20,57 +20,24 @@ namespace AM.WebSite.Areas.Client
 	[ViewsPath("~/Areas/Client/Views")]
 	public class ClientController : CrudController<DAL.Client>
 	{
+
+
+		protected ClientService ClientService = new ClientService();
+
 		#region Main View
 		public ActionResult Index()
 		{
-			var model = new Models.Client();
-			model.ClientTypesSelectList = ClientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id);
-			
-			return View(model);
+			//var model = new Models.Client();
+			//	model.ClientTypesSelectList = ClientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id);
+
+			return View();
 		}
 
-		//#endregion
-
-		//#region Partial Views
-
-
-		//#endregion
-
-		//#region Actions
-		//[HttpPost]
-		//public JsonResult List(ClientService.ClientSearchParameters p)
+		//protected ClientController()
 		//{
-
-		//	var sr = ClientService.GetClientList(p);
-
-		//	if (!sr.Status)
-		//		return GetJsonResponse(sr);
-
-		//	sr.Data = ((List<DAL.Client>)sr.Data)
-		//	.Select(x => new
-		//	{
-		//		x.Id,
-		//		x.ComercialName,
-		//		x.FirstName,
-		//		x.LastName,
-		//		x.Active,
-		//		x.DNI,
-		//		x.CUIT,
-		//		x.Province,
-		//		x.City,
-		//		ClientType = new ClientType
-		//		{
-		//			Id = x.ClientType.Id,
-		//			Description = x.ClientType.Description
-		//		},
-		//		Address1 = x.Address1 + " " + x.Address2,
-		//		x.Observations,
-		//		x.Telephone1,
-		//		x.Telephone2,
-		//		x.Email
-		//	});
-		//	return GetJsonResponse(sr);
+		//	ClientService = new ClientService<DataSourceResult>();
 		//}
+
 
 		public PartialViewResult EntityInfoModal(string setupMode, int? entityId)
 		{
@@ -101,11 +68,11 @@ namespace AM.WebSite.Areas.Client
 				model.Telephone2 = client.Telephone2;
 				model.City = client.City;
 				model.Province = client.Province;
-				model.ClientTypesSelectList = ClientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id).SelectItem(client.ClientTypeId);
+				//	model.ClientTypesSelectList = ClientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id).SelectItem(client.ClientTypeId);
 				//model.EditRights = 
 				//model.CanCompleteOrDeleteReminder = 
 			}
-			return PartialView("ClientInfoModal",model);
+			return PartialView("ClientInfoModal", model);
 		}
 
 

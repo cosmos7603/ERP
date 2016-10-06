@@ -117,9 +117,17 @@ namespace AM.DAL
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Client>().ToTable("Client");
+			modelBuilder.Entity<DeliveryNote>().ToTable("DeliveryNote");
 			modelBuilder.Entity<Provider>().ToTable("Provider");
 			modelBuilder.Entity<Product>().ToTable("Product");
 			modelBuilder.Entity<ProductFamily>().ToTable("ProductFamily");
+			modelBuilder.Entity<Sale>().ToTable("Sale");
+			modelBuilder.Entity<SaleCategory>().ToTable("SaleCategory");
+			modelBuilder.Entity<SaleState>().ToTable("SaleState");
+			modelBuilder.Entity<Seller>().ToTable("Seller");
+			modelBuilder.Entity<BillDetail>().ToTable("BillDetail");
+			modelBuilder.Entity<BillType>().ToTable("BillType");
+			modelBuilder.Entity<ChargeMethod>().ToTable("ChargeMethod");
 		}
 
 		#region Constructor
@@ -138,6 +146,9 @@ namespace AM.DAL
 		#region DB Sets
 
 		public DbSet<Client> Client { get; set; }
+
+		public DbSet<DeliveryNote> DeliveryNote { get; set; }
+
 		public DbSet<ClientType> ClientType { get; set; }
 
 		public DbSet<Provider> Provider { get; set; }
@@ -145,6 +156,16 @@ namespace AM.DAL
 		public DbSet<Product> Product { get; set; }
 
 		public DbSet<ProductFamily> ProductFamily { get; set; }
+
+		public DbSet<Sale> Sale { get; set; }
+		public DbSet<SaleCategory> SaleCategory { get; set; }
+		public DbSet<SaleState> SaleState { get; set; }
+
+		public DbSet<Seller> Seller { get; set; }
+		public DbSet<BillType> BillType { get; set; }
+
+		public DbSet<ChargeMethod> ChargeMethod { get; set; }
+		public DbSet<BillDetail> BillDetail { get; set; }
 
 		#endregion
 

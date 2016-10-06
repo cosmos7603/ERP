@@ -75,7 +75,8 @@
 
 	function showModal(model)
 	{
-		$.partialView("#entityModalContainer", 'EntityInfoModal', model, function ()
+		var url = $.getAbsoluteUrl('EntityInfoModal');
+		$.partialView("#entityModalContainer", url, model, function ()
 		{
 			$('#entityModal').modal('show');
 			attachEntityModalHandlers();
