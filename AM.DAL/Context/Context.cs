@@ -127,6 +127,7 @@ namespace AM.DAL
 			modelBuilder.Entity<Seller>().ToTable("Seller");
 			modelBuilder.Entity<BillDetail>().ToTable("BillDetail");
 			modelBuilder.Entity<BillType>().ToTable("BillType");
+			modelBuilder.Entity<Tax>().ToTable("Tax");
 			modelBuilder.Entity<ChargeMethod>().ToTable("ChargeMethod");
 		}
 
@@ -163,6 +164,8 @@ namespace AM.DAL
 
 		public DbSet<Seller> Seller { get; set; }
 		public DbSet<BillType> BillType { get; set; }
+
+		public DbSet<Tax> Tax { get; set; }
 
 		public DbSet<ChargeMethod> ChargeMethod { get; set; }
 		public DbSet<BillDetail> BillDetail { get; set; }

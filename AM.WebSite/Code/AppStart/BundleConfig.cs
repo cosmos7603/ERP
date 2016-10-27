@@ -25,7 +25,7 @@ namespace AM.WebSite
 				.Include("~/Content/theme/overrides/login.css")
 				.Include("~/Content/theme/css/animate.css")
 				.Include("~/Content/theme/css/style.css")
-			
+
 			);
 
 			// Javascript
@@ -113,6 +113,7 @@ namespace AM.WebSite
 				.Include("~/Content/libs/multiselect/multiselect.js")
 				.Include("~/Content/libs/touchspin/jquery.bootstrap-touchspin.min.js")
 
+
 				// Bootstrap
 				.Include("~/Content/theme/js/bootstrap.js")
 
@@ -178,8 +179,41 @@ namespace AM.WebSite
 				.Include("~/Content/libs/kendo/2016.3.914/kendo.aspnetmvc.min.js")
 				.Include("~/Content/libs/kendo/2016.3.914/kendo.modernizr.custom.js")
 				);
-			
-			
-        }
+
+			// jasnyBootstrap styles
+			bundles.Add(new StyleBundle("~/plugins/jasnyBootstrapStyles").Include(
+					  "~/Content/libs/jasny/jasny-bootstrap.min.css"));
+
+			// jasnyBootstrap 
+			bundles.Add(new ScriptBundle("~/plugins/jasnyBootstrap").Include(
+					  "~/Content/libs/jasny/jasny-bootstrap.min.js"));
+
+
+			//// Select2 Styless
+			//bundles.Add(new StyleBundle("~/plugins/select2Styles").Include(
+			//		  "~/Content/libs/select2/select2.min.css"));
+
+			//// Select2
+			//bundles.Add(new ScriptBundle("~/plugins/select2").Include(
+			//		  "~/Content/libs/select2/select2.full.min.js"));
+
+
+			// Chosen styles
+			bundles.Add(new StyleBundle("~/plugins/chosenStyles").Include(
+					  "~/Content/libs/chosen/bootstrap-chosen.css"));
+
+			// Chosen
+			bundles.Add(new ScriptBundle("~/plugins/chosen").Include(
+					  "~/Content/libs/chosen/chosen.jquery.js"));
+
+
+
+			// Typehead
+			bundles.Add(new ScriptBundle("~/plugins/typehead").
+				Include("~/Content/libs/typehead/bloodhound.min.js").
+				Include(
+					  "~/Content/libs/typehead/bootstrap3-typeahead.min.js"));
+
+		}
 	}
 }

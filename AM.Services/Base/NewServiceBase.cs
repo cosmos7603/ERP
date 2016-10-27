@@ -290,7 +290,7 @@ namespace AM.Services
 		//		throw ex;
 		//	}
 		//}
-		public T GetById(int id)
+		public virtual T GetById(int id)
 		{
 			try
 			{

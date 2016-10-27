@@ -1,4 +1,6 @@
 ﻿
+
+
 <div class="row">
 	<div class="col-md-4">
 		<button id="btnNew" class="btn btn-primary">Nuevo</button>
@@ -8,94 +10,5 @@
 	</div>
 </div>
 
+<script src="~/Controls/CrudButtons/JS/CrudButtons.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function ()
-	{
-
-		$("#btnDelete").click(function ()
-		{
-			removeEntity();
-			return false;
-		});
-		$("#btnEdit").click(function ()
-		{
-			edit();
-			return false;
-		});
-		$("#btnNew").click(function ()
-		{
-			addNew();
-			return false;
-		});
-		$("#btnRefresh").click(function ()
-		{
-			enableActions(false);
-			loadGrid();
-			return false;
-		});
-	});
-	function onRowSelected()
-	{
-		enableActions();
-	}
-	function onGridLoad()
-	{
-		enableActions(false);
-	}
-	function enableActions(enable)
-	{
-		if (enable == undefined)
-			var enable = true;
-		$("#btnEdit").enable(enable);
-		$("#btnDelete").enable(enable);
-	}
-	function loadGrid()
-	{
-		$('#grid').data('kendoGrid').dataSource.read();
-	}
-
-	function addNew()
-	{
-		showModal({ setupMode: SETUP_MODE_NEW });
-	}
-
-	function edit()
-	{
-		var grid = $("#grid").data("kendoGrid");
-		var id = grid.dataItem(grid.select()).id;
-		showModal({ setupMode: SETUP_MODE_EDIT, entityId: id });
-		return false;
-	}
-
-	function triggerSearch()
-	{
-		loadGrid();
-	}
-
-	function showModal(model)
-	{
-		var url = $.getAbsoluteUrl('EntityInfoModal');
-		$.partialView("#entityModalContainer", url, model, function ()
-		{
-			$('#entityModal').modal('show');
-			attachEntityModalHandlers();
-		});
-	}
-
-	function attachEntityModalHandlers()
-	{
-
-		$("#btnSave").click(function ()
-		{
-			saveEntityInfo();
-			return false;
-		});
-
-		//$("#btnDelete").click(function ()
-		//{
-		//	removeEntity();
-		//	return false;
-		//});
-	}
-</script>

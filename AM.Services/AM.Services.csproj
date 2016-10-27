@@ -84,6 +84,7 @@
     <Compile Include="Base\IServiceResponse.cs" />
     <Compile Include="Base\ServiceFactory.cs" />
     <Compile Include="Base\NewServiceBase.cs" />
+    <Compile Include="Business\TaxService.cs" />
     <Compile Include="Business\SaleService.cs" />
     <Compile Include="Business\ProductService.cs" />
     <Compile Include="Business\ProviderService.cs" />

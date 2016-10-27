@@ -26,7 +26,7 @@ namespace AM.WebSite.HtmlHelpers
 				.AddClass("maxlength", "8");
 
 			string textBoxString = htmlHelper.TextBox(name, value, newAttributes).ToHtmlString();
-			string jsFunction = @" <script type='text/javascript'>
+			string jsFunction = @" <script type=""text/javascript"">
 			$(document).ready(function()
 			{
 				$('.touchspin').TouchSpin({

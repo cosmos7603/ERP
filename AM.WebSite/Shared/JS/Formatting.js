@@ -124,6 +124,23 @@ $.parseCurrency = function (value)
 	return result;
 }
 
+$.parsePercentage = function (value)
+{
+	var result = 0;
+
+	value = value.toString();
+	value = value.replace("%", '');
+	value = value.replace("(", '-');
+	value = value.replace(")", '');
+
+	if (value != "")
+	{
+		return $.parseDecimal(value);
+	}
+
+	return result;
+}
+
 $.round = function(number)
 {
 	return Math.round(number * 100) / 100;

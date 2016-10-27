@@ -53,4 +53,33 @@ function saveEntityInfo()
 	return false;
 }
 
+function edit(id)
+{
+	showModal({ setupMode: SETUP_MODE_EDIT, entityId: id });
+	return false;
+}
+function showModal(model)
+{
+	var url = $.getAbsoluteUrl('Client/EntityInfoModal');
+	$.partialView("#entityModalContainer", url, model, function ()
+	{
+		$('#entityModal').modal('show');
+		attachEntityModalHandlers();
+	});
+}
 
+function attachEntityModalHandlers()
+{
+
+	$("#btnSave").click(function ()
+	{
+		saveEntityInfo();
+		return false;
+	});
+
+	//$("#btnDelete").click(function ()
+	//{
+	//	removeEntity();
+	//	return false;
+	//});
+}

@@ -1,0 +1,144 @@
+﻿
+@model AM.WebSite.Areas.Sale.Models.Sale
+
+
+@Styles.Render("~/plugins/jasnyBootstrapStyles")
+@Styles.Render("~/plugins/chosenStyles")
+
+
+
+@section Scripts {
+
+	@Scripts.Render("~/plugins/jasnyBootstrap")
+	@Scripts.Render("~/plugins/chosen")
+
+	@Scripts.Render("~/plugins/typehead")
+	@Html.Script("~/Areas/Sale/JS/NewSale.js")
+	@Html.Script("~/Areas/Client/JS/Client.js")
+}
+
+
+
+
+
+<style type="text/css">
+	#ddlProduct {
+		width: 100%;
+	}
+
+	#ddlClient {
+		width: 100%;
+		background-color: #fff;
+		-webkit-background-clip: padding-box;
+		-moz-background-clip: padding;
+		background-clip: padding-box;
+		border: 1px solid #e5e6e7;
+		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		color: #555555;
+		display: block;
+		height: 34px;
+		overflow: hidden;
+		line-height: 24px;
+		padding: 0 0 0 8px;
+		position: relative;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	input.touchspin {
+		width: 58px !important;
+	}
+
+	ul.dropdown-menu {
+		width: 95% !important;
+	}
+</style>
+
+
+<div id="wrapper">
+
+	@using (Html.BeginForm("Save", "Sale", FormMethod.Post, new { id = "frmSaleInfo", autocomplete = "off", role = "form", @class = "form-inline" }))
+	{
+		<div class="ibox float-e-margins">
+			<div class="ibox-content">
+
+				<div class="row m-t-sm">
+					<div class="form-group col-sm-3">
+						<input type="text" id="ddlClient" placeholder="Busque un cliente" autocomplete="off">
+						@*@Html.PSDropDown("ddlClient", Model.ClientsSelectList, DropDownOption.SELECT + " cliente")*@
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Emisión </label>
+						@Html.PSDatePicker("dtpEmisionDate", Model.EmisionDate, new { @class = "col-sm-1" })
+					</div>
+					<div class="form-group col-sm-1">
+						@Html.PSDropDown("ddlBillType", Model.BillTypesSelectList, "Tipo")
+					</div>
+					<div class="form-group col-sm-3">
+						@Html.PSTextBox("txtBillNumber", Model.BillNumber, new { @class = "form-control", data_mask = "9999-99999999", place_holder = "____-________" })
+						<span class="help-block">9999-99999999</span>
+					</div>
+				</div>
+				<div class="row m-t-sm">
+					<div class="col-sm-3">
+						@*<label>Tipo Cliente </label>*@
+						@Html.PSDropDown("ddlSaleCategory", Model.SaleCategoriesSelectList, DropDownOption.SELECT + " Categoría")
+					</div>
+					<div class="form-group col-sm-3">
+						<label class="col-sm-4 control-label">Vencimiento del cobro </label>
+						@Html.PSDatePicker("dtpDueDate", Model.DueDate, new { @class = "col-sm-1" })
+					</div>
+				</div>
+
+				<div class="row m-t-sm">
+					<div class="col-sm-6">
+						@*<label>Tipo Cliente </label>*@
+						@*@Html.PSTypeAheadDropDown("ddlProduct", "Seleccionar o crear producto")*@
+						<input type="text" id="ddlProduct" data-provide="typeahead" placeholder="Busque un producto" autocomplete="off" />
+					</div>
+				</div>
+
+				<div class="row m-t-sm">
+
+					<div id="saleItems" class="col-sm-9 form-inline">
+						<table class="table">
+							<thead><tr><th>Producto</th><th>Cant.</th><th>Precio</th><th>Desc.</th><th>Impuestos</th><th>Total</th><th></th></tr></thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="row m-t-sm">
+					<div class="col-sm-6">
+						@Html.TextArea("txtClientNote", new { @class = "form-control", rows = 10, cols = 40, placeholder = "Nota para el cliente" })
+					</div>
+					<label> Subtotal </label> <span id='subTotal'></span>
+					@*<label> Descuento </label><span id='discount'></span>
+						<label> Subtotal con descuento </label><span id='subTotalWithDiscount'></span>
+						<label> Total Neto </label><span id='subTotalNet'></span>
+						<label> Total Venta </label><span id='saleTotal'></span>*@
+
+				</div>
+				<div class="row m-t-sm">
+					<div class="col-sm-6">
+						@Html.TextArea("txtInternalNote", new { @class = "form-control", rows = 10, cols = 40, placeholder = "Nota interna" })
+					</div>
+				</div>
+				<div class="row m-t-sm">
+
+					<button id="btnSaveSale" class="btn btn-primary">Guardar</button>
+					<button id="btnCancel" class="btn btn-success">Cancelar</button>
+					<button id="btnCash" class="btn btn-warning">Cobrar</button>
+
+				</div>
+
+			</div>
+
+		</div>
+
+			}
+
+</div>

@@ -10,7 +10,14 @@
 	$(".ps-currency-box").numbersOnly();
 	$(".ps-currency-box").on('blur', function ()
 	{
-		$(this).val($.formatCurrency($.parseCurrency($(this).val())))
+		$(this).val($.formatCurrency($.parseCurrency($(this).val())));
+	});
+
+	// PercentageBox
+	$(".ps-percentage-box").numbersOnly();
+	$(".ps-percentage-box").on('blur', function ()
+	{
+		$(this).val($.formatPrct($.parsePercentage($(this).val())));
 	});
 
 	// IntBox
@@ -22,7 +29,7 @@
 		var dp = $(this).data("dp");
 
 		if (dp != null)
-			$(this).val($.formatDecimal($(this).val(), dp))
+			$(this).val($.formatDecimal($(this).val(), dp));
 	});
 
 	// DatePicker
@@ -54,4 +61,7 @@
 			$(this).children('.dropdown-menu').stop(true, true).hide();
 			$(this).toggleClass('open');
 		});
+
+
+	
 }

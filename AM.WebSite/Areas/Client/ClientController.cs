@@ -22,7 +22,7 @@ namespace AM.WebSite.Areas.Client
 	{
 
 
-		protected ClientService ClientService = new ClientService();
+		protected ClientService clientService = new ClientService();
 
 		#region Main View
 		public ActionResult Index()
@@ -47,7 +47,7 @@ namespace AM.WebSite.Areas.Client
 			if (setupMode == SetupMode.NEW)
 			{
 				model.InfoTitle = "Nuevo Cliente";
-				model.ClientTypesSelectList = ClientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id);
+				model.ClientTypesSelectList = clientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id);
 			}
 			else if (setupMode == SetupMode.EDIT && entityId.HasValue)
 			{
@@ -68,11 +68,25 @@ namespace AM.WebSite.Areas.Client
 				model.Telephone2 = client.Telephone2;
 				model.City = client.City;
 				model.Province = client.Province;
-				//	model.ClientTypesSelectList = ClientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id).SelectItem(client.ClientTypeId);
+				model.ClientTypesSelectList = clientService.GetClientTypeList().ToSelectList(c => c.Description, v => v.Id).SelectItem(client.ClientTypeId);
 				//model.EditRights = 
 				//model.CanCompleteOrDeleteReminder = 
 			}
 			return PartialView("ClientInfoModal", model);
+		}
+
+		public ActionResult ClientLookup(string query)
+		{
+
+			var clientList = clientService.ClientLookup(query);
+
+			var clients = from p in clientList
+						   select new
+						   {
+							   Id = p.Id,
+							   Name = p.ComercialName
+						   };
+			return Json(clients, JsonRequestBehavior.AllowGet);
 		}
 
 

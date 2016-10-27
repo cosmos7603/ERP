@@ -227,7 +227,7 @@ namespace AM.WebSite.MVC
 	public class DropDownOption
 	{
 		public static readonly string ALL = "-- Todos --";
-		public static readonly string SELECT = "-- Seleccione --";
+		public static readonly string SELECT = "Seleccione";
 		public static readonly string OTHER = "-- Otro --";
 		public static readonly string NONE = "-- Ninguno --";
 		public static readonly string EMPTY = "--";
