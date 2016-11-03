@@ -22,7 +22,7 @@ function removeEntity()
 		});
 }
 
-function saveEntityInfo()
+function saveEntityInfo(validationSuccess)
 {
 	var $form = $("#frmClientInfo");
 	var model = {
@@ -43,37 +43,37 @@ function saveEntityInfo()
 		Active: $form.find("#chkActive").checked(),
 		ClientTypeID: $form.find("#ddlClientType").val()
 	}
-	$.postForm($form, model, function ()
+	$.postForm($form, model, function (response,data)
 	{
 		$('#entityModal').modal('hide');
-		enableActions(false);
-		loadGrid();
+		validationSuccess(response,data);
 	});
 
 	return false;
 }
 
-function edit(id)
+function edit(id,validationSuccess)
 {
-	showModal({ setupMode: SETUP_MODE_EDIT, entityId: id });
+	showModal({ setupMode: SETUP_MODE_EDIT, entityId: id },validationSuccess);
 	return false;
 }
-function showModal(model)
+function showModal(model,validationSuccess)
 {
 	var url = $.getAbsoluteUrl('Client/EntityInfoModal');
 	$.partialView("#entityModalContainer", url, model, function ()
 	{
 		$('#entityModal').modal('show');
-		attachEntityModalHandlers();
+		attachEntityModalHandlers(validationSuccess);
 	});
 }
 
-function attachEntityModalHandlers()
+function attachEntityModalHandlers(validationSuccess)
 {
 
 	$("#btnSave").click(function ()
 	{
-		saveEntityInfo();
+
+		saveEntityInfo(validationSuccess);
 		return false;
 	});
 

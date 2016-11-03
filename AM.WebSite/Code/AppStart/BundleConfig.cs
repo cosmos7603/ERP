@@ -213,6 +213,7 @@ namespace AM.WebSite
 				Include("~/Content/libs/typehead/bloodhound.min.js").
 				Include(
 					  "~/Content/libs/typehead/bootstrap3-typeahead.min.js"));
+			//"~/Content/libs/typehead/bootstrap3-typeahead.js"));
 
 		}
 	}

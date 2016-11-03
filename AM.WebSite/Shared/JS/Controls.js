@@ -23,6 +23,8 @@
 	// IntBox
 	$(".ps-int-box").numbersOnly();
 
+	$(".ps-decimal-box").numbersOnly();	
+
 	// DecimalBox
 	$(".ps-decimal-box").on('blur', function ()
 	{
@@ -35,12 +37,12 @@
 	// DatePicker
 	$(".ps-date-picker").datepicker({
 		format: 'dd M yyyy',
-		autoclose: true,
-		orientation: 'bottom left'
+		autoclose: true
+		//orientation: 'bottom left'
 	}).on('change', function (e)
 	{
 		$(".datepicker").hide();
-	});
+	}).datepicker('setDate', new Date());
 
 	//ComboBox
 	$(".i-checks").iCheck({

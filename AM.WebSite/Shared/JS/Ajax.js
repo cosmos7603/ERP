@@ -98,6 +98,7 @@ $.postData = function (url, postData, validationSuccess, validationError, opt)
 
 	// Post data using AJAX
 	$.ajax({
+		context:postData,
 		type: "POST",
 		url: url,
 		traditional: true,
@@ -132,7 +133,7 @@ $.postData = function (url, postData, validationSuccess, validationError, opt)
 					$.showSuccess(data.ValidationTitle);
 
 				if (validationSuccess != null)
-					validationSuccess(data);
+					validationSuccess(data,this);
 			}
 			else
 			{

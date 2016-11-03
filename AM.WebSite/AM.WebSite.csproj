@@ -1263,6 +1263,7 @@
     <Content Include="Content\libs\touchspin\jquery.bootstrap-touchspin.min.css" />
     <Content Include="Content\libs\touchspin\jquery.bootstrap-touchspin.min.js" />
     <Content Include="Content\libs\typehead\bloodhound.min.js" />
+    <Content Include="Content\libs\typehead\bootstrap3-typeahead.js" />
     <Content Include="Content\libs\typehead\bootstrap3-typeahead.min.js" />
     <Content Include="Content\libs\validate\jquery.validate.js" />
     <Content Include="Content\sounds\beep.mp3" />

@@ -15,20 +15,28 @@
 	@Scripts.Render("~/plugins/typehead")
 	@Html.Script("~/Areas/Sale/JS/NewSale.js")
 	@Html.Script("~/Areas/Client/JS/Client.js")
-}
 
+
+}
+@Html.RenderObject("TaxList", new
+{
+	Taxes = Model.TaxesSelectList
+})
 
 
 
 
 <style type="text/css">
 	#ddlProduct {
+		height: 35px;
+		border: 1px solid #e5e6e7;
+		border-radius: 1px;
 		width: 100%;
 	}
 
 	#ddlClient {
 		width: 100%;
-		background-color: #fff;
+		/*background-color: #fff;
 		-webkit-background-clip: padding-box;
 		-moz-background-clip: padding;
 		background-clip: padding-box;
@@ -45,16 +53,48 @@
 		padding: 0 0 0 8px;
 		position: relative;
 		text-decoration: none;
-		white-space: nowrap;
+		white-space: nowrap;*/
 	}
 
 	input.touchspin {
 		width: 58px !important;
 	}
 
-	ul.dropdown-menu {
+	input[name='intQuant'] {
+		width: 100px;
+	}
+
+	input[name='ddlProduct'] {
+		/*width: 143px;*/
+		height: 35px;
+		border: 1px solid #e5e6e7;
+		border-radius: 1px;
+	}
+
+	input[name='curSalePrice'] {
+		width: 170px;
+	}
+
+	input[name='curDiscount'] {
+		width: 170px;
+	}
+
+	div[name='txtTotal'] {
+		width: 120px;
+		line-height: 35px;
+	}
+
+	input#ddlProduct + .dropdown-menu {
 		width: 95% !important;
 	}
+
+	input#ddlClient + .dropdown-menu {
+		width: 90% !important;
+	}
+
+	/*input[name=ddlProduct] + .dropdown-menu {
+		width: 95% !important;
+	}*/
 </style>
 
 
@@ -115,11 +155,50 @@
 					<div class="col-sm-6">
 						@Html.TextArea("txtClientNote", new { @class = "form-control", rows = 10, cols = 40, placeholder = "Nota para el cliente" })
 					</div>
-					<label> Subtotal </label> <span id='subTotal'></span>
-					@*<label> Descuento </label><span id='discount'></span>
-						<label> Subtotal con descuento </label><span id='subTotalWithDiscount'></span>
-						<label> Total Neto </label><span id='subTotalNet'></span>
-						<label> Total Venta </label><span id='saleTotal'></span>*@
+					@*<div id="summary" class="col-sm-4">
+						<div>
+							<div class="col-xs-3"> Subtotal </div>
+							<div id='subTotalWithoutDiscount'></div>
+						</div>
+						<div>
+							<div class="col-xs-3"> Descuento </div>
+							<div id='discount'>
+							</div>
+						</div>
+						<div>
+							<div class="col-sx-2"> Subtotal con descuento </div>
+							<div id='subTotalWithDiscount'></div>
+						</div>
+
+						@*<label> Total Neto </label><span id='subTotalNet'></span>
+							<label> Total Venta </label><span id='saleTotal'></span>*@
+
+					<div class="col-lg-3">
+						<ul class="stat-list">
+							<li>
+								Subtotal
+								<div id='subTotalWithoutDiscount' class="stat-percent"> </div>
+							</li>
+							<li>
+								Descuento
+								<div id='discount' class="stat-percent"> </div>
+							</li>
+							<li>
+								Subtotal con descuento
+								<div id='subTotalWithDiscount' class="stat-percent"></div>
+							</li>
+							<li>
+								Total neto
+								<div id='totalNet' class="stat-percent"></div>
+							</li>
+							<li>
+								Total venta
+								<div id='totalSale' class="stat-percent"></div>
+							</li>
+						</ul>
+					</div>
+
+
 
 				</div>
 				<div class="row m-t-sm">
@@ -136,7 +215,6 @@
 				</div>
 
 			</div>
-
 		</div>
 
 			}

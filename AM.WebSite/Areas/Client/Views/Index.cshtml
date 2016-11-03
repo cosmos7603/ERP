@@ -16,7 +16,7 @@
 					</div>*@
 				<div class="row">
 					<div class="col-xs-18 col-md-12">
-						@Html.Kendo().Culture("es-AR");
+						@Html.Kendo().Culture("es-AR")
 						@(Html.MyGrid<Client>("grid", "Client")
 							  .Columns(columns =>
 							  {
@@ -33,17 +33,15 @@
 								  columns.Bound(p => p.Province);
 								  columns.Bound(p => p.DNI);
 								  columns.Bound(p => p.CUIT);
-								  columns.Bound(p => p.ClientType.Description)
-								  .ClientTemplate("# if (ClientType != null) { #" +
-								  					"<div>#= ClientType.Description #</div>" +
-								  					"#} else {#" +
-								  					"<div></div>" +
-								  					"# } #");
-								  //columns.ForeignKey(p => p.ClientTypeId, Model.ClientTypesSelectList, "Value", "Text");
-								  //columns.Command(command => { command.Edit(); command.Destroy(); }).Width(172).Title("Actions");
+								columns.Bound(p => p.ClientType.Description)
+									.ClientTemplate("# if (ClientType != null) { #" +
+													"<div>#= ClientType.Description #</div>" +
+													"#} else {#" +
+													"<div></div>" +
+													"# } #");
+								
 							  })
-							  //.ToolBar(toolbar => toolbar.Create().Text(@Resources.Resources.NewClient))
-							  //.Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("ClientEditor").Window(window => window.Width(600).Resizable().Scrollable(true).Title(Resources.Resources.NewClient)))
+							
 
 							  )
 					</div>

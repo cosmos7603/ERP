@@ -11,7 +11,13 @@
 		{
 			var grid = $("#grid").data("kendoGrid");
 			var id = grid.dataItem(grid.select()).id;
-			edit(id);
+			
+			var validationSuccess = function()
+			{
+				enableActions(false);
+				loadGrid();
+			}
+			edit(id, validationSuccess);
 			return false;
 		});
 		$("#btnNew").click(function ()
@@ -59,33 +65,33 @@ function triggerSearch()
 }
 
 
-function edit()
-{
-	showModal({ setupMode: SETUP_MODE_EDIT, entityId: id });
-	return false;
-}
-function showModal(model)
-{
-	var url = $.getAbsoluteUrlFromCurrentController('EntityInfoModal');
-	$.partialView("#entityModalContainer", url, model, function ()
-	{
-		$('#entityModal').modal('show');
-		attachEntityModalHandlers();
-	});
-}
+//function edit()
+//{
+//	showModal({ setupMode: SETUP_MODE_EDIT, entityId: id });
+//	return false;
+//}
+//function showModal(model)
+//{
+//	var url = $.getAbsoluteUrlFromCurrentController('EntityInfoModal');
+//	$.partialView("#entityModalContainer", url, model, function ()
+//	{
+//		$('#entityModal').modal('show');
+//		attachEntityModalHandlers();
+//	});
+//}
 
-function attachEntityModalHandlers()
-{
+//function attachEntityModalHandlers()
+//{
 
-	$("#btnSave").click(function ()
-	{
-		saveEntityInfo();
-		return false;
-	});
+//	$("#btnSave").click(function ()
+//	{
+//		saveEntityInfo();
+//		return false;
+//	});
 
-	//$("#btnDelete").click(function ()
-	//{
-	//	removeEntity();
-	//	return false;
-	//});
-}
+//	//$("#btnDelete").click(function ()
+//	//{
+//	//	removeEntity();
+//	//	return false;
+//	//});
+//}
